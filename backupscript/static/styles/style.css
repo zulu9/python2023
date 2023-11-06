@@ -1,0 +1,53 @@
+body {
+	font-family: Verdana, Sans-Serif;
+	font-size: 1rem;
+}
+.outer{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.box{
+	box-shadow: 3px 3px 1px 1px rgba(105,155,138,0.75);
+	border-radius: 8px;
+	background-color: #d3e9e1;
+	border: 1px solid black;
+	display:inline-block;
+	padding-right: 2em;
+	padding:0.5em; 
+	margin:0.2em;
+}
+.list-entry{
+	list-style-type: circle;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 1.2em;
+	margin-bottom: 5px;
+}
+h1{
+	font-family: Arial;
+	font-size: 1.5em;
+	text-decoration: underline;
+}
+h2{
+	font-family: Arial;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.message{
+	font-family: Monospace;
+	font-size: 1em;
+}
+
+.ok{
+	color: green;
+}
+
+.warning{
+	color: orangered;
+}
+
+.error{
+	color: red;
+}

@@ -1,0 +1,11 @@
+Aufgabe 1
+---------
+	Betrachten Sie in PyCharm Reiter Project, was sehen Sie dort?
+		Alle Dateien aus dem Projektordner "Woche1"
+	Was sehen Sie unter dem Reiter Structure in PyCharm?
+		Die drei im Script verwendeten Variablen
+
+Aufgabe 6
+----------
+	Zusammen werden die werde ohne Newline dazwischen ausgegeben.
+

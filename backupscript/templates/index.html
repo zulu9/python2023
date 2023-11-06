@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Refresh" content="10">
+    <title>rsync Backup</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body style="background: #e9f7f1;">
+    <div class="box" style="background: white; padding:2em; margin:0.5em;">
+        <div id="header">
+            <a id="logo" href="https://www.example.com">
+                <img src="{{ url_for('static',filename='img/logo.jpg') }}" alt="logo" />
+            </a>
+        </div>
+        <h1>Backup auf externe HDD</h1>
+
+        <h2>Vorbereitungen:</h2>
+        {% for prep_message in prep_messages %}
+        <div class="box">
+            <p class="message">{{ prep_message['action'] }} ...  
+                {% if prep_message['status'] == 0 %} <span class="message ok"> OK</span>
+                {% elif prep_message['status'] == 1 %} <span class="message warning"> WARNUNG</span>
+                {% elif prep_message['status'] == 2 %} <span class="message error"> FEHLER</span>
+                {% else %} <span>SOLLTE NICHT PASSIEREN</span>
+                {% endif %}
+            </p>
+        </div>
+        {% endfor %}
+
+        <h2>Kopieren:</h2>
+        <div class="box">
+            <p class="message">{{ rsync_messages['action'] }}</p>
+        </div>
+
+        <h2>Nachbearbeitung:</h2>
+        {% for post_message in post_messages %}
+        <div class="box">
+            <p class="message">{{ post_message['action'] }} ...  
+                {% if post_message['status'] == 0 %} <span class="message ok"> OK</span>
+                {% elif post_message['status'] == 1 %} <span class="message warning"> WARNUNG</span>
+                {% elif post_message['status'] == 2 %} <span class="message error"> FEHLER</span>
+                {% else %} <span>SOLLTE NICHT PASSIEREN</span>
+                {% endif %}
+            </p>
+        </div>
+        {% endfor %}
+
+
+        <!--
+        <h2>Kopieren: </h2>
+            {% if rsync_check_passed == 1 %}
+            <div class="box" style="background: #d3e9e1; padding:0.5em; margin:0.2em;">
+            {% elif rsync_check_passed == 2 %}
+            <div class="box" style="background: LemonChiffon; padding:0.5em; margin:0.2em;">
+            {% elif rsync_check_passed == 3 %}
+            <div class="box" style="background: LightCoral; padding:0.5em; margin:0.2em;">
+            {% else %}
+            <div class="box" style="background: red; padding:0.5em;margin:0.2em;">THIS SHOULD NOT HAPPEN<br />
+            {% endif %}
+            <div class="rsync_status_p">
+                <p class="rsync_status">{{ rsync_status }}</p>
+            </div>
+        </div>
+        -->
+    </div>
+</body>
+
+</html>

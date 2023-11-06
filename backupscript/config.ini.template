@@ -1,0 +1,32 @@
+[BACKUP]
+# Filled up like: UUID[,notification-mailaddress]*[,UUID[,notification-mailaddress]*]*
+filesystem-ids-and-notification-mail-addresses = 
+backup-source = 
+backup-destination = 
+backup-lockfile-path = extBackupBackoffice.lock
+veeam-lockfile-dir = 
+log-file-path = 
+rsync-log-file-path = 
+wait-for-veeam-minutes = 480
+rsync-update-ratio-seconds = 3
+free-space-threshold-gb = 60
+
+[MAIL]
+to-mail-addresses-sysop = 
+from-mail-address = ees555@gmx.net
+cc = 
+server = smtp.gmx.de
+port = 587
+username = ees555@gmx.net
+password = 
+
+[WEBSERVER]
+webhost = 0.0.0.0
+webport = 8080
+
+[VEEAM]
+veeam-lockfiles =
+wait-for-backup-minutes = 480
+
+[DEBUG]
+debug = false
