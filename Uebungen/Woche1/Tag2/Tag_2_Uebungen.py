@@ -11,10 +11,10 @@ print(y)
 print(type(y))
 
 z = 1000000
-a = 1_000_000
+q = 1_000_000
 
-print(z, a)
-print(type(z), type(a))
+print(z, q)
+print(type(z), type(q))
 
 expressions = [
     "3 > 2",
@@ -39,12 +39,12 @@ print(type(a), type(b))
 
 c = math.inf
 d = -math.inf
-print(c - d)
+print(c - c)
 print(type(c), type(d))
 
 print(math.pi*math.e)
 
 print(math.log10(3), math.log2(3))
 
-mylist = [1, 2, 3, 4]
-print(numpy.average(mylist), numpy.sum(mylist), numpy.std(mylist))
+mylist = [1, 2, 3, 4, 5]
+print(numpy.average(mylist), numpy.sum(mylist), numpy.std(mylist, ddof=1))

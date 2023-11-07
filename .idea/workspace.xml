@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="created Tag2">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag1/Tag_2_Uebungen.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="moved tag2-uebungen to the right place">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag2/gamepadtest1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag2/Tag_2_Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag2/Tag_2_Uebungen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag2" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" focusToolWindowBeforeRun="true">
       <module name="Code" />
@@ -129,12 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699355784129</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="moved tag2-uebungen to the right place">
+      <option name="closed" value="true" />
+      <created>1699364394408</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699364394408</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deleted junk" />
     <MESSAGE value="created Tag2" />
-    <option name="LAST_COMMIT_MESSAGE" value="created Tag2" />
+    <MESSAGE value="moved tag2-uebungen to the right place" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved tag2-uebungen to the right place" />
   </component>
 </project>
