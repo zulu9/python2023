@@ -1,2 +1,3 @@
 import datetime as dt
-print(dt.datetime.now())
+current_time = dt.datetime.now()
+print(current_time.year)
