@@ -16,5 +16,11 @@ print(
     x.split('ist'),
     x.replace(" ", ""),
     "    Ein     String   ".strip(),
-    x.lower().replace('a', '?!')
+    x.lower().replace('a', '?!'),
+    2*x,
 )
+
+# print("Ich bin: "+ 420)
+
+ausgabe = "Meine Katze ist {0} Jahre alt und {1} Kilos schwer."
+print(ausgabe.format(1.5,6))
