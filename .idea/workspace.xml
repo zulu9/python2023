@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="moved tag2-uebungen to the right place">
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag2/gamepadtest1.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="gamepad ansprechbar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag2/Tag_2_Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag2/Tag_2_Uebungen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;zulu9&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="fa47c7c5-9c6e-4f9a-8a21-5772e3654fe9" />
+        <option name="url" value="https://github.com/zulu9/python2023.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -142,13 +154,22 @@
       <option name="project" value="LOCAL" />
       <updated>1699364394408</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="gamepad ansprechbar">
+      <option name="closed" value="true" />
+      <created>1699368602900</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699368602900</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deleted junk" />
     <MESSAGE value="created Tag2" />
     <MESSAGE value="moved tag2-uebungen to the right place" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved tag2-uebungen to the right place" />
+    <MESSAGE value="gamepad ansprechbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="gamepad ansprechbar" />
   </component>
 </project>
