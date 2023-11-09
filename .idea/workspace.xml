@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="added uebungen for tag3 (2)">
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/Tag4_Uebungen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/bsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag3/gamepadtest1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/gamepadtest1.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="read tests">
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/Tag4_Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/Tag4_Uebungen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699454296445</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="read tests">
+      <option name="closed" value="true" />
+      <created>1699525242929</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699525242929</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -212,6 +217,7 @@
     <MESSAGE value="added datetime tests" />
     <MESSAGE value="added uebungen for tag3" />
     <MESSAGE value="added uebungen for tag3 (2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added uebungen for tag3 (2)" />
+    <MESSAGE value="read tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="read tests" />
   </component>
 </project>

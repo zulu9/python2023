@@ -1,4 +1,5 @@
 myfile = open('./bsp.txt','r')
+print(myfile.readlines())
 print(myfile.read(3))
 print(myfile.read(5))
 print(myfile.read())
