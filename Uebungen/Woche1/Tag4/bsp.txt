@@ -1,0 +1,13 @@
+beispiel text Datei\n
+hier stehen tolle Ding
+Wie z.B.: Kaffee is life!
+Oder sowas: ===========
+
+Oder hiersowas: ~~~~+++***
+
+
+
+
+
+
+Oder einfach lange nichts :)
