@@ -13,3 +13,5 @@ print(myinput+"5")
 
 outputfile = open('./bsp2.txt', 'w')
 outputfile.write("Hallo Erde!")
+
+print('a','b','c')
