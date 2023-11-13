@@ -31,7 +31,7 @@ def fibo(n):
     if n == 2:
         return [1, 1]
     fibs = [1, 1]
-    for _ in range(2, n):
+    for n in range(2, n):
         fibs.append(fibs[-1] + fibs[-2])
     return fibs
 
@@ -39,7 +39,7 @@ fib = fibo(x)
 while fib[-1] < maximum:
     x += 1
     fib = fibo(x)
-    print(x)
+    print(x, fibo(x))
 print(fibo(x-1))
 
 # Aufgabe 4
@@ -59,6 +59,7 @@ print(primes)
 
 # Aufgabe 5
 print()
+# hashed password (passwort)
 secret = "33c5ebbb01d608c254b3b12413bdb03e46c12797e591770ccf20f5e2819929b2"
 user_input = True
 while user_input:
