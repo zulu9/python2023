@@ -21,7 +21,7 @@ for buchstabe in name:
 print("\nBuchstaben aus Name mit Nummer")
 name = "Ben Utzer"
 for buchstabennummer in range(len(name)):
-    print(buchstabennummer+1, "\t", name[buchstabennummer])
+    print(buchstabennummer + 1, "\t", name[buchstabennummer])
 
 print("\nZip")
 mylist1 = [1, 2, "Pferd", ["KUH", 14], 13]
@@ -39,6 +39,7 @@ for index, wert in enumerate(mylist_enum):
 
 print("\nEnumerate on set")
 myset_enum = {"apple", "banana", "cherry"}
+# myset_enum = "langerString"
 print(myset_enum)
 print(type(myset_enum))
 print(enumerate(myset_enum))
@@ -47,6 +48,32 @@ for index, wert in enumerate(myset_enum):
     print(index, ":", wert)
 
 print("\nDict von Tieren")
-was_ist = {"Affe": "klug", "Elefant": "groß", "Tiger": "gefährlich", "Pinguin": "Linuxfan"}
-for tier in was_ist:
-    print(tier, "ist", was_ist[tier])
+eigenschaften = {"Affe": "klug", "Elefant": ["groß", "hat Rüssel"], "Tiger": "gefährlich", "Pinguin": "Linuxfan"}
+for tier in eigenschaften:
+    print(tier, "ist", eigenschaften[tier])
+for index, wert in eigenschaften.items():
+    print(index, "ist", wert)
+
+# Statements
+# ----------
+print("\n\nIf")
+zahlen = [1, 5, 23, "Pommes", -3, 7, "Wurst"]
+for zahl in zahlen:
+    if type(zahl) is int:
+        if zahl > 5:
+            print("Zahl", zahl, "ist größer 5")
+        elif zahl < 5:
+            print("Zahl", zahl, "ist kleiner 5")
+        else:
+            print("Zahl", zahl, "ist gleich 5")
+    else:
+        print(zahl, "ist keine Zahl.")
+
+# List comprehension
+print("\nList comprehension")
+mylist1 = [x*x for x in range(0, 50) if x * x < 50 and (x * x) % 4 == 0]
+mylist2 = [x*x for x in range(0, 50) if x * x < 50]
+mylist3 = [x*x for x in range(0, 50)]
+print(mylist1)
+print(mylist2)
+print(mylist3)
