@@ -31,5 +31,22 @@ for buchstabennummer in range(len(name)):
 print("\nZip")
 mylist1 = [1, 2, "Pferd", ["KUH", 14], 13]
 mylist2 = ["eins", "zwei", "drei", 4, 5, "sechs", ["sieben", 8]]
+print(zip(mylist1, mylist2))
+print(list(zip(mylist1, mylist2)))
 for i, j in zip(mylist1, mylist2):
     print("Mylist1:", i, "; Mylist2:", j)
+
+print("\nEnumerate")
+mylist_enum = ["a", "b", "c", "f", ["q", 2, "pr"], {"apple", "banana", "cherry"}]
+print(mylist_enum)
+for index, wert in enumerate(mylist_enum):
+    print(index, ":", wert)
+
+print("\nEnumerate on set")
+myset_enum = {"apple", "banana", "cherry"}
+print(myset_enum)
+print(type(myset_enum))
+print(enumerate(myset_enum))
+print(list(enumerate(myset_enum)))
+for index, wert in enumerate(myset_enum):
+    print(index, ":", wert)

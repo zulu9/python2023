@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="uebung1">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="zip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Uebungen/Woche2/Tag1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag1.py" afterDir="false" />
     </list>
@@ -261,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699864198518</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="zip">
+      <option name="closed" value="true" />
+      <created>1699864740954</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1699864740954</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -281,6 +289,7 @@
     <MESSAGE value="added tag5" />
     <MESSAGE value="added woche2" />
     <MESSAGE value="uebung1" />
-    <option name="LAST_COMMIT_MESSAGE" value="uebung1" />
+    <MESSAGE value="zip" />
+    <option name="LAST_COMMIT_MESSAGE" value="zip" />
   </component>
 </project>
