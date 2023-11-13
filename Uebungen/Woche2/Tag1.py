@@ -1,4 +1,5 @@
 # Loops
+# -----
 my_list = [1, 2, 3, "MÖP", 5, [6, "sieben"], [8, 9, "zehn"]]
 print("\nNormal")
 for i in my_list:
@@ -26,3 +27,9 @@ print("\nBuchstaben aus Name mit Nummer")
 name = "Ben Utzer"
 for buchstabennummer in range(len(name)):
     print(buchstabennummer+1, "\t", name[buchstabennummer])
+
+print("\nZip")
+mylist1 = [1, 2, "Pferd", ["KUH", 14], 13]
+mylist2 = ["eins", "zwei", "drei", 4, 5, "sechs", ["sieben", 8]]
+for i, j in zip(mylist1, mylist2):
+    print("Mylist1:", i, "; Mylist2:", j)
