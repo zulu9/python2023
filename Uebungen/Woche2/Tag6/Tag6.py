@@ -1,5 +1,6 @@
 # Loops
 # -----
+import gc
 import time
 
 my_list = [1, 2, 3, "MÖP", 5, [6, "sieben"], [8, 9, "zehn"]]
