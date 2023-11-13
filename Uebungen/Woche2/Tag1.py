@@ -77,3 +77,11 @@ mylist3 = [x*x for x in range(0, 50)]
 print(mylist1)
 print(mylist2)
 print(mylist3)
+
+# While loops
+print("\nWhile Loops")
+x = 1
+max = 100
+while x <= max:
+    print(x)
+    x += 1
