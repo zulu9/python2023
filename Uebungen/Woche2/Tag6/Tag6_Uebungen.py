@@ -4,13 +4,18 @@ import time
 import matplotlib.pyplot as plotme
 
 # Aufgabe 1
+print("\nAufgabe 1")
+starttime = time.time()
 x = random.randint(1, 100)
 for x in range(x, x + 30):
     if x % 2 == 0:
         print(x)
+endtime = time.time()
+print("Laufzeit: ", endtime - starttime)
 
 # Aufgabe 2
-print()
+print("\nAufgabe 2")
+starttime=time.time()
 maximum = 100
 x = 1
 summe = 1
@@ -20,9 +25,12 @@ while x < maximum:
     if summe >= 1000:
         break
 print(x-1, summe-x)
+endtime =  time.time()
+print("Laufzeit: ", endtime - starttime)
 
 # Aufagbe 3
-print()
+print("\nAufgabe 3")
+starttime = time.time()
 x = 0
 maximum = 20000
 def fibo(n):
@@ -41,9 +49,12 @@ while fib[-1] < maximum:
     fib = fibo(x)
     print(x, fibo(x))
 print(fibo(x-1))
+endtime = time.time()
+print("Laufzeit: ", endtime - starttime)
 
 # Aufgabe 4
-print()
+print("\nAufgabe 4")
+starttime = time.time()
 x = 0
 xstart = 0
 xend = 100
@@ -56,9 +67,12 @@ for x in range(xstart, xend):
     if is_prime:
         primes.append(x)
 print(primes)
+endtime = time.time()
+print("Laufzeit: ", endtime - starttime)
 
 # Aufgabe 5
-print()
+print("\nAufgabe 5")
+starttime = time.time()
 # hashed password (passwort)
 secret = "33c5ebbb01d608c254b3b12413bdb03e46c12797e591770ccf20f5e2819929b2"
 user_input = True
@@ -70,17 +84,20 @@ while user_input:
         break
     else:
         print("Passwort falsch!")
+endtime = time.time()
+print("Laufzeit: ", endtime - starttime)
 
 # Aufgabe 6
-print()
+print("\nAufgabe 6")
+starttime = time.time()
 x = 1
 times_list = []
 for x in range(x, x + 30):
-    starttime = time.time()
+    starttime_loop = time.time()
     if x % 2 == 0:
         print(x)
-    endtime = time.time()
-    times_list.append([x, endtime-starttime])
+    endtime_loop = time.time()
+    times_list.append([x, endtime_loop-starttime_loop])
 print(times_list)
 x_list = []
 y_list = []
@@ -91,3 +108,5 @@ print(x_list)
 print(y_list)
 plotme.plot(x_list, y_list)
 plotme.show()
+endtime = time.time()
+print("Laufzeit: ", endtime - starttime)
