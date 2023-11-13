@@ -13,11 +13,6 @@ for i in my_list2:
     for m in i:
         print(m)
 
-print("\nTiere")
-was_ist = {"Affe": "klug", "Elefant": "groß", "Tiger": "gefährlich", "Pinguin": "Linuxfan"}
-for tier in was_ist:
-    print(tier, "ist", was_ist[tier])
-
 print("\nBuchstaben aus Name")
 name = "Karl Ranseier"
 for buchstabe in name:
@@ -50,3 +45,8 @@ print(enumerate(myset_enum))
 print(list(enumerate(myset_enum)))
 for index, wert in enumerate(myset_enum):
     print(index, ":", wert)
+
+print("\nDict von Tieren")
+was_ist = {"Affe": "klug", "Elefant": "groß", "Tiger": "gefährlich", "Pinguin": "Linuxfan"}
+for tier in was_ist:
+    print(tier, "ist", was_ist[tier])
