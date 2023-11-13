@@ -80,8 +80,12 @@ print(mylist3)
 
 # While loops
 print("\nWhile Loops")
-x = 1
-max = 100
-while x <= max:
-    print(x)
-    x += 1
+i = 1
+maximum = 20
+while i < maximum:
+    print(i)
+    i += 1
+print("\n", i, "\n")
+while i > 15:
+    print(i)
+    i -= 1
