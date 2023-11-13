@@ -1,5 +1,7 @@
 # Loops
 # -----
+import time
+
 my_list = [1, 2, 3, "MÖP", 5, [6, "sieben"], [8, 9, "zehn"]]
 print("\nNormal")
 for i in my_list:
@@ -89,3 +91,25 @@ print("\n", i, "\n")
 while i > 15:
     print(i)
     i -= 1
+
+# Control statements break, continue
+print("\nControl statements")
+for i in ['a', 'b', 'c', 'd', 'e']:
+    if i == 'c':
+        print("break")
+        break
+    print(i)
+print()
+for i in ['a', 'b', 'c', 'd', 'e']:
+    if i == 'c':
+        print("continue")
+        continue
+    print(i)
+
+# Laufzeiten
+print("Laufzeiten")
+start = time.time()
+print(start)
+time.sleep(1)
+end = time.time()
+print(end)
