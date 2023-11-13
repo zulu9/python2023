@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="write tests">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="added tag5">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/Tag4_Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag4/Tag4_Uebungen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag5/Tag5-Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag5/Tag5-Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag5/Tag5-Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche1/Tag5/Tag5-Uebungen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +63,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Uebungen" />
+      <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag5" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag4" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag3" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag2" />
@@ -227,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699528560795</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added tag5">
+      <option name="closed" value="true" />
+      <created>1699601573941</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699601573941</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -244,6 +256,7 @@
     <MESSAGE value="added uebungen for tag3 (2)" />
     <MESSAGE value="read tests" />
     <MESSAGE value="write tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="write tests" />
+    <MESSAGE value="added tag5" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tag5" />
   </component>
 </project>
