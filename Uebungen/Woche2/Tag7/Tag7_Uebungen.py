@@ -52,12 +52,13 @@ def fancyString(string, breite):
     :param breite:
     :return: fancystring
     """
+    # string gerade Anzahl zeichen und breite ungerade oder umgekehrt. Wir brauchen ein extra Zeichen
     if len(string) % 2 != breite % 2:
         topline = "+-"
     else:
         topline = "+"
 
-    for i in range(0, breite-2):
+    for i in range(0, breite-2): # -2 Wegen den + am Anfang und Ende
         topline = topline + "-"
 
     topline = topline + "+\n"
@@ -75,7 +76,9 @@ def fancyString(string, breite):
 
 
 starttime = time.time()
-myfancystring = fancyString("Fancy Schmancy!!!", 42)
+myfancystring = fancyString("Fancy Schmancy gerade!", 41)
+print(myfancystring)
+myfancystring = fancyString("Fancy Schmancy ungerade!!", 42)
 print(myfancystring)
 endtime = time.time()
 print("Laufzeit:", endtime-starttime)
