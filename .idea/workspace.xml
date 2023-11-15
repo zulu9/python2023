@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="tag7 uebungen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche2/Tag7/Tag7_Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag7/Tag7_Uebungen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche1/Tag5/gamepadtest1.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/gamepadtest1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,22 +61,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Python&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Python"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag1" />
       <recent name="$PROJECT_DIR$/Uebungen" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag5" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag4" />
-      <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag3" />
     </key>
   </component>
   <component name="RunManager">
@@ -368,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699969545606</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="tag7 uebungen">
+      <option name="closed" value="true" />
+      <created>1699970188435</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1699970188435</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
