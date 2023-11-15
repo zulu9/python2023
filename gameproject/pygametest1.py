@@ -14,36 +14,37 @@ gamepad = evdev.InputDevice(devices[0].path)
 # prints out device info at start
 print(gamepad)
 
+
 # define a main function
 def main():
-	# initialize the pygame module
-	pygame.init()
-	# load and set the logo
-	logo = pygame.image.load("logo32x32.png")
-	pygame.display.set_icon(logo)
-	pygame.display.set_caption("minimal program")
+    # initialize the pygame module
+    pygame.init()
+    # load and set the logo
+    logo = pygame.image.load("logo32x32.png")
+    pygame.display.set_icon(logo)
+    pygame.display.set_caption("minimal program")
 
-	# create a surface on screen that has the size of 240 x 180
-	screen = pygame.display.set_mode((240, 180))
+    # create a surface on screen
+    screen = pygame.display.set_mode((640, 480))
 
-	# define a variable to control the main loop
-	running = True
+    # define a variable to control the main loop
+    running = True
 
-	# main loop
-	while running:
-		# event handling, gets all event from the event queue
-		for event in pygame.event.get():
-			# evdev takes care of polling the controller in a loop
-			for event in gamepad.read_loop():
-				print(evdev.categorize(event))
-			# only do something if the event is of type QUIT ---BROKEN when controller is connected!---
-			if event.type == pygame.QUIT:
-				# change the value to False, to exit the main loop
-				running = False
+    # main loop
+    while running:
+        # event handling, gets all event from the event queue
+        for event in pygame.event.get():
+            # evdev takes care of polling the controller in a loop
+            for buttonpress in gamepad.read_loop():
+                print(evdev.categorize(buttonpress))
+                # only do something if the event is of type QUIT ---BROKEN when controller is connected!---
+            if event.type == pygame.QUIT:
+                # change the value to False, to exit the main loop
+                running = False
 
 
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
 if __name__ == "__main__":
-	# call the main function
-	main()
+    # call the main function
+    main()

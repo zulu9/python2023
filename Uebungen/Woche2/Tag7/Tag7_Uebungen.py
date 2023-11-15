@@ -6,7 +6,7 @@ from hashlib import sha256
 print("\nAufgabe 1")
 
 
-def mySum(x):
+def my_sum(x: int) -> int:
     """
     Summe von 0 bis X
     :param x:
@@ -19,7 +19,7 @@ def mySum(x):
 
 
 starttime = time.time()
-meine_summe = mySum(4)
+meine_summe = my_sum(4)
 print(meine_summe)
 endtime = time.time()
 print("Laufzeit:", endtime-starttime)
@@ -28,7 +28,7 @@ print("Laufzeit:", endtime-starttime)
 print("\nAufgabe 2")
 
 
-def myQuadrat(x):
+def my_quadrat(x: int) -> int:
     """
     Flächeninhalt eines Quadrats mit Kantenlänge x
     :param x:
@@ -38,14 +38,14 @@ def myQuadrat(x):
     return area
 
 
-myquadrat = myQuadrat(4)
+myquadrat = my_quadrat(4)
 print(myquadrat)
 
 # Aufgabe 3
 print("\nAufgabe 3")
 
 
-def fancyString(string, breite):
+def fancy_string(string: str, breite: int) -> str:
     """
 
     :param string:
@@ -58,7 +58,7 @@ def fancyString(string, breite):
     else:
         topline = "+"
 
-    for i in range(0, breite-2): # -2 Wegen den + am Anfang und Ende
+    for i in range(0, breite-2):  # -2 Wegen den + am Anfang und Ende
         topline = topline + "-"
 
     topline = topline + "+\n"
@@ -76,9 +76,9 @@ def fancyString(string, breite):
 
 
 starttime = time.time()
-myfancystring = fancyString("Fancy Schmancy gerade!", 41)
+myfancystring = fancy_string("Fancy Schmancy gerade!", 40)
 print(myfancystring)
-myfancystring = fancyString("Fancy Schmancy ungerade!!", 42)
+myfancystring = fancy_string("Fancy Schmancy ungerade!!", 42)
 print(myfancystring)
 endtime = time.time()
 print("Laufzeit:", endtime-starttime)
@@ -87,7 +87,7 @@ print("Laufzeit:", endtime-starttime)
 print("\nAufgabe 4")
 
 
-def fancySquare(wort, zahl):
+def fancy_square(wort: str, zahl: int) -> dict:
     """
 
     :param wort:
@@ -100,7 +100,7 @@ def fancySquare(wort, zahl):
     return ausgabe
 
 
-testme = fancySquare("Hallo", 4)
+testme = fancy_square("Hallo", 4)
 print(testme)
 print(type(testme["Hallo"]))
 
@@ -108,7 +108,7 @@ print(type(testme["Hallo"]))
 print("\nAufgabe 5")
 
 
-def myFakultaet(zahl):
+def my_fakultaet(zahl: int) -> int:
     """
 
     :param zahl:
@@ -126,7 +126,7 @@ def myFakultaet(zahl):
 
 
 starttime = time.time()
-myfak = myFakultaet(4)
+myfak = my_fakultaet(4)
 print(myfak)
 endtime = time.time()
 print("Laufzeit:", endtime-starttime)
@@ -136,7 +136,7 @@ print("\nAufgabe 6")
 starttime = time.time()
 
 
-def geradeZahlen(maxnum):
+def gerade_zahlen(maxnum: int) -> list[int]:
     """
 
     :param maxnum:
@@ -149,11 +149,11 @@ def geradeZahlen(maxnum):
     return nums
 
 
-evens = geradeZahlen(30)
+evens = gerade_zahlen(30)
 print(evens)
 
 
-def summySum(mini, maxi, limit):
+def summy_sum(mini: int, maxi: int, limit: int) -> list[int]:
     num = mini
     max_sum = limit
     sum_num = 0
@@ -168,11 +168,11 @@ def summySum(mini, maxi, limit):
     return [sum_num, num]
 
 
-mySummy = summySum(1, 100, 1000)
+mySummy = summy_sum(1, 100, 1000)
 print(mySummy)
 
 
-def myPrimes(xstart, xend):
+def my_primes(xstart: int, xend: int) -> list[int]:
     """
 
     :param xstart:
@@ -190,11 +190,11 @@ def myPrimes(xstart, xend):
     return primes
 
 
-foundprimes = myPrimes(0, 100)
+foundprimes = my_primes(0, 100)
 print(foundprimes)
 
 
-def checkPassword(secret):
+def check_password(secret: str) -> None:
     """
 
     :param secret:
@@ -211,7 +211,7 @@ def checkPassword(secret):
             print("Passwort falsch!")
 
 
-checkPassword("33c5ebbb01d608c254b3b12413bdb03e46c12797e591770ccf20f5e2819929b2")  # Passwort ist "passwort"
+check_password("33c5ebbb01d608c254b3b12413bdb03e46c12797e591770ccf20f5e2819929b2")  # Passwort ist "passwort"
 endtime = time.time()
 print("Laufzeit:", endtime-starttime)
 
@@ -219,12 +219,12 @@ print("Laufzeit:", endtime-starttime)
 print("\nAufgabe 7")
 
 
-def checkBools(expr):
+def check_bools(expr: str) -> bool:
     if eval(expr):
         return True
     else:
         return False
 
 
-checked = checkBools("3 == 3")
+checked = check_bools("3 == 3")
 print(checked)

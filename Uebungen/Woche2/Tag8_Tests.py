@@ -1,7 +1,7 @@
 # TAG 8
 # Uebungen während der Vorlesung
 # Aufgabe 3 von Tag 7 mit default Parametern
-def fancyString(string="Hier könnte Ihre Werbung stehen!", breite=123):
+def fancy_string(string="Hier könnte Ihre Werbung stehen!", breite=123):
     """
     :param string: Nachricht
     :param breite: Breite der Box
@@ -30,12 +30,29 @@ def fancyString(string="Hier könnte Ihre Werbung stehen!", breite=123):
     return fancystring
 
 
-default = fancyString()
-version1 = fancyString(breite=150)
-version2 = fancyString(string="Ihre Werbung")
-version3 = fancyString("Ihre Werbung", 50)
+default = fancy_string()
+version1 = fancy_string(breite=150)
+version2 = fancy_string(string="Ihre Werbung")
+version3 = fancy_string("Ihre Werbung", 50)
 
 print(default)
 print(version1)
 print(version2)
 print(version3)
+
+
+mydict = {'1': 2, '3': 4, '5': 6}
+
+
+def bsp3(adict):
+    """
+
+    :param adict:
+    :return:
+    """
+    print(adict)
+    for key, value in adict.items():
+        print("%s == %s" % (key, value))
+
+
+bsp3(mydict)
