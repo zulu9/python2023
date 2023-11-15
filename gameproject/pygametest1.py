@@ -1,6 +1,18 @@
 # import the pygame module, so you can use it
 import pygame
+import evdev
 
+# find gamepads
+devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
+# for device in devices:
+#     print(device.path, device.name, device.phys)
+
+# creates object 'gamepad' to store the data of the first device found
+# you can call it whatever you like
+gamepad = evdev.InputDevice(devices[0].path)
+
+# prints out device info at start
+print(gamepad)
 
 # define a main function
 def main():
@@ -21,7 +33,10 @@ def main():
 	while running:
 		# event handling, gets all event from the event queue
 		for event in pygame.event.get():
-			# only do something if the event is of type QUIT
+			# evdev takes care of polling the controller in a loop
+			for event in gamepad.read_loop():
+				print(evdev.categorize(event))
+			# only do something if the event is of type QUIT ---BROKEN when controller is connected!---
 			if event.type == pygame.QUIT:
 				# change the value to False, to exit the main loop
 				running = False
