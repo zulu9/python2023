@@ -1,7 +1,9 @@
 # TAG 8
 # Uebungen während der Vorlesung
 # Aufgabe 3 von Tag 7 mit default Parametern
-def fancy_string(string="Hier könnte Ihre Werbung stehen!", breite=123):
+def fancy_string(
+        string: str = "Hier könnte Ihre Werbung stehen!",
+        breite: int = 123) -> str:
     """
     :param string: Nachricht
     :param breite: Breite der Box
@@ -44,7 +46,8 @@ print(version3)
 mydict = {'1': 2, '3': 4, '5': 6}
 
 
-def bsp3(adict):
+def bsp3(
+        adict: dict) -> None:
     """
 
     :param adict:
