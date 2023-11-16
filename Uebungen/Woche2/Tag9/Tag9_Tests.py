@@ -1,6 +1,6 @@
 # Tag 9 Tests
 import matplotlib.pyplot as plt
-
+import math
 # IDs
 # x = int(3)
 # print("X: ", id(x))
@@ -60,3 +60,17 @@ print(id(tupel))
 print(id(tupel2))
 for element in tupel2:
     print(id(element))
+
+# Funktionen
+print("\nFunktionen")
+x = 9
+wurzel = math.sqrt(x)
+
+print(id(9))
+print(id(x))
+print(id(wurzel))
+print(id(math.sqrt))
+print(id(math.sqrt(x)))
+print(id(math.sqrt(9)))
+print(id(math.sqrt(10)))
+print(id(math.sqrt(3.5)))
