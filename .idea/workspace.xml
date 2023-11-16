@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="feierabend." />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Tag 9 tests added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche2/Tag9/Tag9_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag9/Tag9_Tests.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,11 +78,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag9" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag8" />
       <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag1" />
       <recent name="$PROJECT_DIR$/Uebungen" />
-      <recent name="$PROJECT_DIR$/Uebungen/Woche1/Tag5" />
     </key>
   </component>
   <component name="RunManager">
@@ -443,11 +446,18 @@
       <option name="project" value="LOCAL" />
       <updated>1700059978945</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Tag 9 tests added">
+      <option name="closed" value="true" />
+      <created>1700120902231</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1700120902231</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="moved to day3" />
     <MESSAGE value="playing with print()  1" />
     <MESSAGE value="playing with print()  2" />
     <MESSAGE value="playing with print()  3" />
@@ -472,6 +482,7 @@
     <MESSAGE value="typed tag7 uebungen functions" />
     <MESSAGE value="added uebungen tag 8" />
     <MESSAGE value="feierabend." />
-    <option name="LAST_COMMIT_MESSAGE" value="feierabend." />
+    <MESSAGE value="Tag 9 tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tag 9 tests added" />
   </component>
 </project>
