@@ -121,14 +121,6 @@
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
     </task>
-    <task id="LOCAL-00003" summary="created Tag2">
-      <option name="closed" value="true" />
-      <created>1699355784129</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1699355784129</updated>
-    </task>
     <task id="LOCAL-00004" summary="moved tag2-uebungen to the right place">
       <option name="closed" value="true" />
       <created>1699364394408</created>
@@ -513,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700223489681</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Merge sort">
+      <option name="closed" value="true" />
+      <created>1700223926912</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1700223926912</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -544,5 +544,16 @@
     <MESSAGE value="Added Tag10 Tests" />
     <MESSAGE value="Merge sort" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge sort" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_mergeSort.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
