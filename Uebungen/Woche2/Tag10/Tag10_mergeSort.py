@@ -8,9 +8,9 @@ def merge_sort(
         level: int = 0):
     """
     Rekursives Merge Sort. ACHTUNG: Arbeitet an der Orignalliste. Kein Return!
-    :param liste:
-    :param level:
-    :return:
+    :param liste: Liste die sortiert werden soll
+    :param level: Momentane Tiefe der Rekursion
+    :return: gibbet nicht
     """
     level += 1
     if len(liste) > 1:
@@ -63,10 +63,10 @@ def merge_sort(
             outer_num += 1
 
 
-# myList = [132, 42, 23, 66, 5, 11, 132, -1, 777, 453, 52, 42, -15, -11]
+# randomlist = [132, 42, 23, 66, 5, 11, 132, -1, 777, 453, 52, 42, -15, -11]
 upto = 60  # Anzahl der Zufallszahlen, die erzeugt werden sollen
 randomlist = [random.randrange(-100, 100, 1) for i in range(upto)]
-unsortiert = randomlist.copy()
+unsortiert = randomlist.copy() # Unosortiere Liste merken, weil wir glech am Original rumfuschen
 merge_sort(randomlist)
 print("Unsotiert:\t\t", unsortiert)
 print("Sortiert:\t\t", randomlist)

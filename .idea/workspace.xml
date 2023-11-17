@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Added Tag10 Tests">
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_mergeSort.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Merge sort">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_mergeSort.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_mergeSort.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -498,12 +497,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700212360396</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Merge sort">
+      <option name="closed" value="true" />
+      <created>1700222382656</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1700222382656</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added datetime tests" />
     <MESSAGE value="added uebungen for tag3" />
     <MESSAGE value="added uebungen for tag3 (2)" />
     <MESSAGE value="read tests" />
@@ -528,6 +534,7 @@
     <MESSAGE value="IDs" />
     <MESSAGE value="IDs von Funktionen" />
     <MESSAGE value="Added Tag10 Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Tag10 Tests" />
+    <MESSAGE value="Merge sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge sort" />
   </component>
 </project>
