@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Merge sort">
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/catventure.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="catventue keyboard input tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche2/Tag10/catventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00005" summary="gamepad ansprechbar">
-      <option name="closed" value="true" />
-      <created>1699368602900</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1699368602900</updated>
     </task>
     <task id="LOCAL-00006" summary="moved to day3">
       <option name="closed" value="true" />
@@ -534,12 +526,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700227198708</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="catventue keyboard input tests">
+      <option name="closed" value="true" />
+      <created>1700240940764</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1700240940764</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added uebungen for tag3" />
     <MESSAGE value="added uebungen for tag3 (2)" />
     <MESSAGE value="read tests" />
     <MESSAGE value="write tests" />
@@ -564,7 +563,8 @@
     <MESSAGE value="IDs von Funktionen" />
     <MESSAGE value="Added Tag10 Tests" />
     <MESSAGE value="Merge sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge sort" />
+    <MESSAGE value="catventue keyboard input tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="catventue keyboard input tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
