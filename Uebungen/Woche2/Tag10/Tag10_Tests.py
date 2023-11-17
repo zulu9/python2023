@@ -1,4 +1,6 @@
 # Tag 10 Tests
+import time
+import sys
 
 # Funktionen als Parameter
 import math
@@ -62,4 +64,66 @@ print(type(results))
 print(list(results))
 print(list(results2))
 
+
 # Rekursion
+def myfak(
+        n: int) -> int:
+    """
+
+    :param n:
+    :return:
+    """
+    if n == 1:
+        return 1
+    elif n > 1:
+        return n * myfak(n-1)
+    else:
+        raise ValueError
+
+
+print(myfak(5))
+
+
+def mysum_loop(
+        n: int) -> int:
+    """
+    :param n:
+    :return:
+    """
+    summe = 0
+    for i in range(0, n + 1):
+        summe = summe + i
+    return summe
+
+
+mein_x = 10
+
+starttime = time.time()
+meine_summe = mysum_loop(mein_x)
+print(meine_summe)
+endtime = time.time()
+print("Laufzeit Summe Loop:", (endtime - starttime) * 1000)
+
+
+def mysum_recursive(
+        n: int) -> int:
+    """
+
+    :param n:
+    :return:
+    """
+    if n == 0:
+        return 0
+    elif n > 0:
+        return n + mysum_recursive(n - 1)
+    else:
+        raise ValueError
+
+
+sys.setrecursionlimit(mein_x+10)
+
+starttime = time.time()
+meine_summe = (mysum_recursive(mein_x))
+print(meine_summe)
+endtime = time.time()
+print("Laufzeit Summe Rekursion:", (endtime - starttime) * 1000)
