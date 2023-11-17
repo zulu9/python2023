@@ -63,9 +63,9 @@ def merge_sort(
             outer_num += 1
 
 
-# randomlist = [132, 42, 23, 66, 5, 11, 132, -1, 777, 453, 52, 42, -15, -11]
-upto = 10  # Anzahl der Zufallszahlen zwischen -100 und +100, die erzeugt werden sollen
-randomlist = [random.randrange(-100, 100, 1) for i in range(upto)]
+randomlist = [70, 50, 30, 10, 20, 40, 60]
+upto = 7  # Anzahl der Zufallszahlen zwischen -100 und +100, die erzeugt werden sollen
+#randomlist = [random.randrange(-100, 100, 1) for i in range(upto)]
 unsortiert = randomlist.copy()  # Unosortierte Liste merken, weil wir glech am Original rumfuschen
 merge_sort(randomlist)
 print("Unsotiert:\t\t", unsortiert)
