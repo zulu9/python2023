@@ -3,7 +3,6 @@ import numpy as np
 import os
 import time
 import keyboard
-
 start_time = time.time()
 
 
@@ -45,14 +44,17 @@ def paintgrid(
     clear()  # Bildschirm leeren
     row_num = 0
     el_num = 0
-    # Zahlen in Matrix durch Emojis ersetzen (Grafik!)
+    # Zahlen in Matrix durch Emojis ersetzen (Grafik + Collision Detektion!)
     for row in grid:
         for element in row:
             if (row_num, el_num) == player_position:  # Player Emoji einsetzen
-                element = "🐈"
-            elif element == 1.0:
+                if element == 1.0:  # Player steht auf Hinterniss
+                    element = "😾"
+                else:  # Player steht auf freier Fläche
+                    element = "🐈"
+            elif element == 1.0:  # Rehmen und Hindernisse
                 element = "🧱"
-            elif element == 0.0:
+            elif element == 0.0:  # Freie Fläche
                 element = "🟩"
             print(format(element, "<1"), end="")
             el_num += 1
@@ -105,14 +107,10 @@ p_current_position = p_start_position
 paintgrid(grid_layout1, p_start_position)
 time.sleep(tick_len)
 
-
+# Kurz bewegen
 move_player("down")
-move_player("down")
-move_player("up")
-move_player("right")
-move_player("right")
 
-keyboard.on_press("left")
+# Keyboard input abfangen
 while True:
     try:
         if keyboard.is_pressed('left'):
@@ -126,7 +124,6 @@ while True:
         time.sleep(0.1)
     except:
         break
-
 
 end_time = time.time()
 print("Laufzeit:\t", end_time-start_time, "s")
