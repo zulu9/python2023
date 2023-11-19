@@ -149,11 +149,11 @@ start_time = time.time()  # Startzeit
 stepcount = 0  # Schrittzähler
 current_gridsize = 20  # Spielfeldgröße (X^2)
 current_grid = create_grid(current_gridsize)
-tick_len = 0.0  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit, über SSH auf min 0.3 setzen)
-number_of_enemies = 15  # Anzahl Gegner
+tick_len = 0.1  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit, über SSH auf min 0.3 setzen)
+number_of_enemies = 10  # Anzahl Gegner
 e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
 catch_count = 0  # Punktzahl auf null setzen
-max_catch_count = 3  # Zielpunktzahl
+max_catch_count = 4  # Zielpunktzahl
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
