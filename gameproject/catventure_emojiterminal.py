@@ -1,5 +1,10 @@
+#  ---CATVENTURE 0.0.0.1 - The terminal emulator emoji Cat Adventure---
+# Needs:
+#   * python 3.x + some modules
+#   * UTF-8 Terminal Emulator with Noto Color Emoji font or similar (TODO TEST ON WINDOWS)
+#   * On Linux: needs root because of the keyboard module (FIXME)
+
 import numpy as np
-# import only system from os
 import os
 import time
 import keyboard
@@ -26,7 +31,6 @@ def clear():
 def create_grid(
         gridsize: int) -> np.array:
     """
-
     :param gridsize: Größe des Spielfelds (+Rand)
     :return: Gibt eine Matrix aus 1 und 0 zurück. 1 = Rand, 0 = Frei
     """
@@ -145,11 +149,11 @@ start_time = time.time()  # Startzeit
 stepcount = 0  # Schrittzähler
 current_gridsize = 20  # Spielfeldgröße (X^2)
 current_grid = create_grid(current_gridsize)
-tick_len = 0.3  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit)
+tick_len = 0.0  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit, über SSH auf min 0.3 setzen)
 number_of_enemies = 15  # Anzahl Gegner
-e_move_prob = 0.5  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
+e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
 catch_count = 0  # Punktzahl auf null setzen
-max_catch_count = 2  # Zielpunktzahl
+max_catch_count = 3  # Zielpunktzahl
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -179,6 +183,6 @@ while True:
         elif keyboard.is_pressed('up'):
             update_board("up")
         time.sleep(0.1)
-    except:
+    except KeyboardInterrupt:
         print("Gave Up?")
         break
