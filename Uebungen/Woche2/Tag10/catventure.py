@@ -4,9 +4,9 @@ import os
 import time
 import keyboard
 import random
-start_time = time.time()
 
 
+# ##------FUNKTIONEN ANFANG------## #
 def clear():
     """
     Clears screen (needs "real" Terminal!)
@@ -51,13 +51,13 @@ def paintgrid(
     # Zahlen in Matrix durch Emojis ersetzen (Grafik + Collision Detektion!)
     for row in grid:
         for element in row:
-            for enemy_position in enemy_positions: # Gegner einsetzen
+            for enemy_position in enemy_positions:  # Gegner einsetzen
                 if (row_num, el_num) == enemy_position:
                     element = 2.0
             if (row_num, el_num) == player_position:  # Player Emoji einsetzen
                 if element == 2.0:  # Player hat Gegner gefangen
                     catch_count += 1
-                    element = "🕳️"
+                    # TODO remove dead enemy
                 element = "🐈"
             elif element == 1.0:  # Rehmen und Hindernisse zeichnen
                 element = "🧱"
@@ -129,13 +129,16 @@ def update_board(
     time.sleep(tick_len)
 
 
+# ##------FUNKTIONEN ENDE------## #
+
 # Globale Option
+start_time = time.time()  # Startzeit
 current_gridsize = 20  # Spielfeldgröße (X^2)
 current_grid = create_grid(current_gridsize)
 tick_len = 0.2  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit)
-number_of_enemies = 5  # Anzahl Gegner
+number_of_enemies = 10  # Anzahl Gegner
 catch_count = 0  # Punktzahl auf null setzen
-max_catch_count = 2  # Zielpunktzahl
+max_catch_count = 1  # Zielpunktzahl
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -150,12 +153,12 @@ e_current_positions = e_start_positions
 paintgrid(current_grid, p_current_position, e_start_positions)
 time.sleep(tick_len)
 
-# Kurz Gegner bewegen
+# Gegner inital etwas bewegen
 update_board()
 update_board()
 update_board()
 
-# Keyboard input abfangen
+# Keyboard input abfangen und Spielfeld aktualisieren bis Zielpunktzahl erreicht ist
 while True and catch_count < max_catch_count:
     try:
         if keyboard.is_pressed('left'):
@@ -168,7 +171,8 @@ while True and catch_count < max_catch_count:
             update_board("up")
         time.sleep(0.1)
     except:
+        print("Gave Up")
         break
 
-end_time = time.time()
-print("Laufzeit:\t", end_time-start_time, "s")
+# Letzen Frame noch anzeigen
+update_board()
