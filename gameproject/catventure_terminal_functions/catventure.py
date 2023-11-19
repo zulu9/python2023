@@ -51,6 +51,7 @@ def paintgrid(
     :return:
     """
     global catch_count
+    global hunger_count
     global e_current_positions
     global number_of_enemies
 
@@ -68,6 +69,7 @@ def paintgrid(
                     catch_count += 1
                     number_of_enemies -= 1
                     e_current_positions.remove((row_num, el_num))  # Gegner aus Liste entfernen
+                    hunger_count += hunger_enemy_nutrition  # Fressen
                 element = "🐈"
             elif element == 1.0:  # Rehmen und Hindernisse zeichnen
                 element = "🧱"
@@ -81,7 +83,10 @@ def paintgrid(
         row_num += 1
         print()  # Leerzeile bevor nächste Zeile verarbeitet wird
     current_time = time.time()
-    print("⏲️", round(current_time - start_time), "🐾", stepcount, "🐁", catch_count, "/", max_catch_count)
+    print("⏲️", "(", round(current_time - time_count), "/", max_time_count, ")\t",
+          "🐾", step_count, "/", max_step_count, "\t"
+          "🐁", number_of_enemies, "(", catch_count, "/", max_catch_count, ")\t",
+          "🥓", "(", round(hunger_count), ")\t")
 
 
 def random_direction() -> str:
@@ -120,15 +125,18 @@ def move(
 
 
 def update_board(
-        direction: str = "None"):
+        direction: str = "None",
+        playerinput: bool = False):
     """
     Spieler bewegen und Spielfeld neu aufbauen. Dies entpricht einer Runde. D.h. Gegner bewegen sich usw
     :param direction: Richtung in die sich Spieler bewegen soll
+    :param playerinput: Wurde das Update durch Spielerbewegung ausgelöst?
     :return:
     """
     global p_current_position
     global e_current_positions
-    global stepcount
+    global step_count
+    global hunger_count
     # Move player
     p_current_position = move(p_current_position, direction)
     # move enemies
@@ -136,24 +144,80 @@ def update_board(
         if random.random() < e_move_prob:
             e_current_positions[i] = move(e_current_positions[i], random_direction())
 
-    # Pain new grid
-    stepcount += 1
+    # Paint new grid
+    if playerinput:
+        step_count += 1
+    current_time = time.time()
+    hunger_count = hunger_count - ((current_time - time_count) / step_count) * hunger_factor
     paintgrid(current_grid, p_current_position, e_current_positions)
     time.sleep(tick_len)
 
 
+def fancy_string(string: str, breite: int) -> str:
+    # FIXME Output looks like shit
+    """
+
+    :param string:
+    :param breite:
+    :return: fancystring
+    """
+    # string gerade Anzahl zeichen und breite ungerade oder umgekehrt. Wir brauchen ein extra Zeichen
+    if len(string) % 2 != breite % 2:
+        topline = "+-"
+    else:
+        topline = "+"
+
+    for i in range(0, breite-2):  # -2 Wegen den + am Anfang und Ende
+        topline = topline + "-"
+
+    topline = topline + "+\n"
+
+    padding = ""
+    for i in range(0, int((breite-1)/2-len(string)/2)):
+        padding = padding + " "
+
+    middleline = "+" + padding + string + padding + "+\n"
+
+    bottomline = topline
+
+    fancystring = topline + "\n" + middleline + "\n" + bottomline
+    return fancystring
+
+
+def win(
+        reason: str = "Gewonnen"):
+    update_board()
+    print(fancy_string(reason, 30))
+
+
+def gameover(reason: str = "Game Over!"):
+    update_board()
+    print(fancy_string(reason, 30))
+
 # ##------FUNKTIONEN ENDE------## #
 
+
+# ##------MAIN GAME LOOP------## #
 # Globale Option und Startparameter
-start_time = time.time()  # Startzeit
-stepcount = 0  # Schrittzähler
-current_gridsize = 20  # Spielfeldgröße (X^2)
-current_grid = create_grid(current_gridsize)
-tick_len = 0.1  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit, über SSH auf min 0.3 setzen)
+current_gridsize = 30  # Spielfeldgröße (X^2)
+
+max_time_count = 60  # Maximale Spielzeit in s
+
+step_count = 1  # Schrittzähler
+max_step_count = 500  # Maximale Schrittzahl
+
+catch_count = 0  # Anfangspunktzahl
+max_catch_count = 4  # Zielpunktzahl
+
+hunger_count = 100  # Hungerwert am Anfang (Default 100 = satt)
+max_hunger_count = 0  # Hungerwert für Game over (Default 0 = tod)
+hunger_factor = 1   # Hungerfaktor Hunger = (Schritte / Zeit) * Hungerfaktor)
+hunger_enemy_nutrition = 20  # Punkte für gefangen Gegner
 number_of_enemies = 10  # Anzahl Gegner
 e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
-catch_count = 0  # Punktzahl auf null setzen
-max_catch_count = 4  # Zielpunktzahl
+
+tick_len = 0  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit, über SSH auf min 0.3 setzen)
+
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -163,26 +227,42 @@ for _ in range(0, number_of_enemies):  # Startpositionen der Gegner
     e_start_positions.append(e_start_position)
 
 # Anfangssituation zeichnen
-p_current_position = p_start_position
-e_current_positions = e_start_positions
+current_grid = create_grid(current_gridsize)  # Initiales Grid erstellen
+time_count = time.time()  # Startzeit merken
+p_current_position = p_start_position  # Startposition
+e_current_positions = e_start_positions  # Gegner Start positionen
 paintgrid(current_grid, p_current_position, e_start_positions)
 time.sleep(tick_len)
 
-# Keyboard input abfangen und Spielfeld aktualisieren bis Zielpunktzahl erreicht ist
+#  Keyboard input auswerten und Spielfeld aktualisieren bis Zielpunktzahl erreicht ist oder User abgebrochen hat
 while True:
+    current_time_count = round(time.time() - time_count)
     try:
-        if catch_count == max_catch_count:  # We won
-            print("🎉🎈🎈🎈🎊🎊🎊🎈🎈🎈🎉")
+        # Abbruchbeningungen (WIN oder GAMEOVER)
+        if catch_count == max_catch_count:  # Wir haben gewonnen
+            win("🎉\t🎈🎈🎈\t🎊🎊🎊\t🎈🎈🎈\t🎉\n\t\tGEWONNEN!!!\n🎉\t🎈🎈🎈\t🎊🎊🎊\t🎈🎈🎈\t🎉\n")
             break
+        elif step_count > max_step_count:  # Keine Schritte mehr übrig
+            gameover("\t☠️Du bist zu viel gelaufen!\t☠️")
+            break
+        elif hunger_count < max_hunger_count:  # Wir sind verhungert
+            gameover("☠️\nDu bist vehungert!\n☠️")
+            break
+        elif current_time_count > max_time_count:  # Wir haben die Zeit überschritten
+            gameover("\n☠️Zeitlimit überschritten\n☠️")
+            break
+        # Keyboard Eingaben
         elif keyboard.is_pressed('left'):
-            update_board("left")
+            update_board("left", playerinput=True)
         elif keyboard.is_pressed('right'):
-            update_board("right")
+            update_board("right", playerinput=True)
         elif keyboard.is_pressed('down'):
-            update_board("down")
+            update_board("down", playerinput=True)
         elif keyboard.is_pressed('up'):
-            update_board("up")
-        time.sleep(0.1)
-    except KeyboardInterrupt:
-        print("Gave Up?")
+            update_board("up", playerinput=True)
+        update_board()
+        time.sleep(0.1)  # FIXME Ist irgendwie nötig sonst läuft es zu schnell
+
+    except KeyboardInterrupt:  # STRG-C gedrückt
+        gameover("Aufgegeben? 😿😿😿")
         break

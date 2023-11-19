@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="added some notes and proper exception handler for input-loop">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="alpha 0.1 preview">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/catventure_emojiterminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
     </list>
@@ -141,14 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00015" summary="read tests">
-      <option name="closed" value="true" />
-      <created>1699526269950</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1699526269950</updated>
     </task>
     <task id="LOCAL-00016" summary="write tests">
       <option name="closed" value="true" />
@@ -534,12 +526,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700363071701</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="alpha 0.1 preview">
+      <option name="closed" value="true" />
+      <created>1700371806240</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1700371806240</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added woche2" />
     <MESSAGE value="uebung1" />
     <MESSAGE value="zip" />
     <MESSAGE value="enumerate" />
@@ -564,7 +563,8 @@
     <MESSAGE value="added enemies and score" />
     <MESSAGE value="renamed and moved catventure the emoji terminal cat games to another folder" />
     <MESSAGE value="added some notes and proper exception handler for input-loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some notes and proper exception handler for input-loop" />
+    <MESSAGE value="alpha 0.1 preview" />
+    <option name="LAST_COMMIT_MESSAGE" value="alpha 0.1 preview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -576,7 +576,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py</url>
-          <line>186</line>
+          <line>188</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
