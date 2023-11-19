@@ -143,12 +143,13 @@ def update_board(
     for i in range(0, number_of_enemies):
         if random.random() < e_move_prob:
             e_current_positions[i] = move(e_current_positions[i], random_direction())
-
-    # Paint new grid
+    # Update player state
     if playerinput:
         step_count += 1
     current_time = time.time()
-    hunger_count = hunger_count - ((current_time - time_count) / step_count) * hunger_factor
+    hunger_count = hunger_count - ((current_time - time_count) / step_count) * hunger_factor  # FIXME
+
+    # Paint new grid
     paintgrid(current_grid, p_current_position, e_current_positions)
     time.sleep(tick_len)
 
