@@ -4,6 +4,8 @@ import os
 import time
 import keyboard
 import random
+# TODO OPTIMIZE
+# OPTIONAL: Enemies that can kill you
 
 
 # ##------FUNKTIONEN ANFANG------## #
@@ -45,6 +47,9 @@ def paintgrid(
     :return:
     """
     global catch_count
+    global e_current_positions
+    global number_of_enemies
+
     clear()  # Bildschirm leeren
     row_num = 0
     el_num = 0
@@ -57,7 +62,8 @@ def paintgrid(
             if (row_num, el_num) == player_position:  # Player Emoji einsetzen
                 if element == 2.0:  # Player hat Gegner gefangen
                     catch_count += 1
-                    # TODO remove dead enemy
+                    number_of_enemies -= 1
+                    e_current_positions.remove((row_num, el_num))  # Gegner aus Liste entfernen
                 element = "🐈"
             elif element == 1.0:  # Rehmen und Hindernisse zeichnen
                 element = "🧱"
@@ -71,7 +77,7 @@ def paintgrid(
         row_num += 1
         print()  # Leerzeile bevor nächste Zeile verarbeitet wird
     current_time = time.time()
-    print("⏲️: ", round(current_time - start_time), "🐁: ", catch_count, "/", max_catch_count)
+    print("⏲️", round(current_time - start_time), "🐾", stepcount, "🐁", catch_count, "/", max_catch_count)
 
 
 def random_direction() -> str:
@@ -118,27 +124,32 @@ def update_board(
     """
     global p_current_position
     global e_current_positions
+    global stepcount
     # Move player
     p_current_position = move(p_current_position, direction)
     # move enemies
     for i in range(0, number_of_enemies):
-        e_current_positions[i] = move(e_current_positions[i], random_direction())
+        if random.random() < e_move_prob:
+            e_current_positions[i] = move(e_current_positions[i], random_direction())
 
     # Pain new grid
+    stepcount += 1
     paintgrid(current_grid, p_current_position, e_current_positions)
     time.sleep(tick_len)
 
 
 # ##------FUNKTIONEN ENDE------## #
 
-# Globale Option
+# Globale Option und Startparameter
 start_time = time.time()  # Startzeit
+stepcount = 0  # Schrittzähler
 current_gridsize = 20  # Spielfeldgröße (X^2)
 current_grid = create_grid(current_gridsize)
-tick_len = 0.2  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit)
-number_of_enemies = 10  # Anzahl Gegner
+tick_len = 0.3  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit)
+number_of_enemies = 15  # Anzahl Gegner
+e_move_prob = 0.5  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
 catch_count = 0  # Punktzahl auf null setzen
-max_catch_count = 1  # Zielpunktzahl
+max_catch_count = 2  # Zielpunktzahl
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -153,15 +164,13 @@ e_current_positions = e_start_positions
 paintgrid(current_grid, p_current_position, e_start_positions)
 time.sleep(tick_len)
 
-# Gegner inital etwas bewegen
-update_board()
-update_board()
-update_board()
-
 # Keyboard input abfangen und Spielfeld aktualisieren bis Zielpunktzahl erreicht ist
-while True and catch_count < max_catch_count:
+while True:
     try:
-        if keyboard.is_pressed('left'):
+        if catch_count == max_catch_count:  # We won
+            print("🎉🎈🎈🎈🎊🎊🎊🎈🎈🎈🎉")
+            break
+        elif keyboard.is_pressed('left'):
             update_board("left")
         elif keyboard.is_pressed('right'):
             update_board("right")
@@ -171,8 +180,5 @@ while True and catch_count < max_catch_count:
             update_board("up")
         time.sleep(0.1)
     except:
-        print("Gave Up")
+        print("Gave Up?")
         break
-
-# Letzen Frame noch anzeigen
-update_board()

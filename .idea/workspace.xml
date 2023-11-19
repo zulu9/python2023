@@ -111,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="catventure" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="catventure_emojiterminal" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Uebungen/Woche2/Tag10/catventure.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameproject/catventure_emojiterminal.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="true" />
@@ -141,14 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00009" summary="playing with print()  3">
-      <option name="closed" value="true" />
-      <created>1699434276677</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1699434276677</updated>
     </task>
     <task id="LOCAL-00010" summary="added datetime tests">
       <option name="closed" value="true" />
@@ -534,7 +526,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700357078537</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="added enemies and score">
+      <option name="closed" value="true" />
+      <created>1700357885961</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1700357885961</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
