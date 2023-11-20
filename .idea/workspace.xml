@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="kurze anleitung bevor es losgeht hinzugefügt&#10;TODO: Gameover und Win Ausgaben">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="reduce()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,30 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00025" summary="while">
-      <option name="closed" value="true" />
-      <created>1699871705105</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1699871705105</updated>
-    </task>
-    <task id="LOCAL-00026" summary="while">
-      <option name="closed" value="true" />
-      <created>1699873028058</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1699873028058</updated>
-    </task>
-    <task id="LOCAL-00027" summary="runtimes">
-      <option name="closed" value="true" />
-      <created>1699874464364</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1699874464364</updated>
     </task>
     <task id="LOCAL-00028" summary="tag6 uebungen">
       <option name="closed" value="true" />
@@ -534,14 +510,35 @@
       <option name="project" value="LOCAL" />
       <updated>1700466312797</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Anleitung geändert">
+      <option name="closed" value="true" />
+      <created>1700467162582</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1700467162582</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Added Tag11 Tests">
+      <option name="closed" value="true" />
+      <created>1700473413077</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1700473413077</updated>
+    </task>
+    <task id="LOCAL-00076" summary="reduce()">
+      <option name="closed" value="true" />
+      <created>1700474338419</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1700474338419</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="while" />
-    <MESSAGE value="runtimes" />
-    <MESSAGE value="tag6 uebungen" />
     <MESSAGE value="tag7 uebungen" />
     <MESSAGE value="nonesense" />
     <MESSAGE value="added tag8 tests" />
@@ -564,7 +561,10 @@
     <MESSAGE value="chchcch... changes. &#10;jetzt spielbar" />
     <MESSAGE value="TODO: Gameover und Win Ausgaben" />
     <MESSAGE value="kurze anleitung bevor es losgeht hinzugefügt&#10;TODO: Gameover und Win Ausgaben" />
-    <option name="LAST_COMMIT_MESSAGE" value="kurze anleitung bevor es losgeht hinzugefügt&#10;TODO: Gameover und Win Ausgaben" />
+    <MESSAGE value="Anleitung geändert" />
+    <MESSAGE value="Added Tag11 Tests" />
+    <MESSAGE value="reduce()" />
+    <option name="LAST_COMMIT_MESSAGE" value="reduce()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
