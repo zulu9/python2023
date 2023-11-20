@@ -224,7 +224,7 @@ def gameover(
 current_gridsize = 30  # Spielfeldgröße (X^2)
 
 max_time_count = 60  # Maximale Spielzeit in s
-max_step_count = 500  # Maximale Schrittzahl
+max_step_count = current_gridsize**2 // 3  # Maximale Schrittzahl
 
 step_count = 1  # Schrittzähler am Anfang
 health_count = 100  # HP am Anfang
@@ -258,7 +258,7 @@ current_grid = create_grid(current_gridsize)  # Initiales Grid erstellen
 p_current_position = p_start_position  # Startposition merken
 e_current_positions = e_start_positions  # Gegner Start positionen merken
 paintgrid(current_grid, p_current_position, e_start_positions)  # Startgrid zeichnen
-input("\nDu bist die Katze! Fange alle Mäuse und lauf nicht ins Feuer! \n\tEnter drücken zum Starten")
+input("\nDu bist 🐈! Fange 🐁 und lauf nicht durch 🔥! \n\tEnter drücken zum Starten")
 start_time = time.time()  # Startzeit merken
 time.sleep(tick_len)
 
