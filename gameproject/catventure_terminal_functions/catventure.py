@@ -38,6 +38,8 @@ def create_grid(
     2 = Gegner,
     3 = Gefahr / Hindnerniss
     4 = Neutrales Objekt / Deko
+    5 = Neutrales Objekt / Deko
+    6 = Neutrales Objekt / Deko
     """
     # Rahmen generieren
     grid = np.ones((gridsize + 1, gridsize + 1))
