@@ -147,7 +147,7 @@ def update_board(
     if playerinput:
         step_count += 1
     current_time = time.time()
-    hunger_count = hunger_count - ((current_time - time_count) / step_count) * hunger_factor  # FIXME
+    hunger_count = hunger_count - (step_count / (current_time - time_count)) * hunger_factor
 
     # Paint new grid
     paintgrid(current_grid, p_current_position, e_current_positions)
@@ -212,8 +212,8 @@ max_catch_count = 4  # Zielpunktzahl
 
 hunger_count = 100  # Hungerwert am Anfang (Default 100 = satt)
 max_hunger_count = 0  # Hungerwert für Game over (Default 0 = tod)
-hunger_factor = 1   # Hungerfaktor Hunger = (Schritte / Zeit) * Hungerfaktor)
-hunger_enemy_nutrition = 20  # Punkte für gefangen Gegner
+hunger_factor = 0.1   # Hungerfaktor Hunger = (Schritte / Zeit) * Hungerfaktor)
+hunger_enemy_nutrition = 100  # Punkte für gefangen Gegner
 number_of_enemies = 10  # Anzahl Gegner
 e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
 

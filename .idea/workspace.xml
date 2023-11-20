@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="alpha 0.1 preview">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="hunger function implemented but buggy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/catventure_emojiterminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,30 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00016" summary="write tests">
-      <option name="closed" value="true" />
-      <created>1699528560795</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1699528560795</updated>
-    </task>
-    <task id="LOCAL-00017" summary="added tag5">
-      <option name="closed" value="true" />
-      <created>1699601573941</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1699601573941</updated>
-    </task>
-    <task id="LOCAL-00018" summary="added woche2">
-      <option name="closed" value="true" />
-      <created>1699860835909</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1699860835909</updated>
     </task>
     <task id="LOCAL-00019" summary="uebung1">
       <option name="closed" value="true" />
@@ -534,12 +510,35 @@
       <option name="project" value="LOCAL" />
       <updated>1700371806240</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="hunger function implemented but buggy">
+      <option name="closed" value="true" />
+      <created>1700373008148</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1700373008148</updated>
+    </task>
+    <task id="LOCAL-00066" summary="hunger function implemented but buggy">
+      <option name="closed" value="true" />
+      <created>1700373146160</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1700373146160</updated>
+    </task>
+    <task id="LOCAL-00067" summary="hunger function implemented but buggy">
+      <option name="closed" value="true" />
+      <created>1700373168251</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1700373168251</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="uebung1" />
     <MESSAGE value="zip" />
     <MESSAGE value="enumerate" />
     <MESSAGE value="dict" />
@@ -564,7 +563,8 @@
     <MESSAGE value="renamed and moved catventure the emoji terminal cat games to another folder" />
     <MESSAGE value="added some notes and proper exception handler for input-loop" />
     <MESSAGE value="alpha 0.1 preview" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha 0.1 preview" />
+    <MESSAGE value="hunger function implemented but buggy" />
+    <option name="LAST_COMMIT_MESSAGE" value="hunger function implemented but buggy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -576,7 +576,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py</url>
-          <line>188</line>
+          <line>189</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
