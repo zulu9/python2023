@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="hunger function implemented but buggy">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="fixed hunger function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
     </list>
@@ -141,14 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00019" summary="uebung1">
-      <option name="closed" value="true" />
-      <created>1699862913147</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1699862913147</updated>
     </task>
     <task id="LOCAL-00020" summary="uebung1">
       <option name="closed" value="true" />
@@ -534,12 +526,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700373168251</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="fixed hunger function">
+      <option name="closed" value="true" />
+      <created>1700440208945</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1700440208946</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="zip" />
     <MESSAGE value="enumerate" />
     <MESSAGE value="dict" />
     <MESSAGE value="if statement + list comprehension" />
@@ -564,7 +563,8 @@
     <MESSAGE value="added some notes and proper exception handler for input-loop" />
     <MESSAGE value="alpha 0.1 preview" />
     <MESSAGE value="hunger function implemented but buggy" />
-    <option name="LAST_COMMIT_MESSAGE" value="hunger function implemented but buggy" />
+    <MESSAGE value="fixed hunger function" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed hunger function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -573,11 +573,6 @@
           <url>file://$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_mergeSort.py</url>
           <line>16</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py</url>
-          <line>189</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

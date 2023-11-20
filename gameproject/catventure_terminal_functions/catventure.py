@@ -32,15 +32,33 @@ def create_grid(
         gridsize: int) -> np.array:
     """
     :param gridsize: Größe des Spielfelds (+Rand)
-    :return: Gibt eine Matrix aus 1 und 0 zurück. 1 = Rand, 0 = Frei
+    :return: Gibt eine Matrix aus Werten zurück, d aus 1 und 0 zurück.ie Elemente auf dem Spielfeld rerpäsentieren
+    0 = Freies Feld,
+    1 = Rahmen,
+    2 = Gegner,
+    3 = Gefahr / Hindnerniss
+    4 = Neutrales Objekt / Deko
     """
+    # Rahmen generieren
     grid = np.ones((gridsize + 1, gridsize + 1))
-    grid[1:-1, 1:-1] = 0
+    grid[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
+
+    # Hindernisse und andere feste Objekte hinzufügen
+    for _ in range(0, number_of_obstacles):
+        grid[
+            (random.randrange(current_gridsize - 1) + 1,
+             random.randrange(current_gridsize - 1) + 1)
+        ] = 3
+    for _ in range(0, number_of_neutrals):
+        grid[
+            (random.randrange(current_gridsize - 1) + 1,
+             random.randrange(current_gridsize - 1) + 1)
+        ] = random.choice([4, 5, 6])
     return grid
 
 
 def paintgrid(
-        grid: list = create_grid(20),
+        grid: list,
         player_position: tuple[int, int] = (1, 1),
         enemy_positions: list = None):
     """
@@ -51,7 +69,7 @@ def paintgrid(
     :return:
     """
     global catch_count
-    global hunger_count
+    global health_count
     global e_current_positions
     global number_of_enemies
 
@@ -69,24 +87,34 @@ def paintgrid(
                     catch_count += 1
                     number_of_enemies -= 1
                     e_current_positions.remove((row_num, el_num))  # Gegner aus Liste entfernen
-                    hunger_count += hunger_enemy_nutrition  # Fressen
-                element = "🐈"
-            elif element == 1.0:  # Rehmen und Hindernisse zeichnen
+                    health_count += enemy_nutrition  # Fressen
+                elif element == 3.0:  # Player ist in Hinderniss gelaufen
+                    health_count -= obstacle_punishment  # Aua
+                element = "🐈‍⬛"
+            elif element == 1.0:  # Rehmen zeichnen
                 element = "🧱"
             elif element == 0.0:  # Freie Fläche zeichnen
                 element = "🟩"
             elif element == 2.0:  # Gegner zeichnen
                 element = "🐁"
+            elif element == 3.0:  # Hindernisse zeichnen
+                element = "🔥"
+            elif element == 4.0:  # Neutrales Objekt Typ 4 zeichnen
+                element = "🍂"
+            elif element == 5.0:  # Neutrales Objekt Typ 5 zeichnen
+                element = "🌾"
+            elif element == 6.0:  # Neutrales Objekt Typ 6 zeichnen
+                element = "🌻"
             print(format(element, "<1"), end="")
             el_num += 1
         el_num = 0
         row_num += 1
         print()  # Leerzeile bevor nächste Zeile verarbeitet wird
     current_time = time.time()
-    print("⏲️", "(", round(current_time - time_count), "/", max_time_count, ")\t",
+    print("⏳", "(", round(current_time - time_count), "/", max_time_count, ")\t",
+          "🧡", "(", round(health_count), ")\t",
           "🐾", step_count, "/", max_step_count, "\t"
-          "🐁", number_of_enemies, "(", catch_count, "/", max_catch_count, ")\t",
-          "🥓", "(", round(hunger_count), ")\t")
+          "🐁", number_of_enemies, "(", catch_count, "/", max_catch_count, ")\t")
 
 
 def random_direction() -> str:
@@ -136,18 +164,18 @@ def update_board(
     global p_current_position
     global e_current_positions
     global step_count
-    global hunger_count
+    global health_count
     # Move player
     p_current_position = move(p_current_position, direction)
     # move enemies
     for i in range(0, number_of_enemies):
-        if random.random() < e_move_prob:
-            e_current_positions[i] = move(e_current_positions[i], random_direction())
+        if random.random() < e_move_prob:  # Gegner bewegt sich abhängig von der Wahrscheinlichkeit
+            e_current_positions[i] = move(e_current_positions[i], random_direction())  # in zufällige Richtung
     # Update player state
     if playerinput:
         step_count += 1
     current_time = time.time()
-    hunger_count = hunger_count - (step_count / (current_time - time_count)) * hunger_factor
+    health_count = health_count - (step_count / (current_time - time_count)) * hunger_factor
 
     # Paint new grid
     paintgrid(current_grid, p_current_position, e_current_positions)
@@ -203,25 +231,29 @@ def gameover(reason: str = "Game Over!"):
 current_gridsize = 30  # Spielfeldgröße (X^2)
 
 max_time_count = 60  # Maximale Spielzeit in s
-
-step_count = 1  # Schrittzähler
 max_step_count = 500  # Maximale Schrittzahl
 
+step_count = 1  # Schrittzähler am Anfang
+health_count = 100  # HP am Anfang
+hunger_factor = 0.1   # Hungerfaktor. HP nimmt mit Zeit und Schrittzahl ab. HP - (Schritte / Zeit) * Hungerfaktor)
+
+enemy_nutrition = health_count // 3  # Punkte für gefangen Gegner
+number_of_enemies = current_gridsize // 2  # Anzahl Gegner
+e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner pro Runde bewegt
+
 catch_count = 0  # Anfangspunktzahl
-max_catch_count = 4  # Zielpunktzahl
+max_catch_count = number_of_enemies // 2 + 1 # Zielpunktzahl
 
-hunger_count = 100  # Hungerwert am Anfang (Default 100 = satt)
-max_hunger_count = 0  # Hungerwert für Game over (Default 0 = tod)
-hunger_factor = 0.1   # Hungerfaktor Hunger = (Schritte / Zeit) * Hungerfaktor)
-hunger_enemy_nutrition = 100  # Punkte für gefangen Gegner
-number_of_enemies = 10  # Anzahl Gegner
-e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner bewegt
+number_of_obstacles = current_gridsize // 2  # Anzahl der Hindernisse
+obstacle_punishment = health_count  # HP-Verlust, wenn Player Hinderniss berührt
 
-tick_len = 0  # Zeit zwischen Moves (Bestimmt Spielgeschwindigkeit, über SSH auf min 0.3 setzen)
+number_of_neutrals = current_gridsize  # Anzahl Objekte, die nichts besonderens tun
 
+tick_len = 0.01  # Spielgeschwindigkeit / Zeit zwischen Moves. . Standard 0 = So schnell wie möglich.
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
+
 e_start_positions = []
 for _ in range(0, number_of_enemies):  # Startpositionen der Gegner
     e_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -230,10 +262,11 @@ for _ in range(0, number_of_enemies):  # Startpositionen der Gegner
 # Anfangssituation zeichnen
 current_grid = create_grid(current_gridsize)  # Initiales Grid erstellen
 time_count = time.time()  # Startzeit merken
-p_current_position = p_start_position  # Startposition
-e_current_positions = e_start_positions  # Gegner Start positionen
-paintgrid(current_grid, p_current_position, e_start_positions)
+p_current_position = p_start_position  # Startposition merken
+e_current_positions = e_start_positions  # Gegner Start positionen merken
+paintgrid(current_grid, p_current_position, e_start_positions)  # Startgrid zeichnen
 time.sleep(tick_len)
+input("\nDu bist die Katze! Fange alle Mäuse und lauf nicht ins Feuer! \n\tEnter drücken zum Starten")
 
 #  Keyboard input auswerten und Spielfeld aktualisieren bis Zielpunktzahl erreicht ist oder User abgebrochen hat
 while True:
@@ -246,8 +279,8 @@ while True:
         elif step_count > max_step_count:  # Keine Schritte mehr übrig
             gameover("\t☠️Du bist zu viel gelaufen!\t☠️")
             break
-        elif hunger_count < max_hunger_count:  # Wir sind verhungert
-            gameover("☠️\nDu bist vehungert!\n☠️")
+        elif health_count < 0:  # Wir sind gestorben
+            gameover("☠️\nDu bist gestorben!\n☠️")
             break
         elif current_time_count > max_time_count:  # Wir haben die Zeit überschritten
             gameover("\n☠️Zeitlimit überschritten\n☠️")
@@ -262,7 +295,7 @@ while True:
         elif keyboard.is_pressed('up'):
             update_board("up", playerinput=True)
         update_board()
-        time.sleep(0.1)  # FIXME Ist irgendwie nötig sonst läuft es zu schnell
+        time.sleep(0.1)  # Ein kleiner Delay, damit das Spiel nicht zu Schnell läuft
 
     except KeyboardInterrupt:  # STRG-C gedrückt
         gameover("Aufgegeben? 😿😿😿")
