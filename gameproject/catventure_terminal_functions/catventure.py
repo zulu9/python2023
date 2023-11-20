@@ -93,7 +93,7 @@ def paintgrid(
                     health_count += enemy_nutrition  # Fressen
                 elif element == 3.0:  # Player ist in Hinderniss gelaufen
                     health_count -= obstacle_punishment  # Aua
-                element = "🐈‍⬛"
+                element = "🐈"
             elif element == 1.0:  # Rehmen zeichnen
                 element = "🧱"
             elif element == 0.0:  # Freie Fläche zeichnen
@@ -113,8 +113,9 @@ def paintgrid(
         el_num = 0
         row_num += 1
         print()  # Leerzeile bevor nächste Zeile verarbeitet wird
+    # Statuszeile
     current_time = time.time()
-    print("⏳", "(", round(current_time - time_count), "/", max_time_count, ")\t",
+    print("⏳", "(", round(current_time - start_time), "/", max_time_count, ")\t",
           "🧡", "(", round(health_count), ")\t",
           "🐾", step_count, "/", max_step_count, "\t"
           "🐁", number_of_enemies, "(", catch_count, "/", max_catch_count, ")\t")
@@ -182,7 +183,7 @@ def update_board(
     if playerinput:
         step_count += 1
     current_time = time.time()
-    health_count = health_count - (step_count / (current_time - time_count)) * hunger_factor
+    health_count = health_count - (step_count / (current_time - start_time)) * hunger_factor
 
     # Paint new grid
     paintgrid(current_grid, p_current_position, e_current_positions)
@@ -252,17 +253,18 @@ for _ in range(0, number_of_enemies):  # Startpositionen der Gegner
     e_start_positions.append(e_start_position)
 
 # Anfangssituation zeichnen
+start_time = time.time()  # Startzeit merken
 current_grid = create_grid(current_gridsize)  # Initiales Grid erstellen
-time_count = time.time()  # Startzeit merken
 p_current_position = p_start_position  # Startposition merken
 e_current_positions = e_start_positions  # Gegner Start positionen merken
 paintgrid(current_grid, p_current_position, e_start_positions)  # Startgrid zeichnen
-time.sleep(tick_len)
 input("\nDu bist die Katze! Fange alle Mäuse und lauf nicht ins Feuer! \n\tEnter drücken zum Starten")
+start_time = time.time()  # Startzeit merken
+time.sleep(tick_len)
 
 #  Keyboard input auswerten und Spielfeld aktualisieren bis Zielpunktzahl erreicht ist oder User abgebrochen hat
 while True:
-    current_time_count = round(time.time() - time_count)
+    current_time_count = round(time.time() - start_time)
     try:
         # Abbruchbeningungen (WIN oder GAMEOVER)
         if catch_count == max_catch_count:  # Wir haben gewonnen
