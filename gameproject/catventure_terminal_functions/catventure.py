@@ -1,16 +1,17 @@
 #  ---CATVENTURE 0.0.0.1 - The terminal emulator emoji Cat Adventure---
 # Needs:
-#   * python 3.x + some modules
-#   * UTF-8 Terminal Emulator with Noto Color Emoji font or similar (TODO TEST ON WINDOWS)
-#   * On Linux: needs root because of the keyboard module (FIXME)
+#   * python 3.x + einige Module
+#   * UTF-8 Terminal Emulator mit Noto Color Emoji font oder Ähnlichem (TODO TEST ON WINDOWS)
+#   * Unter Linux: Braucht root-Rechte wegen Keyboard-Libary (FIXME)
 
+# ##------IMPORTS------## #
 import numpy as np
 import os
 import time
 import keyboard
 import random
 # TODO OPTIMIZE
-# OPTIONAL: Enemies that can kill you
+# TODO OPTIONAL: Enemies that can kill you
 
 
 # ##------FUNKTIONEN ANFANG------## #
@@ -67,7 +68,7 @@ def paintgrid(
 
     :param grid: Eine mit create_grid erzeugte Matrix
     :param player_position: Position des Spielers
-    :param enemy_positions: Positonen der Gegner (Liste!)
+    :param enemy_positions: Positionen der Gegner (Liste!)
     :return:
     """
     global catch_count
@@ -120,6 +121,10 @@ def paintgrid(
 
 
 def random_direction() -> str:
+    """
+    Hilfsfunktion für zufällige Gegnerbewegeung
+    :return:
+    """
     choice = random.choice(["up", "down", "left", "right"])
     return choice
 
@@ -184,44 +189,29 @@ def update_board(
     time.sleep(tick_len)
 
 
-def fancy_string(string: str, breite: int) -> str:
-    # FIXME Output looks like shit
-    """
-
-    :param string:
-    :param breite:
-    :return: fancystring
-    """
-    # string gerade Anzahl zeichen und breite ungerade oder umgekehrt. Wir brauchen ein extra Zeichen
-    if len(string) % 2 != breite % 2:
-        topline = "+-"
-    else:
-        topline = "+"
-
-    for i in range(0, breite-2):  # -2 Wegen den + am Anfang und Ende
-        topline = topline + "-"
-
-    topline = topline + "+\n"
-
-    padding = ""
-    for i in range(0, int((breite-1)/2-len(string)/2)):
-        padding = padding + " "
-
-    middleline = "+" + padding + string + padding + "+\n"
-
-    bottomline = topline
-
-    fancystring = topline + "\n" + middleline + "\n" + bottomline
+def fancy_string(string: str, breite: int) -> str:  #  FIXME STILL LOOKS LIKE SHIT
+    fancystring = str(breite / 2) + string + str(breite / 2)
     return fancystring
 
 
 def win(
         reason: str = "Gewonnen"):
+    """
+
+    :param reason: Grund für Win
+    :return:
+    """
     update_board()
     print(fancy_string(reason, 30))
 
 
-def gameover(reason: str = "Game Over!"):
+def gameover(
+        reason: str = "Game Over!"):
+    """
+
+    :param reason: Grund für Game Over
+    :return:
+    """
     update_board()
     print(fancy_string(reason, 30))
 
@@ -244,7 +234,7 @@ number_of_enemies = current_gridsize // 2  # Anzahl Gegner
 e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner pro Runde bewegt
 
 catch_count = 0  # Anfangspunktzahl
-max_catch_count = number_of_enemies // 2 + 1 # Zielpunktzahl
+max_catch_count = number_of_enemies // 2 + 1  # Zielpunktzahl
 
 number_of_obstacles = current_gridsize // 2  # Anzahl der Hindernisse
 obstacle_punishment = health_count  # HP-Verlust, wenn Player Hinderniss berührt
@@ -276,16 +266,16 @@ while True:
     try:
         # Abbruchbeningungen (WIN oder GAMEOVER)
         if catch_count == max_catch_count:  # Wir haben gewonnen
-            win("🎉\t🎈🎈🎈\t🎊🎊🎊\t🎈🎈🎈\t🎉\n\t\tGEWONNEN!!!\n🎉\t🎈🎈🎈\t🎊🎊🎊\t🎈🎈🎈\t🎉\n")
+            win("\n🎉\t GEWONNEN!!! \t🎉")
             break
         elif step_count > max_step_count:  # Keine Schritte mehr übrig
-            gameover("\t☠️Du bist zu viel gelaufen!\t☠️")
+            gameover("\n☠️\tDu bist zu viel gelaufen!\t☠️")
             break
         elif health_count < 0:  # Wir sind gestorben
-            gameover("☠️\nDu bist gestorben!\n☠️")
+            gameover("\n☠️\tDu bist gestorben!\t☠️")
             break
         elif current_time_count > max_time_count:  # Wir haben die Zeit überschritten
-            gameover("\n☠️Zeitlimit überschritten\n☠️")
+            gameover("\n☠️\tZeitlimit überschritten\t☠️")
             break
         # Keyboard Eingaben
         elif keyboard.is_pressed('left'):
