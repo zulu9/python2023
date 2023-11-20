@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="reduce()">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="try, except">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag 11.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Uebungen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/buchstaben.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/woerter.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/woerter_bereinigt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/zahlen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/zen.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +49,6 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <hideBySeverity>
-      <option value="11" />
-      <option value="12" />
-      <option value="13" />
-      <option value="14" />
-      <option value="15" />
-      <option value="16" />
-    </hideBySeverity>
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
@@ -141,14 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00028" summary="tag6 uebungen">
-      <option name="closed" value="true" />
-      <created>1699885770210</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1699885770210</updated>
     </task>
     <task id="LOCAL-00029" summary="tag6 uebungen">
       <option name="closed" value="true" />
@@ -534,12 +526,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700474338419</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="try, except">
+      <option name="closed" value="true" />
+      <created>1700475947036</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1700475947036</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="tag7 uebungen" />
     <MESSAGE value="nonesense" />
     <MESSAGE value="added tag8 tests" />
     <MESSAGE value="typed tag7 uebungen functions" />
@@ -564,7 +563,8 @@
     <MESSAGE value="Anleitung geändert" />
     <MESSAGE value="Added Tag11 Tests" />
     <MESSAGE value="reduce()" />
-    <option name="LAST_COMMIT_MESSAGE" value="reduce()" />
+    <MESSAGE value="try, except" />
+    <option name="LAST_COMMIT_MESSAGE" value="try, except" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

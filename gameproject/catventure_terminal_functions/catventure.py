@@ -33,7 +33,7 @@ def create_grid(
         gridsize: int) -> np.array:
     """
     :param gridsize: Größe des Spielfelds (+Rand)
-    :return: Gibt eine Matrix aus Werten zurück, d aus 1 und 0 zurück.ie Elemente auf dem Spielfeld rerpäsentieren
+    :return: gibt eine Matrix aus Werten zurück, d aus 1 und 0 zurück.ie Elemente auf dem Spielfeld rerpäsentieren
     0 = Freies Feld,
     1 = Rahmen,
     2 = Gegner,
@@ -115,10 +115,11 @@ def paintgrid(
         print()  # Leerzeile bevor nächste Zeile verarbeitet wird
     # Statuszeile
     current_time = time.time()
-    print("⏳", "(", round(current_time - start_time), "/", max_time_count, ")\t",
-          "🧡", "(", round(health_count), ")\t",
-          "🐾", step_count, "/", max_step_count, "\t"
-          "🐁", number_of_enemies, "(", catch_count, "/", max_catch_count, ")\t")
+    statuszeile = "⏳" + str(max_time_count - round(current_time - start_time)) + "    " +\
+        "🧡" + str(round(health_count)) + "    " +\
+        "🐾" + str(max_step_count + 1 - step_count) + "    " +\
+        "🐁" + str(number_of_enemies) + "(" + str(catch_count) + "/" + str(max_catch_count) + ") "
+    print(halfwidth_to_fullwidth(statuszeile))
 
 
 def random_direction() -> str:
@@ -135,9 +136,9 @@ def move(
         direction: str = "None") -> tuple[int, int]:
     """
     Objekte im Grid bewegen
-    :param old_position: Momentane Position des Objekts
-    :param direction: Richting, in die sich bewegt werden soll
-    :return: Neue Position des Objeks
+    :param old_position: momentane Position des Objekts
+    :param direction: Richtung, in die sich bewegt werden soll
+    :return: neue Position des Objeks
     """
     if direction == "up":
         steps = (-1, 0)
@@ -165,8 +166,8 @@ def update_board(
         playerinput: bool = False):
     """
     Spieler bewegen und Spielfeld neu aufbauen. Dies entpricht einer Runde. D.h. Gegner bewegen sich usw
-    :param direction: Richtung in die sich Spieler bewegen soll
-    :param playerinput: Wurde das Update durch Spielerbewegung ausgelöst?
+    :param direction: Richtung, in die sich Spieler bewegen soll
+    :param playerinput: wurde das Update durch Spielerbewegung ausgelöst?
     :return:
     """
     global p_current_position
@@ -190,8 +191,45 @@ def update_board(
     time.sleep(tick_len)
 
 
-def fancy_string(string: str, breite: int) -> str:  # FIXME STILL LOOKS LIKE SHIT
-    fancystring = string
+# Stringin Unicode Fullwidth übersetzen
+HALFWIDTH_TO_FULLWIDTH = str.maketrans(
+    '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[]^_`{|}~',
+    '０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！゛＃＄％＆（）＊＋、ー。／：；〈＝〉？＠［］＾＿‘｛｜｝～')
+
+
+def halfwidth_to_fullwidth(s):
+    return s.translate(HALFWIDTH_TO_FULLWIDTH)
+
+
+# Zeichne hübsche Box um String
+def fancy_string(
+        string: str = "Hier könnte Ihre Werbung stehen!",
+        breite: int = 30) -> str:
+    """
+    :param string: Nachricht
+    :param breite: Breite der Box
+    :return: fancystring
+    """
+    border = "🟧"
+    padder = "⬜"
+    # string gerade Anzahl zeichen und breite ungerade oder umgekehrt. Wir brauchen ein extra Zeichen
+    if len(string) % 2 != breite % 2:
+        topline = border + border
+    else:
+        topline = border
+
+    for i in range(0, breite-2):  # -2 Wegen den + am Anfang und Ende
+        topline = topline + border
+
+    topline = topline + border + "\n"
+    padding = ""
+
+    for i in range(0, int((breite-1)/2-len(string)/2)):
+        padding = padding + padder
+
+    middleline = border + padding + halfwidth_to_fullwidth(string) + padding + border + "\n"
+    bottomline = topline
+    fancystring = topline + middleline + bottomline
     return fancystring
 
 
@@ -202,8 +240,9 @@ def win(
     :param reason: Grund für Win
     :return:
     """
+    reason = reason.replace(" ", "⬜")
     update_board()
-    print(fancy_string(reason, 30))
+    print(fancy_string(reason, current_gridsize))
 
 
 def gameover(
@@ -213,8 +252,9 @@ def gameover(
     :param reason: Grund für Game Over
     :return:
     """
+    reason = reason.replace(" ", "⬜")
     update_board()
-    print(fancy_string(reason, 30))
+    print(fancy_string(reason, current_gridsize))
 
 # ##------FUNKTIONEN ENDE------## #
 
@@ -224,10 +264,10 @@ def gameover(
 current_gridsize = 30  # Spielfeldgröße (X^2)
 
 max_time_count = 60  # Maximale Spielzeit in s
-max_step_count = current_gridsize**2 // 3  # Maximale Schrittzahl
+max_step_count = current_gridsize**2 // 6  # Maximale Schrittzahl
 
 step_count = 1  # Schrittzähler am Anfang
-health_count = 100  # HP am Anfang
+health_count = 99  # HP am Anfang
 hunger_factor = 0.1   # Hungerfaktor. HP nimmt mit Zeit und Schrittzahl ab. HP - (Schritte / Zeit) * Hungerfaktor)
 
 enemy_nutrition = health_count // 3  # Punkte für gefangen Gegner
@@ -238,7 +278,7 @@ catch_count = 0  # Anfangspunktzahl
 max_catch_count = number_of_enemies // 2 + 1  # Zielpunktzahl
 
 number_of_obstacles = current_gridsize // 2  # Anzahl der Hindernisse
-obstacle_punishment = health_count  # HP-Verlust, wenn Player Hinderniss berührt
+obstacle_punishment = health_count // 3  # HP-Verlust, wenn Player Hinderniss berührt
 
 number_of_neutrals = current_gridsize  # Anzahl Objekte, die nichts besonderens tun
 
@@ -258,7 +298,8 @@ current_grid = create_grid(current_gridsize)  # Initiales Grid erstellen
 p_current_position = p_start_position  # Startposition merken
 e_current_positions = e_start_positions  # Gegner Start positionen merken
 paintgrid(current_grid, p_current_position, e_start_positions)  # Startgrid zeichnen
-input("\nDu bist 🐈! Fange 🐁 und lauf nicht durch 🔥! \n\tEnter drücken zum Starten")
+print(halfwidth_to_fullwidth("\nDU BIST 🐈!\nFANGE 🐁 UND LAUF NICHT DURCH 🔥!\n"))
+input(fancy_string("ENTER⬜DRUECKEN⬜ZUM⬜STARTEN"))
 start_time = time.time()  # Startzeit merken
 time.sleep(tick_len)
 
@@ -268,16 +309,16 @@ while True:
     try:
         # Abbruchbeningungen (WIN oder GAMEOVER)
         if catch_count == max_catch_count:  # Wir haben gewonnen
-            win("\n🎉\t GEWONNEN!!! \t🎉")
+            win("DU HAST GEWONNEN!!!")
             break
         elif step_count > max_step_count:  # Keine Schritte mehr übrig
-            gameover("\n☠️\tDu bist zu viel gelaufen!\t☠️")
+            gameover("DU BIST ZU VIEL GELAUFEN!")
             break
         elif health_count < 0:  # Wir sind gestorben
-            gameover("\n☠️\tDu bist gestorben!\t☠️")
+            gameover("DU BIST GESTORBEN!")
             break
         elif current_time_count > max_time_count:  # Wir haben die Zeit überschritten
-            gameover("\n☠️\tZeitlimit überschritten\t☠️")
+            gameover("ZEITLIMIT UEBERSCHRITTEN!")
             break
         # Keyboard Eingaben
         elif keyboard.is_pressed('left'):
@@ -292,5 +333,5 @@ while True:
         time.sleep(0.1)  # Ein kleiner Delay, damit das Spiel nicht zu Schnell läuft
 
     except KeyboardInterrupt:  # STRG-C gedrückt
-        gameover("Aufgegeben? 😿😿😿")
+        gameover("AUFGEGEBEN?")
         break

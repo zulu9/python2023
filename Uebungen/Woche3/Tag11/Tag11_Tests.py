@@ -23,3 +23,17 @@ else:
     print("Everything works fine")
 finally:
     print("Wir sind durch")
+
+
+checker = True
+while checker:
+    try:
+        zahl = input("Zahl: ")
+        int(zahl)
+        checker = False
+    except Exception: # Broad exception. Nich machen!
+        print("Something went wrong!")
+    else:
+        print("Everything works fine")
+    finally:
+        print("Wir sind durch")
