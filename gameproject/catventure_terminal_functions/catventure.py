@@ -189,8 +189,8 @@ def update_board(
     time.sleep(tick_len)
 
 
-def fancy_string(string: str, breite: int) -> str:  #  FIXME STILL LOOKS LIKE SHIT
-    fancystring = str(breite / 2) + string + str(breite / 2)
+def fancy_string(string: str, breite: int) -> str:  # FIXME STILL LOOKS LIKE SHIT
+    fancystring = string
     return fancystring
 
 
