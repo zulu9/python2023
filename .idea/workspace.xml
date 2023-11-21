@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Uebungen Tag11">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Aufgabe 7">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12_Tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Uebungen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag11/Tag11_Uebungen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,14 +134,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00030" summary="tag6 uebungen">
-      <option name="closed" value="true" />
-      <created>1699886442711</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1699886442711</updated>
     </task>
     <task id="LOCAL-00031" summary="tag7 uebungen">
       <option name="closed" value="true" />
@@ -526,12 +519,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700490678256</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Aufgabe 7">
+      <option name="closed" value="true" />
+      <created>1700494394344</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1700494394344</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added tag8 tests" />
     <MESSAGE value="typed tag7 uebungen functions" />
     <MESSAGE value="added uebungen tag 8" />
     <MESSAGE value="feierabend." />
@@ -556,7 +556,8 @@
     <MESSAGE value="reduce()" />
     <MESSAGE value="try, except" />
     <MESSAGE value="Uebungen Tag11" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uebungen Tag11" />
+    <MESSAGE value="Aufgabe 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

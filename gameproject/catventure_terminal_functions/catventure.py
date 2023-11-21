@@ -11,7 +11,6 @@ import time
 import keyboard
 import random
 # TODO OPTIMIZE
-# TODO OPTIONAL: Enemies that can kill you
 
 
 # ##------FUNKTIONEN ANFANG------## #
@@ -33,7 +32,7 @@ def create_grid(
         gridsize: int) -> np.array:
     """
     :param gridsize: Größe des Spielfelds (+Rand)
-    :return: gibt eine Matrix aus Werten zurück, d aus 1 und 0 zurück.ie Elemente auf dem Spielfeld rerpäsentieren
+    :return: gibt eine Matrix aus Werten zurück, die Elemente auf dem Spielfeld rerpäsentieren
     0 = Freies Feld,
     1 = Rahmen,
     2 = Gegner,
@@ -191,7 +190,7 @@ def update_board(
     time.sleep(tick_len)
 
 
-# Stringin Unicode Fullwidth übersetzen
+# String in Unicode Fullwidth übersetzen (Achtung: Kann keine Umlaute!)
 HALFWIDTH_TO_FULLWIDTH = str.maketrans(
     '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[]^_`{|}~',
     '０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！゛＃＄％＆（）＊＋、ー。／：；〈＝〉？＠［］＾＿‘｛｜｝～')
@@ -260,21 +259,21 @@ def gameover(
 
 
 # ##------MAIN GAME LOOP------## #
-# Globale Option und Startparameter
-current_gridsize = 30  # Spielfeldgröße (X^2)
+# Globale Optionen und Startparameter
+current_gridsize = 30  # Spielfeldgröße (X^2) Default: 30
 
-max_time_count = 60  # Maximale Spielzeit in s
+max_time_count = 60  # Maximale Spielzeit in s Default: 60
 max_step_count = current_gridsize**2 // 6  # Maximale Schrittzahl
 
-step_count = 1  # Schrittzähler am Anfang
-health_count = 99  # HP am Anfang
+step_count = 1  # Schrittzähler am Anfang. Default: 1
+health_count = 99  # HP am Anfang. Default 99
 hunger_factor = 0.1   # Hungerfaktor. HP nimmt mit Zeit und Schrittzahl ab. HP - (Schritte / Zeit) * Hungerfaktor)
 
-enemy_nutrition = health_count // 3  # Punkte für gefangen Gegner
+enemy_nutrition = health_count // 3  # HP, die man für gefangenen Gegner bekommt
 number_of_enemies = current_gridsize // 2  # Anzahl Gegner
 e_move_prob = 0.8  # Wahrscheinlichkeit, dass sich ein Gegner pro Runde bewegt
 
-catch_count = 0  # Anfangspunktzahl
+catch_count = 0  # Anfangspunktzahl. Default: 0
 max_catch_count = number_of_enemies // 2 + 1  # Zielpunktzahl
 
 number_of_obstacles = current_gridsize // 2  # Anzahl der Hindernisse
@@ -282,7 +281,7 @@ obstacle_punishment = health_count // 3  # HP-Verlust, wenn Player Hinderniss be
 
 number_of_neutrals = current_gridsize  # Anzahl Objekte, die nichts besonderens tun
 
-tick_len = 0.01  # Spielgeschwindigkeit / Zeit zwischen Moves. . Standard 0 = So schnell wie möglich.
+tick_len = 0.01  # Spielgeschwindigkeit / Zeit zwischen Moves. Default: 0.01
 
 # Startpositionen würfeln
 p_start_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -309,16 +308,16 @@ while True:
     try:
         # Abbruchbeningungen (WIN oder GAMEOVER)
         if catch_count == max_catch_count:  # Wir haben gewonnen
-            win("DU HAST GEWONNEN!!!")
+            win("🎉DU HAST GEWONNEN!!!🎉")
             break
-        elif step_count > max_step_count:  # Keine Schritte mehr übrig
-            gameover("DU BIST ZU VIEL GELAUFEN!")
+        elif step_count >= max_step_count:  # Keine Schritte mehr übrig
+            gameover("💀DU BIST ZU VIEL GELAUFEN!💀")
             break
-        elif health_count < 0:  # Wir sind gestorben
-            gameover("DU BIST GESTORBEN!")
+        elif health_count <= 0:  # Wir sind gestorben
+            gameover("💀DU BIST GESTORBEN!💀")
             break
-        elif current_time_count > max_time_count:  # Wir haben die Zeit überschritten
-            gameover("ZEITLIMIT UEBERSCHRITTEN!")
+        elif current_time_count >= max_time_count:  # Wir haben die Zeit überschritten
+            gameover("⌛ZEITLIMIT UEBERSCHRITTEN!⌛")
             break
         # Keyboard Eingaben
         elif keyboard.is_pressed('left'):
