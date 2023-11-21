@@ -13,7 +13,7 @@ import random
 
 
 class Grid:
-    def __init__(self, name, sizex, sizey):
+    def __init__(self, name, sizex=0, sizey=0):
         self.name = name
         self.sizex = sizex
         self.sizey = sizey
@@ -26,6 +26,20 @@ class Grid:
         grid[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
         return grid
 
+    def create_from_file(self): # FIXME Output passt noch nicht
+        """
 
-my_grid = Grid("Level1,", 20, 10).create_rectangle()
+        :return:  Aus Datei gelesenes Grid
+        """
+        grid = []
+        with open("./maps/" + self.name + ".lvl") as levelfile:
+            for line in levelfile:
+                grid.append(line.rstrip())
+                grid = list(grid)
+        return grid
+
+
+my_grid = Grid("level1", 10, 10).create_rectangle()
+print(my_grid)
+my_grid = Grid("level1").create_from_file()
 print(my_grid)

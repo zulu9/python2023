@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Adeded catventure für Entdecker">
-      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert">
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/.level1.lvl.kate-swp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure_entdecker.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure_entdecker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,14 +142,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00039" summary="typed tag7 uebungen functions">
-      <option name="closed" value="true" />
-      <created>1700040345112</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1700040345112</updated>
     </task>
     <task id="LOCAL-00040" summary="added uebungen tag 8">
       <option name="closed" value="true" />
@@ -533,12 +527,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700574703089</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert">
+      <option name="closed" value="true" />
+      <created>1700583401485</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1700583401485</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="IDs von Funktionen" />
     <MESSAGE value="Added Tag10 Tests" />
     <MESSAGE value="Merge sort" />
     <MESSAGE value="catventue keyboard input tests" />
@@ -563,7 +564,8 @@
     <MESSAGE value="Übungen zu Klassen" />
     <MESSAGE value="Kommentare hinzugefügt" />
     <MESSAGE value="Adeded catventure für Entdecker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adeded catventure für Entdecker" />
+    <MESSAGE value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

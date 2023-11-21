@@ -41,6 +41,3 @@ class Enemy:
 
 enemy1 = (Enemy("Maus", 1, 99, 20))
 print(enemy1)
-
-
-# TODO implement 2 magic methods
