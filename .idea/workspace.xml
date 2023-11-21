@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Tag 12 Tests">
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag12_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +73,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Uebungen/Woche3/Tag12" />
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
       <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag9" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag8" />
-      <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag1" />
     </key>
   </component>
   <component name="RunManager">
@@ -132,22 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00032" summary="tag7 uebungen">
-      <option name="closed" value="true" />
-      <created>1699969545606</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1699969545606</updated>
-    </task>
-    <task id="LOCAL-00033" summary="tag7 uebungen">
-      <option name="closed" value="true" />
-      <created>1699970188435</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1699970188435</updated>
     </task>
     <task id="LOCAL-00034" summary="tag7 uebungen">
       <option name="closed" value="true" />
@@ -525,7 +510,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700554328213</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Tag 12 Tests">
+      <option name="closed" value="true" />
+      <created>1700554387352</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1700554387352</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Tag 12 Tests">
+      <option name="closed" value="true" />
+      <created>1700554629042</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1700554629042</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
