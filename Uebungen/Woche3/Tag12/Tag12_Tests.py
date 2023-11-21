@@ -8,7 +8,7 @@ class Dog:
         self.age = age
         self.color = color
 
-    def __str__(self):
+    def __str__(self):  # Magic Method
         return f"DOG {self.name}, \n\tBreed: {self.breed}, \n\tAge: {self.age}, \n\tColor: {self.color}, "
 
 
@@ -41,3 +41,6 @@ class Enemy:
 
 enemy1 = (Enemy("Maus", 1, 99, 20))
 print(enemy1)
+
+
+# TODO implement 2 magic methods

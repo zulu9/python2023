@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Tag 12 Tests">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Typos">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/class_bsp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/class_bsp_methoden.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" afterDir="false" />
     </list>
@@ -37,6 +39,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Uebungen/Woche3/Tag12/class_bsp_methoden.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -55,22 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zulu9/Documents/Python/Code/gameproject/catventure_terminal_functions&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Python&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/catventure_terminal_functions",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Uebungen/Woche3/Tag12" />
@@ -133,22 +138,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00034" summary="tag7 uebungen">
-      <option name="closed" value="true" />
-      <created>1700009077840</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1700009077840</updated>
-    </task>
-    <task id="LOCAL-00035" summary="tag7 uebungen">
-      <option name="closed" value="true" />
-      <created>1700009256612</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1700009256612</updated>
     </task>
     <task id="LOCAL-00036" summary="nonesense">
       <option name="closed" value="true" />
@@ -526,12 +515,27 @@
       <option name="project" value="LOCAL" />
       <updated>1700554629042</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Tag 12 Tests">
+      <option name="closed" value="true" />
+      <created>1700557441120</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1700557441120</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Typos">
+      <option name="closed" value="true" />
+      <created>1700558043674</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1700558043674</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added uebungen tag 8" />
     <MESSAGE value="feierabend." />
     <MESSAGE value="Tag 9 tests added" />
     <MESSAGE value="IDs" />
@@ -556,7 +560,8 @@
     <MESSAGE value="Uebungen Tag11" />
     <MESSAGE value="Aufgabe 7" />
     <MESSAGE value="Tag 12 Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tag 12 Tests" />
+    <MESSAGE value="Typos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Typos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
