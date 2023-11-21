@@ -239,7 +239,7 @@ def win(
     :param reason: Grund für Win
     :return:
     """
-    reason = reason.replace(" ", "⬜")
+    reason = reason.replace(" ", "⬜")  # Leerzeichen durch hübsche Blöcke ersetzen
     update_board()
     print(fancy_string(reason, current_gridsize))
 
@@ -251,7 +251,7 @@ def gameover(
     :param reason: Grund für Game Over
     :return:
     """
-    reason = reason.replace(" ", "⬜")
+    reason = reason.replace(" ", "⬜") # Leerzeichen durch hübsche Blöcke ersetzen
     update_board()
     print(fancy_string(reason, current_gridsize))
 
