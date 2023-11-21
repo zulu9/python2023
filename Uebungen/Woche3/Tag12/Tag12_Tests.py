@@ -1,3 +1,6 @@
+# Tag 12
+
+# Klassen
 class Cat:
     def __init__(self, name, breed, age, color):
         self.name = name
@@ -14,6 +17,8 @@ print(Cat)
 print(cat1)
 cat1.color = 'Pink'
 print(cat1. color)
-del cat1.age # Meistens eine dumme Idee
-cat.age = None
+del cat1.age  # Meistens eine dumme Idee
+cat1.age = None
 print(cat1.age)
+del cat1
+print(cat1)
