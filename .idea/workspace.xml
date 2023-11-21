@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Kommentare hinzugefügt">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Adeded catventure für Entdecker">
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure_entdecker.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure_entdecker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +76,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche3/Tag12" />
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
-      <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag9" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag8" />
     </key>
@@ -136,14 +140,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00038" summary="added tag8 tests">
-      <option name="closed" value="true" />
-      <created>1700036680252</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1700036680252</updated>
     </task>
     <task id="LOCAL-00039" summary="typed tag7 uebungen functions">
       <option name="closed" value="true" />
@@ -529,12 +525,19 @@
       <option name="project" value="LOCAL" />
       <updated>1700574661527</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Adeded catventure für Entdecker">
+      <option name="closed" value="true" />
+      <created>1700574703088</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1700574703089</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="IDs" />
     <MESSAGE value="IDs von Funktionen" />
     <MESSAGE value="Added Tag10 Tests" />
     <MESSAGE value="Merge sort" />
@@ -559,7 +562,8 @@
     <MESSAGE value="Typos" />
     <MESSAGE value="Übungen zu Klassen" />
     <MESSAGE value="Kommentare hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kommentare hinzugefügt" />
+    <MESSAGE value="Adeded catventure für Entdecker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adeded catventure für Entdecker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
