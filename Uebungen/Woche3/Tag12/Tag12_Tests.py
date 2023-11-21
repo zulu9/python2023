@@ -15,4 +15,5 @@ print(cat1)
 cat1.color = 'Pink'
 print(cat1. color)
 del cat1.age # Meistens eine dumme Idee
+cat.age = None
 print(cat1.age)
