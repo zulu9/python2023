@@ -1,7 +1,7 @@
 #  ---CATVENTURE 0.0.0.1 - The terminal emulator emoji Cat Adventure---
 # Needs:
 #   * python 3.x + einige Module
-#   * UTF-8 Terminal Emulator mit Noto Color Emoji font oder Ähnlichem (TODO TEST ON WINDOWS)
+#   * UTF-8 Terminal Emulator mit Noto Color Emoji Font oder Ähnlichem (TODO TEST ON WINDOWS)
 #   * Unter Linux: Braucht root-Rechte wegen Keyboard-Libary (FIXME)
 
 # ##------IMPORTS------## #
