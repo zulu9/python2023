@@ -6,7 +6,7 @@
 #  BROKEN FIXME TODO
 
 # ##------IMPORTS------## #
-import numpy as np
+import numpy
 import os
 import time
 import keyboard
@@ -60,7 +60,7 @@ class Grid:
         Create a rectangular grid
         :return: Rectangle of 0s, surrounded by 1s
         """
-        self.values = np.ones((self.sizex + 1, self.sizey + 1), dtype=np.int8)
+        self.values = numpy.ones((self.sizex + 1, self.sizey + 1), dtype=numpy.int8)
         self.values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
         return self
 
@@ -140,11 +140,10 @@ default_update_speed = 0.1
 
 #  Create grids
 # my_grid_object = Grid('level1').create_from_file()
-my_grid_object = Grid('level1', 30, 30).create_rectangle()
+my_grid = Grid('level1', 30, 30).create_rectangle()
 
 
-
-#print(type(my_grid_object))
+# print(type(my_grid_object))
 #   input()
 #  Evaluate Keyboard input and update grid
 start_time = time.time()
@@ -163,7 +162,7 @@ while True:
             p_direction = None
 
         # Update grid on screen with new values
-        update_grid(my_grid_object, p_direction)
+        update_grid(my_grid, p_direction)
         time.sleep(default_update_speed)
 
     except KeyboardInterrupt:  # CTRL-C was pressed
