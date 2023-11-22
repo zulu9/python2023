@@ -1,6 +1,6 @@
 #  ---XTVENTURE 0.0.0.2 - The terminal emulator emoji Adventure Object Oriented---
 # Needs:
-#   * python 3.x + some Module
+#   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
 #   * On Linux: root due to used Keyboard-Libary (FIXME FIND BETTER LIBRARY)
 
