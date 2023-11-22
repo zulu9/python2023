@@ -13,7 +13,7 @@ import random
 
 
 # ##------GLOBAL FUNCTIONS------## #
-def str_to_fullwidth(text):
+def fullwidth_str(text: str) -> str:
     """
     Translate string to fullwidth unicode characters to avoid weird spacing (Can't do Umlauts!)
     :param text: String to convert
@@ -88,10 +88,11 @@ def update_grid(current_grid: list, p_input: str = None):
     :param p_input: Player input
     :return:
     """
-    #if p_input != None:
+    # if p_input != None:
     #    move(player_object, p_input)
 
     draw_grid(current_grid)
+    print(fullwidth_str("HELLO"))
     return print(p_input)
 
 
@@ -117,7 +118,7 @@ def draw_grid(grid: list):
 start_time = time.time()
 default_update_speed = 0.1
 
-my_grid = Grid('level1').create_from_file()
+# my_grid = Grid('level1').create_from_file()
 my_grid = Grid('level1', 30, 30).create_rectangle()
 
 #  Evaluate Keyboard input and update grid

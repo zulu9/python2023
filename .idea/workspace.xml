@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="unfinished: &#10;methode um Grid aus Datei zu laden">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +139,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00041" summary="feierabend.">
-      <option name="closed" value="true" />
-      <created>1700059978945</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1700059978945</updated>
     </task>
     <task id="LOCAL-00042" summary="Tag 9 tests added">
       <option name="closed" value="true" />
@@ -533,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700585235356</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
+      <option name="closed" value="true" />
+      <created>1700620181560</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1700620181560</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -549,7 +548,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Merge sort" />
     <MESSAGE value="catventue keyboard input tests" />
     <MESSAGE value="first collision detection" />
     <MESSAGE value="added enemies and score" />
@@ -574,7 +572,8 @@
     <MESSAGE value="Adeded catventure für Entdecker" />
     <MESSAGE value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
     <MESSAGE value="unfinished: &#10;methode um Grid aus Datei zu laden" />
-    <option name="LAST_COMMIT_MESSAGE" value="unfinished: &#10;methode um Grid aus Datei zu laden" />
+    <MESSAGE value="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses" />
+    <option name="LAST_COMMIT_MESSAGE" value="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
