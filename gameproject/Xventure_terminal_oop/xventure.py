@@ -60,9 +60,9 @@ class Grid:
         Create a rectangular grid
         :return: Rectangle of 0s, surrounded by 1s
         """
-        grid_values = np.ones((self.sizex + 1, self.sizey + 1), dtype=np.int8)
-        grid_values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
-        return self.values
+        self.values = np.ones((self.sizex + 1, self.sizey + 1), dtype=np.int8)
+        self.values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
+        return self
 
     def create_from_file(self):  # TODO CHECK FILE FOR VALID FORMAT
         """
@@ -78,7 +78,7 @@ class Grid:
             except ValueError:
                 self.values = None
             finally:
-                return self.values
+                return self
 
 
 # Tests TODO REPLACE WITH PROPER VERSION
@@ -102,6 +102,7 @@ def update_grid(current_grid: Grid, p_input: str = None):
 
     # Draw new Grid
     new_grid = current_grid  # FIXME
+    print(new_grid)
     paint_grid(new_grid)
 
     # Add Status Line
@@ -139,8 +140,9 @@ default_update_speed = 0.1
 
 #  Create grids
 # my_grid_object = Grid('level1').create_from_file()
-my_grid_object = Grid('level1', 30, 30)
-print(my_grid_object.values)
+my_grid_object = Grid('level1', 30, 30).create_rectangle()
+
+
 
 #print(type(my_grid_object))
 #   input()
