@@ -3,6 +3,7 @@
 #   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
 #   * On Linux: root due to used Keyboard-Libary (FIXME FIND BETTER LIBRARY)
+#  BROKEN FIXME TODO
 
 # ##------IMPORTS------## #
 import numpy as np
@@ -52,36 +53,36 @@ class Grid:
         self.name = name
         self.sizex = sizex
         self.sizey = sizey
+        self.values = []
 
     def create_rectangle(self):
         """
         Create a rectangular grid
         :return: Rectangle of 0s, surrounded by 1s
         """
-        grid = np.ones((self.sizex + 1, self.sizey + 1), dtype=np.int8)
-        grid[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
-        return grid.tolist()
+        grid_values = np.ones((self.sizex + 1, self.sizey + 1), dtype=np.int8)
+        grid_values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
+        return self.values
 
     def create_from_file(self):  # TODO CHECK FILE FOR VALID FORMAT
         """
         Create a grid from a Textfile in the maps subdirectory (filename.lvl)
         :return:  Grid read from file
         """
-        grid = []
         with open('./maps/' + self.name + '.lvl', 'r') as levelfile:
             try:
                 for lines in levelfile:
                     elements = lines.strip().split(' ')
                     elements = [int(element) for element in elements]
-                    grid.append(elements)
+                    self.values.append(elements)
             except ValueError:
-                grid = None
+                self.values = None
             finally:
-                return grid
+                return self.values
 
 
 # Tests TODO REPLACE WITH PROPER VERSION
-def update_grid(current_grid: list, p_input: str = None):
+def update_grid(current_grid: Grid, p_input: str = None):
     """
     Updates the grid on screen
     :param current_grid:  Name of the currently used grid
@@ -106,10 +107,10 @@ def update_grid(current_grid: list, p_input: str = None):
     # Add Status Line
     print(fullwidth_str(str(round(time.time() - start_time))))
 
-    return print(fullwidth_str(p_input))  # FIXME REMOVE AFTER IMPLEMENTING MOVES
+    return print(p_input)  # FIXME REMOVE AFTER IMPLEMENTING MOVES
 
 
-def paint_grid(grid: list):
+def paint_grid(grid: Grid):
     """
     # Actually paint the grid to screen
     :param grid: grid to be painted on screen
@@ -118,7 +119,7 @@ def paint_grid(grid: list):
     clear()
     row_num = 0
     el_num = 0
-    for row in grid:
+    for row in grid.values:
         for element in row:  # FIXME FIND A BETTER WAY TO REPLACE NUMBERS WITH EMOJIS (TRANSLATE FUNCTION?)
             if element == 1:  # Rehmen zeichnen
                 element = "🧱"
@@ -137,9 +138,12 @@ def paint_grid(grid: list):
 default_update_speed = 0.1
 
 #  Create grids
-# my_grid = Grid('level1').create_from_file()
-my_grid = Grid('level1', 30, 30).create_rectangle()
+# my_grid_object = Grid('level1').create_from_file()
+my_grid_object = Grid('level1', 30, 30)
+print(my_grid_object.values)
 
+#print(type(my_grid_object))
+#   input()
 #  Evaluate Keyboard input and update grid
 start_time = time.time()
 while True:
@@ -157,7 +161,7 @@ while True:
             p_direction = None
 
         # Update grid on screen with new values
-        update_grid(my_grid, p_direction)
+        update_grid(my_grid_object, p_direction)
         time.sleep(default_update_speed)
 
     except KeyboardInterrupt:  # CTRL-C was pressed

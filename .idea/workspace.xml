@@ -140,14 +140,6 @@
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
     </task>
-    <task id="LOCAL-00045" summary="IDs von Funktionen">
-      <option name="closed" value="true" />
-      <created>1700133575397</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1700133575397</updated>
-    </task>
     <task id="LOCAL-00046" summary="IDs von Funktionen">
       <option name="closed" value="true" />
       <created>1700134115147</created>
@@ -532,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700622459897</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
+      <option name="closed" value="true" />
+      <created>1700623004766</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1700623004766</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
