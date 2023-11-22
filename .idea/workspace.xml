@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert">
-      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/.level1.lvl.kate-swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="unfinished: &#10;methode um Grid aus Datei zu laden">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag12/Tag12_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,22 +59,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/catventure_terminal_functions",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zulu9/Documents/Python/Code/gameproject/catventure_terminal_functions&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
@@ -142,14 +140,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00040" summary="added uebungen tag 8">
-      <option name="closed" value="true" />
-      <created>1700053056533</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1700053056533</updated>
     </task>
     <task id="LOCAL-00041" summary="feierabend.">
       <option name="closed" value="true" />
@@ -535,12 +525,30 @@
       <option name="project" value="LOCAL" />
       <updated>1700583401485</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="unfinished: &#10;methode um Grid aus Datei zu laden">
+      <option name="closed" value="true" />
+      <created>1700585235356</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1700585235356</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added Tag10 Tests" />
     <MESSAGE value="Merge sort" />
     <MESSAGE value="catventue keyboard input tests" />
     <MESSAGE value="first collision detection" />
@@ -565,7 +573,8 @@
     <MESSAGE value="Kommentare hinzugefügt" />
     <MESSAGE value="Adeded catventure für Entdecker" />
     <MESSAGE value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
+    <MESSAGE value="unfinished: &#10;methode um Grid aus Datei zu laden" />
+    <option name="LAST_COMMIT_MESSAGE" value="unfinished: &#10;methode um Grid aus Datei zu laden" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
