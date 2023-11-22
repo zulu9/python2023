@@ -44,7 +44,7 @@ def clear():
 class Grid:
     def __init__(self, name, sizex=0, sizey=0):
         """
-
+        A grid in the game
         :param name: (file)name of the grid
         :param sizex: gridsize X
         :param sizey: gridsize Y
@@ -100,21 +100,26 @@ def update_grid(current_grid: list, p_input: str = None):
     # ---
 
     # Draw new Grid
-    new_grid = current_grid # FIXME
-    draw_grid(new_grid)
+    new_grid = current_grid  # FIXME
+    paint_grid(new_grid)
 
     # Add Status Line
-    print(fullwidth_str("HELLO"))
+    print(fullwidth_str(str(round(time.time() - start_time))))
 
-    return print(p_input)  # FIXME REMOVE AFTER IMPLEMENTING MOVES
+    return print(fullwidth_str(p_input))  # FIXME REMOVE AFTER IMPLEMENTING MOVES
 
 
-def draw_grid(grid: list):
+def paint_grid(grid: list):
+    """
+    # Actually paint the grid to screen
+    :param grid: grid to be painted on screen
+    :return: no return outputs directly to terminal
+    """
     clear()
     row_num = 0
     el_num = 0
     for row in grid:
-        for element in row: # FIXME FIND A BETTER WAY TO REPLACE NUMBERS WITH EMOJIS (TRANSLATE FUNCTION?)
+        for element in row:  # FIXME FIND A BETTER WAY TO REPLACE NUMBERS WITH EMOJIS (TRANSLATE FUNCTION?)
             if element == 1:  # Rehmen zeichnen
                 element = "🧱"
             elif element == 0:  # Freie Fläche zeichnen
@@ -127,16 +132,17 @@ def draw_grid(grid: list):
 
 
 # ##------MAIN LOOP------## #
+# Configuration options
 # TODO MOVE OPTIONS TO CONFIG FILE
-start_time = time.time()
 default_update_speed = 0.1
 
+#  Create grids
 # my_grid = Grid('level1').create_from_file()
 my_grid = Grid('level1', 30, 30).create_rectangle()
 
 #  Evaluate Keyboard input and update grid
+start_time = time.time()
 while True:
-    current_time_count = round(time.time() - start_time)
     try:
         # Keyboard Eingaben
         if keyboard.is_pressed('left'):
