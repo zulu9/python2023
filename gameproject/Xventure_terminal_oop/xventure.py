@@ -88,12 +88,25 @@ def update_grid(current_grid: list, p_input: str = None):
     :param p_input: Player input
     :return:
     """
+
+    # Move player
     # if p_input != None:
     #    move(player_object, p_input)
 
-    draw_grid(current_grid)
+    # Move movable entities
+    # ....
+
+    # Update other things
+    # ---
+
+    # Draw new Grid
+    new_grid = current_grid # FIXME
+    draw_grid(new_grid)
+
+    # Add Status Line
     print(fullwidth_str("HELLO"))
-    return print(p_input)
+
+    return print(p_input)  # FIXME REMOVE AFTER IMPLEMENTING MOVES
 
 
 def draw_grid(grid: list):
@@ -101,7 +114,7 @@ def draw_grid(grid: list):
     row_num = 0
     el_num = 0
     for row in grid:
-        for element in row:
+        for element in row: # FIXME FIND A BETTER WAY TO REPLACE NUMBERS WITH EMOJIS (TRANSLATE FUNCTION?)
             if element == 1:  # Rehmen zeichnen
                 element = "🧱"
             elif element == 0:  # Freie Fläche zeichnen

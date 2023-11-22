@@ -140,14 +140,6 @@
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
     </task>
-    <task id="LOCAL-00042" summary="Tag 9 tests added">
-      <option name="closed" value="true" />
-      <created>1700120902231</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1700120902231</updated>
-    </task>
     <task id="LOCAL-00043" summary="IDs">
       <option name="closed" value="true" />
       <created>1700121827507</created>
@@ -532,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700620181560</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
+      <option name="closed" value="true" />
+      <created>1700621867293</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1700621867293</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
