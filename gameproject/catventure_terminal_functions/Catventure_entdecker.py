@@ -7,6 +7,7 @@
 import numpy as np
 import random
 import time
+
 class Grid:
 
     current_gridsize = 30  # Spielfeldgröße (X^2) Default: 30
@@ -63,7 +64,7 @@ class Grid:
     '''
 
     # ToDo: Der untere Codeblock sollte einer Methode in der Class gamefunction zugewiesen werden!
-    def paintgrid(self,spieler):
+    def paintgrid(self):
         """
 
         :param grid: Eine mit create_grid erzeugte Matrix
@@ -89,7 +90,7 @@ class Grid:
                 for enemy_position in enemy_positions:  # Gegner einsetzen
                     if (row_num, el_num) == enemy_position:
                         element = 2.0
-                if (row_num, el_num) == spieler.spielerposition:  # Player Emoji einsetzen
+                if (row_num, el_num) == player_position:  # Player Emoji einsetzen
                     if element == 2.0:  # Player hat Gegner gefangen
                         catch_count += 1
                         number_of_enemies -= 1
@@ -123,33 +124,38 @@ print(feld.paintgrid())
 '''
 
 
-class Entity:
+class Entity(Grid):
   #start_position=default_values für x und y
   # Der Dictionary objekt_eigenschaften erlaubt es, zum einen neue objekte im Spielraum zu kreieren\
   # und ihnen im dict auch beliebige Grundeigenschaften zu zuschreiben.
-  objekt_dict={"spieler":"spieler" , "gegner":"gegner" , "neutrales_objekt":"neutrales_objekt","steinmauer":"steinmauer"}
-    def inkarnieren(self,objekt_name):            #start_x_position, start_y_position
+
+    objekt_dictionary = {"spieler": "spielt", "Beute": "Beute rennt weg und wird gefangen", "neutrales_objekt": "neutrales_objekt",
+                       "steinmauer": "steinmauer"}
+    def __init__(self,objekt_name):
+      #ToDo:  Grid.__init__(position)             #start_x_position, start_y_position
         self.objekt_name = objekt_name
-        self.objekt_dict=self.objekt_dict[objekt_name]
+
+    def __call__(self, objekt_name):
+       return self.objekt_dictionary[self.objekt_name]
 
 
 
 class Spieler(Entity):
-
-   def __init__(self, objekt_name= "spieler", start_x_position=7, start_y_position=7, old_position: tuple[0, 0],direction: str="None"):
-       Entity.__init__(self, objekt_name)
+   #objekt_name = "spieler"
+   def __init__(self, objekt_name= "spieler", start_x_position=7, start_y_position=7, old_position=[0, 0],direction: str="None"):
+       self.objekt_name=objekt_name
+       Entity.__init__(self,objekt_name)
        self.spielerposition = [start_x_position, start_y_position]
+       #ToDo Grid.paintGrid(self.spielerposition)
        self.old_position=old_position           # ToDo: Das Objekt sollt nur ein Attribut self.position  durchweg im ganzen Spiel zugewiesen bekommen
        self.direction=direction
-
 
        #ToDo:
        #self.spielername=spielername       # Name für den Spieler ,spielername="Merlin"
        #self.niveau=niveau   # Erfahrungsstufe ( apprentice, intermediate, master) , niveau="apprentice"
 
-       #def zufällige_spielerstartposition(self):
+       # ToDo: Die Methode move(() sollte vielleicht auch in eine andere Klasse relokalisiert werden.
 
-   # ToDo: Die Methode move(() sollte vielleicht auch in eine andere Klasse relokalisiert werden.
    def move(self, old_position, direction):
        """
        Objekte im Grid bewegen
@@ -178,6 +184,25 @@ class Spieler(Entity):
        else:
            self.spielerposition=old_position
 
+class Beute(Entity):
+    #objekt_name = "beute"
+
+    def __init__(self, objekt_name="Beute", start_x_position=8, start_y_position=8, old_position=[0, 0], direction: str = "None"):
+        self.objekt_name = objekt_name
+        Entity.__init__(self, objekt_name)
+        self.spielerposition = [start_x_position, start_y_position]
+        self.old_position = old_position  # ToDo: Das Objekt sollt nur ein Attribut self.position  durchweg im ganzen Spiel zugewiesen bekommen
+        self.direction = direction
+
+
+
+
+
+
+merlin=Spieler()
+print(merlin("spieler"))
+Maus=Beute()
+print(Maus)
 
 
 
