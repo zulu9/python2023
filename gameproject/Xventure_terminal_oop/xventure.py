@@ -69,7 +69,8 @@ class Grid:
         Create a grid from a Textfile in the maps subdirectory (filename.lvl)
         :return:  Grid read from file
         """
-        with open('./maps/' + self.name + '.lvl', 'r') as levelfile:  # FIXME Make it work on Windows too
+        grid_file = os.path.dirname(__file__) + '/maps/' + self.name + '.lvl'
+        with open(grid_file, 'r') as levelfile:  # TODO Make sure it works on Windows too
             try:
                 for lines in levelfile:
                     elements = lines.strip().split(' ')

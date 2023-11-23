@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="load level from file tested">
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag13/Tag13_Tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="load level from file tested (linux only)">
       <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,14 +147,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Merge sort">
-      <option name="closed" value="true" />
-      <created>1700223489681</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1700223489681</updated>
     </task>
     <task id="LOCAL-00052" summary="Merge sort">
       <option name="closed" value="true" />
@@ -542,7 +532,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700724858472</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="load level from file tested (linux only)">
+      <option name="closed" value="true" />
+      <created>1700726790933</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1700726790933</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -558,7 +556,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="renamed and moved catventure the emoji terminal cat games to another folder" />
     <MESSAGE value="added some notes and proper exception handler for input-loop" />
     <MESSAGE value="alpha 0.1 preview" />
     <MESSAGE value="hunger function implemented but buggy" />
@@ -583,7 +580,8 @@
     <MESSAGE value="BROKEN. trying to pass the Grid-Object instead of just the coordinate list to keep the information and make it more OOP" />
     <MESSAGE value="fixed. grid object now stays accessible" />
     <MESSAGE value="load level from file tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="load level from file tested" />
+    <MESSAGE value="load level from file tested (linux only)" />
+    <option name="LAST_COMMIT_MESSAGE" value="load level from file tested (linux only)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
