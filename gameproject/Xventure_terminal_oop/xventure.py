@@ -74,7 +74,7 @@ class Grid:
             try:
                 for lines in levelfile:
                     elements = lines.strip().split(' ')  # An Leerzeichen trennen
-                    elements = [int(element) for element in elements] # Alles in Integer umwandeln
+                    elements = [int(element) for element in elements]  # Alles in Integer umwandeln
                     self.values.append(elements)
             except ValueError:
                 self.values = None

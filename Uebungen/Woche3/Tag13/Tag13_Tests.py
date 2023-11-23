@@ -16,3 +16,8 @@ for element in my_list:
     print(element, id(my_list[i]))
     print(element, id(element))
     i += 1
+
+for letter in "Pferd":
+    print(letter, id(letter))
+
+print(id("P"))
