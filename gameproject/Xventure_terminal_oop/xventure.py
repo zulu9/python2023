@@ -249,7 +249,7 @@ my_grid.create_rectangle(my_decorations)
 
 
 my_player = Entitiy("Kisa", 2, my_grid.get_random_position(), [])
-# playsound.playsound('./res/music.mp3', False)
+playsound.playsound('./res/music.mp3', False)
 
 my_grid.create_rectangle(my_decorations)
 print(my_grid.values)
