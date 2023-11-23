@@ -73,7 +73,7 @@ class Grid:
         with open(grid_file, 'r') as levelfile:  # TODO Make sure it works on Windows too
             try:
                 for lines in levelfile:
-                    elements = lines.strip().split(' ') # An Leerzeichen trennen
+                    elements = lines.strip().split(' ')  # An Leerzeichen trennen
                     elements = [int(element) for element in elements] # Alles in Integer umwandeln
                     self.values.append(elements)
             except ValueError:
