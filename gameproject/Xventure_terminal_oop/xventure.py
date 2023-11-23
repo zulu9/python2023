@@ -6,14 +6,36 @@
 #  BROKEN FIXME TODO
 
 # ##------IMPORTS------## #
-import numpy
+import numpy as np
 import os
 import time
-import keyboard
+from pynput import keyboard
+import playsound
 import random
 
 
 # ##------GLOBAL FUNCTIONS------## #
+# Keybord handling
+def on_press(key):
+    global Keyboard_Input
+    Keyboard_Input = key
+
+
+def on_release(key):
+    global Keyboard_Input
+    if str(key) == "Key.Q":
+        exit(0)
+    Keyboard_Input = None
+
+
+# Initialize Keyboard listener
+Keyboard_Input = None
+listener = keyboard.Listener(
+    on_press=on_press,
+    on_release=on_release)
+listener.start()
+
+
 def fullwidth_str(text: str) -> str:
     """
     Translate string to fullwidth unicode characters to avoid weird spacing (Can't do Umlauts!)
@@ -42,12 +64,51 @@ def clear():
 # ##------CLASSES------## #
 
 
+class Entitiy:
+    def __init__(self, name: str, type_id: int, position: tuple, attributes: list):
+        self.name = name
+        self.type_id = type_id
+        self.position = position
+        self.attributes = attributes
+
+    def move(self, direction: str = "None") -> tuple[int, int]:
+        """
+        Objekte im Grid bewegen
+        :param direction: Richtung, in die sich bewegt werden soll
+        :return: neue Position des Objeks
+        """
+        if direction == "up":
+            steps = (-1, 0)
+        elif direction == "down":
+            steps = (1, 0)
+        elif direction == "left":
+            steps = (0, -1)
+        elif direction == "right":
+            steps = (0, 1)
+        else:
+            steps = (0, 0)
+        new_position = tuple(np.add(self.position, steps))
+        if (
+                new_position[0] != 0
+                and new_position[1] != 0
+                and new_position[0] < my_grid.size_x
+                and new_position[1] < my_grid.size_y):
+            self.position = new_position
+            return new_position
+        else:
+            return self.position
+
+
+class Player(Entitiy):
+    pass
+
+
 class Graphics:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
         self.assignments = {}
 
-    def create_from_file(self):  #
+    def read_from_file(self):  #
         """
         Read assignments from Textfile in the res subdirectory (filename.grf)
         :return:  Graphic assignments read from file
@@ -65,7 +126,7 @@ class Graphics:
 
 
 class Grid:
-    def __init__(self, grid_name, graphics_name, size_x=0, size_y=0):
+    def __init__(self, grid_name: str, graphics_name: str, size_x: int = 0, size_y: int = 0):
         """
         A grid in the game
         :param grid_name: (file)name of the grid
@@ -76,16 +137,23 @@ class Grid:
         self.name = grid_name
         self.size_x = size_x
         self.size_y = size_y
-        self.graphics = Graphics(graphics_name).create_from_file()
+        self.graphics = Graphics(graphics_name).read_from_file()
         self.values = []
 
-    def create_rectangle(self):
+    def create_rectangle(self, static_objects: list = None):
         """
         Create a rectangular grid
         :return: Rectangle of 0s, surrounded by 1s
         """
-        self.values = numpy.ones((self.size_x + 1, self.size_y + 1), dtype=numpy.int8)
-        self.values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
+
+        # Create empty grid
+        self.values = np.ones((self.size_x + 1, self.size_y + 1), dtype=np.int8)
+        self.values[1:-1, 1:-1] = 0  # Free space
+
+        # Insert static objects like decorations
+        if static_objects is not None:
+            for thing in static_objects:
+                self.values[thing.position] = thing.type_id
         return self
 
     def create_from_file(self):
@@ -105,6 +173,14 @@ class Grid:
             finally:
                 return self
 
+    def get_random_position(self) -> tuple[int, int]:
+        """
+
+        :return:  A random position inside the grid
+        """
+        g_random_position = (random.randrange(self.size_x - 1) + 1, random.randrange(self.size_y - 1) + 1)
+        return g_random_position
+
     def update(self, p_input: str = None):
         """
         Updates the grid on screen
@@ -113,15 +189,16 @@ class Grid:
         """
 
         # Move player
-        # if p_input != None:
-        #    move(player_object, p_input)
+        if p_input is not None:
+            my_player.move(p_input)
 
         # Move movable entities
         # ....
 
         # Update other things
         #
-        self.paint(self.graphics)
+
+        # Upgrade the grid
 
     def paint(self, graphics: Graphics):
         """
@@ -134,9 +211,12 @@ class Grid:
         el_num = 0
         for row in self.values:
             for element in row:
-                # Checkthe graphics assignment dict and replace elements with emojis etc
+                # Draw Player
+                if (row_num, el_num) == my_player.position:
+                    element = 2
+                # Check the graphics assignment dict and replace elements with emojis etc
                 element = graphics.assignments.get(element)
-                print(format(element, "<1"), end="")
+                print(format(str(element), "<1"), end="")
                 el_num += 1
             el_num = 0
             row_num += 1
@@ -154,41 +234,55 @@ class Grid:
 default_update_speed = 0.1
 start_time = time.time()  # Start the clock
 
-#  Create grids
+#  Create grid
 # my_grid = Grid('level1').create_from_file()
+my_grid = Grid('ff_level1', "ff_day", 30, 30).create_rectangle()
 
-my_grid = Grid('level1', "ff_day", 30, 30).create_rectangle()
-print("graphics_name: ", my_grid.graphics.name)
-my_grid.update(None)
+# Create Entities
+my_decorations = []
+number_of_decorations = 30
+for i in range(0, number_of_decorations):
+    my_decorations.append(
+        Entitiy("decoration" + str(i), random.choice([3, 4, 5]), my_grid.get_random_position(), [])
+    )
+my_grid.create_rectangle(my_decorations)
 
-my_grid.graphics.name = "ff_night"
-print("graphics_name: ", my_grid.graphics.name)
-my_grid.update(None)
 
-# print(type(my_grid_object))
-#   input()
+my_player = Entitiy("Kisa", 2, my_grid.get_random_position(), [])
+# playsound.playsound('./res/music.mp3', False)
+
+my_grid.create_rectangle(my_decorations)
+print(my_grid.values)
+
 #  Evaluate Keyboard input and update grid
-
-'''
 while True:
     try:
+        print(Keyboard_Input)
         # Keyboard Eingaben
-        if keyboard.is_pressed('left'):
+        if str(Keyboard_Input) == "Key.left":
             player_input = 'left'
-        elif keyboard.is_pressed('right'):
+        elif str(Keyboard_Input) == "Key.right":
             player_input = 'right'
-        elif keyboard.is_pressed('down'):
-            player_input = 'down'
-        elif keyboard.is_pressed('up'):
+        elif str(Keyboard_Input) == "Key.up":
             player_input = 'up'
+        elif str(Keyboard_Input) == "Key.down":
+            player_input = 'down'
+        elif str(Keyboard_Input) == "Key.q":
+            break
         else:
             player_input = None
 
-        # Update grid on screen with new vagrlues
-        my_grid.graphics.name = "ff_night"  # FIXME Changes in objects are not drawn :(
+        # current_time = round(start_time - time.time())
+        # if current_time % 2 == 0:
+        #     my_grid.graphics.name = "ff_night"
+        # else:
+        #     my_grid.graphics.name = "ff_day"
+        # my_grid.graphics.read_from_file()
+
+        # Update grid and draw on screen
         my_grid.update(player_input)
+        my_grid.paint(my_grid.graphics)
         time.sleep(default_update_speed)
 
     except KeyboardInterrupt:  # CTRL-C was pressed
         break
-'''

@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="IDs in Listen und Strings">
-      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_day.grf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_night.grf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/level1.lvl" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="moved stuff, can load graphics from file now">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche3/Tag13/keyboard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_level1.lvl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/music.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_day.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_day.grf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_night.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_night.grf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/level1.lvl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +73,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/Xventure_terminal_oop/xventure.py",
-    "settings.editor.selected.configurable": "configurable.group.project"
+    "settings.editor.selected.configurable": "configurable.group.build"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -122,7 +124,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="xventure" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="xventure" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -130,7 +132,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Uebungen/Woche2/Tag10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gameproject/Xventure_terminal_oop" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -143,6 +145,12 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.xventure" />
+        <item itemvalue="Python.xventure" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -152,22 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00056" summary="first collision detection">
-      <option name="closed" value="true" />
-      <created>1700348610414</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1700348610414</updated>
-    </task>
-    <task id="LOCAL-00057" summary="added enemies and score">
-      <option name="closed" value="true" />
-      <created>1700357078537</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1700357078537</updated>
     </task>
     <task id="LOCAL-00058" summary="added enemies and score">
       <option name="closed" value="true" />
@@ -545,7 +537,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700727843906</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="moved stuff, can load graphics from file now">
+      <option name="closed" value="true" />
+      <created>1700740976865</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1700740976865</updated>
+    </task>
+    <task id="LOCAL-00106" summary="moved stuff, can load graphics from file now">
+      <option name="closed" value="true" />
+      <created>1700742799557</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1700742799557</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -561,7 +569,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="hunger function implemented but buggy" />
     <MESSAGE value="fixed hunger function" />
     <MESSAGE value="chchcch... changes. &#10;jetzt spielbar" />
     <MESSAGE value="TODO: Gameover und Win Ausgaben" />
@@ -586,7 +593,8 @@
     <MESSAGE value="load level from file tested (linux only)" />
     <MESSAGE value="maybe level loading works on windows too now" />
     <MESSAGE value="IDs in Listen und Strings" />
-    <option name="LAST_COMMIT_MESSAGE" value="IDs in Listen und Strings" />
+    <MESSAGE value="moved stuff, can load graphics from file now" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved stuff, can load graphics from file now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
