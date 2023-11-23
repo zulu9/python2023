@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="load level from file tested (linux only)">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="IDs in Listen und Strings">
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_day.grf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/ff_night.grf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/res/level1.lvl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/maps/level1.lvl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,30 +152,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Merge sort">
-      <option name="closed" value="true" />
-      <created>1700227198708</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1700227198708</updated>
-    </task>
-    <task id="LOCAL-00054" summary="catventue keyboard input tests">
-      <option name="closed" value="true" />
-      <created>1700240940764</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1700240940764</updated>
-    </task>
-    <task id="LOCAL-00055" summary="first collision detection">
-      <option name="closed" value="true" />
-      <created>1700242345753</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1700242345753</updated>
     </task>
     <task id="LOCAL-00056" summary="first collision detection">
       <option name="closed" value="true" />
@@ -540,7 +521,31 @@
       <option name="project" value="LOCAL" />
       <updated>1700727174129</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="maybe level loading works on windows too now">
+      <option name="closed" value="true" />
+      <created>1700727690092</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1700727690092</updated>
+    </task>
+    <task id="LOCAL-00103" summary="maybe level loading works on windows too now">
+      <option name="closed" value="true" />
+      <created>1700727718273</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1700727718274</updated>
+    </task>
+    <task id="LOCAL-00104" summary="IDs in Listen und Strings">
+      <option name="closed" value="true" />
+      <created>1700727843906</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1700727843906</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -556,8 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added some notes and proper exception handler for input-loop" />
-    <MESSAGE value="alpha 0.1 preview" />
     <MESSAGE value="hunger function implemented but buggy" />
     <MESSAGE value="fixed hunger function" />
     <MESSAGE value="chchcch... changes. &#10;jetzt spielbar" />
@@ -581,7 +584,9 @@
     <MESSAGE value="fixed. grid object now stays accessible" />
     <MESSAGE value="load level from file tested" />
     <MESSAGE value="load level from file tested (linux only)" />
-    <option name="LAST_COMMIT_MESSAGE" value="load level from file tested (linux only)" />
+    <MESSAGE value="maybe level loading works on windows too now" />
+    <MESSAGE value="IDs in Listen und Strings" />
+    <option name="LAST_COMMIT_MESSAGE" value="IDs in Listen und Strings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

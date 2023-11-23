@@ -42,17 +42,41 @@ def clear():
 # ##------CLASSES------## #
 
 
+class Graphics:
+    def __init__(self, name):
+        self.name = name
+        self.assignments = {}
+
+    def create_from_file(self):  #
+        """
+        Read assignments from Textfile in the res subdirectory (filename.grf)
+        :return:  Graphic assignments read from file
+        """
+        graphics_file = os.path.dirname(__file__) + '/res/' + self.name + '.grf'
+        with open(graphics_file, encoding="utf-8", mode='r') as graphicsfile:  # TODO Make sure it works on Windows too
+            try:
+                for lines in graphicsfile:
+                    key, value = lines.strip().split(':')  # An : trennen
+                    self.assignments.update({int(key): str(value)})
+            except ValueError:
+                self.assignments = None
+            finally:
+                return self
+
+
 class Grid:
-    def __init__(self, name, sizex=0, sizey=0):
+    def __init__(self, grid_name, graphics_name, size_x=0, size_y=0):
         """
         A grid in the game
-        :param name: (file)name of the grid
-        :param sizex: gridsize X
-        :param sizey: gridsize Y
+        :param grid_name: (file)name of the grid
+        :param graphics_name: (file)name of the graphics assignment
+        :param size_x: gridsize X
+        :param size_y: gridsize Y
         """
-        self.name = name
-        self.size_x = sizex
-        self.size_y = sizey
+        self.name = grid_name
+        self.size_x = size_x
+        self.size_y = size_y
+        self.graphics = Graphics(graphics_name).create_from_file()
         self.values = []
 
     def create_rectangle(self):
@@ -64,13 +88,13 @@ class Grid:
         self.values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
         return self
 
-    def create_from_file(self):  # TODO CHECK FILE FOR VALID FORMAT
+    def create_from_file(self):
         """
-        Create a grid from a Textfile in the maps subdirectory (filename.lvl)
+        Create a grid from a Textfile in the res subdirectory (filename.lvl)
         :return:  Grid read from file
         """
-        grid_file = os.path.dirname(__file__) + '/maps/' + self.name + '.lvl'
-        with open(grid_file, 'r') as levelfile:  # TODO Make sure it works on Windows too
+        grid_file = os.path.dirname(__file__) + '/res/' + self.name + '.lvl'
+        with open(grid_file, encoding="utf-8", mode='r') as levelfile:  # TODO Make sure it works on Windows too
             try:
                 for lines in levelfile:
                     elements = lines.strip().split(' ')  # An Leerzeichen trennen
@@ -81,59 +105,47 @@ class Grid:
             finally:
                 return self
 
+    def update(self, p_input: str = None):
+        """
+        Updates the grid on screen
+        :param p_input: Player input
+        :return: no return
+        """
 
-# Tests TODO REPLACE WITH PROPER VERSION
-def update_grid(current_grid: Grid, p_input: str = None):
-    """
-    Updates the grid on screen
-    :param current_grid:  Name of the currently used grid
-    :param p_input: Player input
-    :return:
-    """
+        # Move player
+        # if p_input != None:
+        #    move(player_object, p_input)
 
-    # Move player
-    # if p_input != None:
-    #    move(player_object, p_input)
+        # Move movable entities
+        # ....
 
-    # Move movable entities
-    # ....
+        # Update other things
+        #
+        self.paint(self.graphics)
 
-    # Update other things
-    # ---
-
-    # Draw new Grid
-    new_grid = current_grid  # FIXME ACTUALLY CHANGE GRID
-    print(new_grid)
-    paint_grid(new_grid)
-
-    # Add Status Line
-    # FIXME MAKE STATUS LINE MORE FLEXIBLE / CONFIGURABLE. AS CLASS?
-    gametime = fullwidth_str(str(round(time.time() - start_time)))
-    print(gametime)
-
-    return print(p_input)  # FIXME REMOVE AFTER IMPLEMENTING MOVES
-
-
-def paint_grid(grid: Grid):
-    """
-    # Actually paint the grid to screen
-    :param grid: grid to be painted on screen
-    :return: no return. outputs directly to terminal
-    """
-    clear()
-    row_num = 0
-    el_num = 0
-    for row in grid.values:
-        for element in row:  # FIXME FIND A BETTER WAY TO REPLACE NUMBERS WITH EMOJIS (TRANSLATE FUNCTION?)
-            if element == 1:  # Rehmen zeichnen
-                element = "🧱"
-            elif element == 0:  # Freie Fläche zeichnen
-                element = "🟩"
-            print(format(element, "<1"), end="")
-            el_num += 1
+    def paint(self, graphics: Graphics):
+        """
+        # Actually paint the grid to screen
+        :param graphics: graphics assignment to be used
+        :return: no return. outputs directly to terminal
+        """
+        clear()
+        row_num = 0
         el_num = 0
-        row_num += 1
-        print()
+        for row in self.values:
+            for element in row:
+                # Checkthe graphics assignment dict and replace elements with emojis etc
+                element = graphics.assignments.get(element)
+                print(format(element, "<1"), end="")
+                el_num += 1
+            el_num = 0
+            row_num += 1
+            print()
+
+        # Add Status Line
+        # FIXME MAKE STATUS LINE MORE FLEXIBLE / CONFIGURABLE. AS CLASS?
+        gametime = fullwidth_str(str(round(time.time() - start_time)))
+        print(gametime)
 
 
 # ##------MAIN LOOP------## #
@@ -142,30 +154,31 @@ def paint_grid(grid: Grid):
 default_update_speed = 0.1
 
 #  Create grids
-my_grid = Grid('level1').create_from_file()
-# my_grid = Grid('level1', 30, 30).create_rectangle()
-
+# my_grid = Grid('level1').create_from_file()
+my_grid = Grid('level1', "ff_day", 30, 30).create_rectangle()
 
 # print(type(my_grid_object))
 #   input()
 #  Evaluate Keyboard input and update grid
+
 start_time = time.time()
 while True:
     try:
         # Keyboard Eingaben
         if keyboard.is_pressed('left'):
-            p_direction = 'left'
+            player_input = 'left'
         elif keyboard.is_pressed('right'):
-            p_direction = 'right'
+            player_input = 'right'
         elif keyboard.is_pressed('down'):
-            p_direction = 'down'
+            player_input = 'down'
         elif keyboard.is_pressed('up'):
-            p_direction = 'up'
+            player_input = 'up'
         else:
-            p_direction = None
+            player_input = None
 
-        # Update grid on screen with new values
-        update_grid(my_grid, p_direction)
+        # Update grid on screen with new vagrlues
+        my_grid.graphics.name = "ff_night"  # FIXME Changes in objects are not drawn :(
+        my_grid.update(player_input)
         time.sleep(default_update_speed)
 
     except KeyboardInterrupt:  # CTRL-C was pressed
