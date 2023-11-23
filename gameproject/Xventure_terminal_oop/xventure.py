@@ -139,8 +139,8 @@ def paint_grid(grid: Grid):
 default_update_speed = 0.1
 
 #  Create grids
-# my_grid_object = Grid('level1').create_from_file()
-my_grid = Grid('level1', 30, 30).create_rectangle()
+my_grid = Grid('level1').create_from_file()
+# my_grid = Grid('level1', 30, 30).create_rectangle()
 
 
 # print(type(my_grid_object))
