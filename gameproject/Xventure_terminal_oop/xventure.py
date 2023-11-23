@@ -152,16 +152,24 @@ class Grid:
 # Configuration options
 # TODO MOVE OPTIONS TO CONFIG FILE
 default_update_speed = 0.1
+start_time = time.time()  # Start the clock
 
 #  Create grids
 # my_grid = Grid('level1').create_from_file()
+
 my_grid = Grid('level1', "ff_day", 30, 30).create_rectangle()
+print("graphics_name: ", my_grid.graphics.name)
+my_grid.update(None)
+
+my_grid.graphics.name = "ff_night"
+print("graphics_name: ", my_grid.graphics.name)
+my_grid.update(None)
 
 # print(type(my_grid_object))
 #   input()
 #  Evaluate Keyboard input and update grid
 
-start_time = time.time()
+'''
 while True:
     try:
         # Keyboard Eingaben
@@ -183,3 +191,4 @@ while True:
 
     except KeyboardInterrupt:  # CTRL-C was pressed
         break
+'''
