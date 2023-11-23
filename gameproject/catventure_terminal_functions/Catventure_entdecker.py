@@ -7,11 +7,12 @@
 import numpy as np
 import random
 import time
+
 class Grid:
 
     current_gridsize = 30  # Spielfeldgröße (X^2) Default: 30
     number_of_obstacles = current_gridsize // 2  # Anzahl der Hindernisse
-    number_of_neutrals = current_gridsize  # Anzahl Objekte, die nichts besonderens tun
+    number_of_substances = current_gridsize  # Anzahl Objekte, die nichts besonderens tun
     number_of_enemies = current_gridsize // 2  # Anzahl Gegner
     #global catch_count
     #global health_count
@@ -19,10 +20,10 @@ class Grid:
     #global number_of_enemies
 
 
-    def __init__(self, gridsize, number_substanzen,number_of_neutrals, player_position: tuple[int, int] = (1, 1),enemy_positions: list = None):
+    def __init__(self, gridsize, number_of_obstacles,number_of_substances, player_position: tuple[int, int] = (1, 1),enemy_positions: list = None):
         self.gridsize=gridsize
-        self.number_substanzen=number_substanzen
-        self.number_of_neutrals=number_of_neutrals
+        self.number_of_obstacles=number_of_obstacles
+        self.number_of_substances=number_of_substances
         self.player_position=player_position
         self.enemy_positions=enemy_positions
 
@@ -32,11 +33,11 @@ class Grid:
         :return: gibt eine Matrix aus Werten zurück, die Elemente auf dem Spielfeld rerpäsentieren
         0 = Freies Feld,
         1 = Rahmen,
-        2 = Gegner,
-        3 = Substanzen ( vorher: Hindernis, Gefahr number_of_obstacles)
-        4 = Neutrales Objekt / Deko
-        5 = Neutrales Objekt / Deko
-        6 = Neutrales Objekt / Deko
+        2 = Beute(Mäuse) c
+        3 = Gefahr (var: number_of_obstacles)
+        4 = Chemische Substanz 1
+        5 = Chemische Substanz 2
+        6 = Chemische Substanz 3
         """
         # Rahmen generieren
         current_gridsize = 30                                               # ToDO: current_gridsize to relocate
@@ -45,12 +46,12 @@ class Grid:
         grid[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
 
         # Hindernisse und andere feste Objekte hinzufügen
-        for _ in range(0, self.number_substanzen):
+        for _ in range(0, self.number_of_obstacles):
             grid[
                 (random.randrange(current_gridsize - 1) + 1,
                  random.randrange(current_gridsize - 1) + 1)
             ] = 3
-        for _ in range(0, self.number_of_neutrals):
+        for _ in range(0, self.number_of_substances):
             grid[
                 (random.randrange(current_gridsize - 1) + 1,
                  random.randrange(current_gridsize - 1) + 1)
@@ -62,6 +63,7 @@ class Grid:
     print(feld.create_grid())
     '''
 
+    # ToDo: Der untere Codeblock sollte einer Methode in der Class gamefunction zugewiesen werden!
     def paintgrid(self):
         """
 
@@ -70,15 +72,13 @@ class Grid:
         :param enemy_positions: Positionen der Gegner (Liste!)
         :return:
         """
-        grid=self.create_grid()
+        grid=self.create_grid(self)
         current_gridsize = 30           #ToDo: Current_gridsize der Klasse übergeben
         #ToDo clear()  # Bildschirm leeren
         row_num = 0
         el_num = 0
-
         # Startpositionen würfeln
         player_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
-
         enemy_positions = []
         for _ in range(0, self.number_of_enemies):  # Startpositionen der Gegner
             enemy_position = (random.randrange(current_gridsize - 1) + 1, random.randrange(current_gridsize - 1) + 1)
@@ -98,67 +98,116 @@ class Grid:
                         health_count += enemy_nutrition  # Fressen
                     elif element == 3.0:  # Player ist in Hinderniss gelaufen
                         health_count -= obstacle_punishment  # Aua
-                    element = "🐈"
+                    element = "🐈"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 1.0:  # Rehmen zeichnen
-                    element = "🧱"
+                    element = "🧱"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 0.0:  # Freie Fläche zeichnen
-                    element = "🟩"
+                    element = "🟩"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 2.0:  # Gegner zeichnen
-                    element = "🐁"
+                    element = "🐁"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 3.0:  # Hindernisse zeichnen
-                    element = "🔥"
+                    element = "🔥"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 4.0:  # Neutrales Objekt Typ 4 zeichnen
-                    element = "🍂"
+                    element = "🍂"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 5.0:  # Neutrales Objekt Typ 5 zeichnen
-                    element = "🌾"
+                    element = "🌾"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 elif element == 6.0:  # Neutrales Objekt Typ 6 zeichnen
-                    element = "🌻"
+                    element = "🌻"               # ToDo: Die Emojis der Objekte sollten im object_dict in der class Entity hinterlegt sein
                 print(format(element, "<1"), end="")
                 el_num += 1
             el_num = 0
             row_num += 1
 
-
+'''
 feld=Grid(30,4,4)
 print(feld.paintgrid())
-
 '''
 
-class Entity:
+
+class Entity(Grid):
+  #start_position=default_values für x und y
+  # Der Dictionary objekt_eigenschaften erlaubt es, zum einen neue objekte im Spielraum zu kreieren\
+  # und ihnen im dict auch beliebige Grundeigenschaften zu zuschreiben.
+
+    objekt_dictionary = {"spieler": "spielt", "Beute": "Beute rennt weg und wird gefangen", "neutrales_objekt": "neutrales_objekt",
+                       "steinmauer": "steinmauer"}
+    def __init__(self,objekt_name):
+      #ToDo:  Grid.__init__(position)             #start_x_position, start_y_position
+        self.objekt_name = objekt_name
+
+    def __call__(self, objekt_name):
+       return self.objekt_dictionary[self.objekt_name]
+
 
 
 class Spieler(Entity):
-   def move(
-           old_position: tuple[int, int],
-           direction: str = "None") -> tuple[int, int]:
+   #objekt_name = "spieler"
+   def __init__(self, objekt_name= "spieler", start_x_position=7, start_y_position=7, old_position=[0, 0],direction: str="None"):
+       self.objekt_name=objekt_name
+       Entity.__init__(self,objekt_name)
+       self.spielerposition = [start_x_position, start_y_position]
+       #ToDo Grid.paintGrid(self.spielerposition)
+       self.old_position=old_position           # ToDo: Das Objekt sollt nur ein Attribut self.position  durchweg im ganzen Spiel zugewiesen bekommen
+       self.direction=direction
+
+       #ToDo:
+       #self.spielername=spielername       # Name für den Spieler ,spielername="Merlin"
+       #self.niveau=niveau   # Erfahrungsstufe ( apprentice, intermediate, master) , niveau="apprentice"
+
+       # ToDo: Die Methode move(() sollte vielleicht auch in eine andere Klasse relokalisiert werden.
+
+   def move(self, old_position, direction):
        """
        Objekte im Grid bewegen
        :param old_position: momentane Position des Objekts
        :param direction: Richtung, in die sich bewegt werden soll
        :return: neue Position des Objeks
        """
-       if direction == "up":
+       if self.direction == "up":
            steps = (-1, 0)
-       elif direction == "down":
+       elif self.direction == "down":
            steps = (1, 0)
-       elif direction == "left":
+       elif self.direction == "left":
            steps = (0, -1)
-       elif direction == "right":
+       elif self.direction == "right":
            steps = (0, 1)
        else:
            steps = (0, 0)
-       new_position = tuple(np.add(old_position, steps))
+       new_position = tuple(np.add(self.old_position, steps))
        if (
                new_position[0] != 0
                and new_position[1] != 0
                and new_position[0] < current_gridsize
                and new_position[1] < current_gridsize):
-           return new_position
-       else:
-           return old_position
 
-   def win(
-           reason: str = "Gewonnen"):
+           self.spielerposition=new_position
+       else:
+           self.spielerposition=old_position
+
+class Beute(Entity):
+    #objekt_name = "beute"
+
+    def __init__(self, objekt_name="Beute", start_x_position=8, start_y_position=8, old_position=[0, 0], direction: str = "None"):
+        self.objekt_name = objekt_name
+        Entity.__init__(self, objekt_name)
+        self.spielerposition = [start_x_position, start_y_position]
+        self.old_position = old_position  # ToDo: Das Objekt sollt nur ein Attribut self.position  durchweg im ganzen Spiel zugewiesen bekommen
+        self.direction = direction
+
+
+
+
+
+
+merlin=Spieler()
+print(merlin("spieler"))
+Maus=Beute()
+print(Maus)
+
+
+
+'''
+   def win(reason: str = "Gewonnen"):
        """
 
        :param reason: Grund für Win
