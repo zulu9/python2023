@@ -51,8 +51,8 @@ class Grid:
         :param sizey: gridsize Y
         """
         self.name = name
-        self.sizex = sizex
-        self.sizey = sizey
+        self.size_x = sizex
+        self.size_y = sizey
         self.values = []
 
     def create_rectangle(self):
@@ -60,7 +60,7 @@ class Grid:
         Create a rectangular grid
         :return: Rectangle of 0s, surrounded by 1s
         """
-        self.values = numpy.ones((self.sizex + 1, self.sizey + 1), dtype=numpy.int8)
+        self.values = numpy.ones((self.size_x + 1, self.size_y + 1), dtype=numpy.int8)
         self.values[1:-1, 1:-1] = 0  # Freie innere Fläche definieren
         return self
 
@@ -73,8 +73,8 @@ class Grid:
         with open(grid_file, 'r') as levelfile:  # TODO Make sure it works on Windows too
             try:
                 for lines in levelfile:
-                    elements = lines.strip().split(' ')
-                    elements = [int(element) for element in elements]
+                    elements = lines.strip().split(' ') # An Leerzeichen trennen
+                    elements = [int(element) for element in elements] # Alles in Integer umwandeln
                     self.values.append(elements)
             except ValueError:
                 self.values = None
@@ -102,12 +102,14 @@ def update_grid(current_grid: Grid, p_input: str = None):
     # ---
 
     # Draw new Grid
-    new_grid = current_grid  # FIXME
+    new_grid = current_grid  # FIXME ACTUALLY CHANGE GRID
     print(new_grid)
     paint_grid(new_grid)
 
     # Add Status Line
-    print(fullwidth_str(str(round(time.time() - start_time))))
+    # FIXME MAKE STATUS LINE MORE FLEXIBLE / CONFIGURABLE. AS CLASS?
+    gametime = fullwidth_str(str(round(time.time() - start_time)))
+    print(gametime)
 
     return print(p_input)  # FIXME REMOVE AFTER IMPLEMENTING MOVES
 
@@ -116,7 +118,7 @@ def paint_grid(grid: Grid):
     """
     # Actually paint the grid to screen
     :param grid: grid to be painted on screen
-    :return: no return outputs directly to terminal
+    :return: no return. outputs directly to terminal
     """
     clear()
     row_num = 0
