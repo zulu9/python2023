@@ -116,14 +116,11 @@ class Entitiy:
         else:
             steps = (0, 0)
         new_position = tuple(np.add(self.position, steps))
-        if (  # TODO MAKE IT TRAVERSE A LIST OF POSITIONS THAT YOU CAN NOT MOVE TO (LIKE WALLS ETC)
-                new_position[0] != 0
-                and new_position[1] != 0
-                and new_position[0] < current_grid.size_x
-                and new_position[1] < current_grid.size_y):
-            self.position = new_position
-            return new_position
+        if current_grid.values[new_position] == 0:  # Free space. Good to go
+            self.position = new_position  # Update position
+            return self.position
         else:
+            # COLLISION!
             return self.position
 
 
@@ -244,7 +241,6 @@ class Grid:
 
         # Move player FIXME Player movement broken. Maybe move to graphicset-class together with paint method?
         if p_input is not None:
-            self.values[my_player.position] = 0  # Replace Player with empty space
             my_player.move(p_input)  # Move Player
             self.values[my_player.position] = my_player.type_id  # FIXME WARNING ABOUT TYPES: NUMPY?
         # Move movable entities
@@ -253,7 +249,7 @@ class Grid:
         # Update other things
         #
 
-        # Upgrade the grid
+        # Update the grid
 
     def paint(self, graphicset: Graphicset):
         """
