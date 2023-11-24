@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="fixed player movement logic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" afterDir="false" />
-    </list>
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +130,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/xventure.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameproject/Xventure_terminal_oop/feline_fantasy_I.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="true" />
@@ -157,14 +154,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00060" summary="added some notes and proper exception handler for input-loop">
-      <option name="closed" value="true" />
-      <created>1700361926822</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1700361926822</updated>
     </task>
     <task id="LOCAL-00061" summary="added some notes and proper exception handler for input-loop">
       <option name="closed" value="true" />
@@ -550,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700789394617</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(">
+      <option name="closed" value="true" />
+      <created>1700792703930</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1700792703930</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +563,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="TODO: Gameover und Win Ausgaben" />
     <MESSAGE value="kurze anleitung bevor es losgeht hinzugefügt&#10;TODO: Gameover und Win Ausgaben" />
     <MESSAGE value="Anleitung geändert" />
     <MESSAGE value="Added Tag11 Tests" />
@@ -591,7 +587,8 @@
     <MESSAGE value="moved stuff, can load graphics from file now" />
     <MESSAGE value="added player and static decorations" />
     <MESSAGE value="fixed player movement logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed player movement logic" />
+    <MESSAGE value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
+    <option name="LAST_COMMIT_MESSAGE" value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
