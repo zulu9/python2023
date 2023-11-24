@@ -9,7 +9,7 @@ import os
 import sys
 import time
 import random
-from threading import Thread
+import threading
 from playsound import playsound
 from pynput import keyboard
 
@@ -50,13 +50,14 @@ listener.start()
 # Sound Handling
 
 
-def play_soundfile(path):
+def play_soundfile(path):  # FIXME DOES NOT PROPERLY THREAD
     """
 
     :param path: Path to soundfile
     :return: no return. starts thread
     """
-    play_thread = Thread(target=playsound(path, False), daemon=True)
+    global stop_playback
+    play_thread = threading.Thread(target=playsound(path, False), daemon=True)
     play_thread.start()
 
 
@@ -95,7 +96,7 @@ class Entitiy:
         :param name: Name of the entity
         :param type_id: Type (as integer ID) of the entity as defined in grid-file or function
         :param position: position of the entity on the grid
-        :param attributes:  list of additional attributes (currently unused)
+        :param attributes:  list of additional attributes [permanent, ]
         """
         self.name = name
         self.type_id = type_id
@@ -119,7 +120,7 @@ class Entitiy:
         else:
             steps = (0, 0)
         new_position = tuple(np.add(self.position, steps))
-        if (
+        if (  # TODO MAKE IT TRAVERSE A LIST OF POSITIONS THAT YOU CAN NOT MOVE TO (LIKE WALLS ETC)
                 new_position[0] != 0
                 and new_position[1] != 0
                 and new_position[0] < current_grid.size_x
@@ -225,12 +226,10 @@ class Grid:
         :return: no return, just updates stuff
         """
 
-        # Move player
+        # Move player FIXME Player movement broken. Maybe move to graphicset-class together with paint method?
         if p_input is not None:
-            self.values[my_player.position] = 0  # Free up old position
             my_player.move(p_input)  # Move Player
-
-        self.values[my_player.position] = my_player.type_id  # FIXME WARNING ABOUT TYPES: NUMPY?
+            self.values[my_player.position] = my_player.type_id  # FIXME WARNING ABOUT TYPES: NUMPY?
         # Move movable entities
         # ....
 
@@ -275,6 +274,7 @@ start_time = time.time()  # Start the clock
 current_grid = Grid('ff_level1', "ff_snakemode", 30, 30).create_rectangle()
 
 # Create Entities
+# # Decorations and other static objects
 my_decorations = []
 number_of_decorations = (current_grid.size_x + current_grid.size_y) // 2
 for i in range(0, number_of_decorations):
@@ -283,10 +283,11 @@ for i in range(0, number_of_decorations):
     )
 current_grid.create_rectangle(my_decorations)  # Add decorations to current grid
 
-
+# # The Player
 my_player = Entitiy("Kisa", 2, (1, 1), [])
 
 # Start background music
+stop_playback = False
 play_soundfile('./res/music.mp3')
 
 #  Evaluate Keyboard input and update grid
@@ -321,4 +322,7 @@ while True:
 
     except KeyboardInterrupt:  # CTRL-C was pressed
         print("BYE")
+        for thread in threading.enumerate():
+            print(thread.name)
+            thread.join() # FIXME Sound thread sitill does not exit
         sys.exit()
