@@ -244,6 +244,7 @@ class Grid:
 
         # Move player FIXME Player movement broken. Maybe move to graphicset-class together with paint method?
         if p_input is not None:
+            self.values[my_player.position] = 0  # Replace Player with empty space
             my_player.move(p_input)  # Move Player
             self.values[my_player.position] = my_player.type_id  # FIXME WARNING ABOUT TYPES: NUMPY?
         # Move movable entities
