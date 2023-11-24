@@ -2,7 +2,7 @@
 # Needs:
 #   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
-
+# FIXME TYPE ERRORS (NUMPY?)
 # ##------IMPORTS------## #
 import numpy as np
 import os
@@ -99,11 +99,10 @@ class Entitiy:
         self.type_id = type_id
         self.position = position
 
-    def move(self, direction: str = "None") -> tuple[int, int]:
+    def move(self, direction: str = "None"):
         """
         Objekte im Grid bewegen
         :param direction: Richtung, in die sich bewegt werden soll
-        :return: neue Position des Objeks
         """
         if direction == "up":
             steps = (-1, 0)
@@ -116,24 +115,38 @@ class Entitiy:
         else:
             steps = (0, 0)
         new_position = tuple(np.add(self.position, steps))
-        if current_grid.values[new_position] == 0:  # Free space. Good to go
-            self.position = new_position  # Update position
-            return self.position
+        if (
+                new_position[0] != 0
+                and new_position[1] != 0
+                and new_position[0] < current_grid.size_x
+                and new_position[1] < current_grid.size_y):
+            self.position = new_position
         else:
-            # COLLISION!
-            return self.position
+            pass
 
 
 class Player(Entitiy):
-    def __init__(self, name, type_id: int, position: tuple):
+    def __init__(self, name, type_id: int, position: tuple, steps: int, health: int, attack: int):
         """
 
-        :param name: Player Name
-        :param type_id: ID for player graphic
-        :param position: Player position
+        :param name:
+        :param type_id:
+        :param position:
+        :param steps:
+        :param health:
+        :param attack:
         """
         super().__init__(type_id, position)
         self.name = name
+        self.steps = steps
+        self.health = health
+        self.attack = attack
+
+    def collide(self, type_id: int, posx: int, posy: int):  # TODO USE ATTACK AND ENEMY AP VALUES, CATCH ENEMIES
+        if type_id in enemy_types:
+            self.health = self.health - 20
+        if type_id in hazzard_types:
+            self.health = self.health - 30
 
 
 class Decoration(Entitiy):
@@ -141,11 +154,31 @@ class Decoration(Entitiy):
 
 
 class Enemy(Entitiy):
-    pass
+    def __init__(self, type_id: int, position: tuple, move_prob: float, health: int, attack: int):
+        """
+
+        :param type_id:
+        :param position:
+        :param move_prob:
+        :param health:
+        :param attack:
+        """
+        super().__init__(type_id, position)
+        self.move_prob = move_prob
+        self.health = health
+        self.attack = attack
 
 
-class Fire(Entitiy):
-    pass
+class Hazzard(Entitiy):
+    def __init__(self, type_id: int, position: tuple, attack: int):
+        """
+
+        :param type_id:
+        :param position:
+        :param attack:
+        """
+        super().__init__(type_id, position)
+        self.attack = attack
 
 
 class Graphicset:
@@ -170,6 +203,8 @@ class Graphicset:
                     self.assignments.update({int(key): str(value)})
             except ValueError:
                 self.assignments = None
+                print("Could not load graphics!")
+                sys.exit()
             finally:
                 return self
 
@@ -239,18 +274,17 @@ class Grid:
         :return: no return, just updates stuff
         """
 
-        # Move player FIXME Player movement broken. Maybe move to graphicset-class together with paint method?
+        # Move player
         if p_input is not None:
             my_player.move(p_input)  # Move Player
-            self.values[my_player.position] = my_player.type_id  # FIXME WARNING ABOUT TYPES: NUMPY?
+
         # Move movable entities
-        # ....
+        for enemy in my_enemies:
+            if random.random() < enemy.move_prob:
+                enemy.move(random.choice(["up", "down", "left", "right"]))
 
         # Update other things
-        #
-
-        # Update the grid
-
+        # ...
     def paint(self, graphicset: Graphicset):
         """
         # Actually paint the grid to screen
@@ -262,6 +296,20 @@ class Grid:
         el_num = 0
         for row in self.values:
             for element in row:
+                for enemy in my_enemies:  # Gegner einsetzen
+                    if (row_num, el_num) == enemy.position:
+                        element = enemy.type_id
+                if (row_num, el_num) == my_player.position:  # Insert player
+                    if element in enemy_types:  # Player hat Gegner gefangen
+                        my_player.collide(element, (row_num, el_num))
+                        # catch_count += 1
+                        # number_of_enemies -= 1
+                        # e_current_positions.remove((row_num, el_num))  # Gegner aus Liste entfernen
+                        # health_count += enemy_nutrition  # Fressen
+                    elif element in hazzard_types:  # Player ist in Hinderniss gelaufen
+                        my_player.collide(element, (row_num, el_num))
+                        # health_count -= obstacle_punishment  # Aua
+                    element = my_player.type_id
                 # Check the graphics assignment dict and replace elements with emojis etc
                 element = graphicset.assignments.get(element)
                 print(format(str(element), "<1"), end="")
@@ -278,26 +326,61 @@ class Grid:
 
 # ##------MAIN LOOP------## #
 # Configuration options
+# Example Graphicsset with Entitiy Type IDs
+# 0:🟩   0-10 Basic elements
+# 1:🧱   Outer Wall
+# 2:🐈   Player
+# ...
+# 10:🌻 10-20 Decorations
+# 11:🍂
+# 12:🌾
+# ...
+# 20:🔥 20-30 Hazzards
+# ...
+# 100:🐁 100+ Enemies
+# ...
+
+#
 # TODO MOVE OPTIONS TO CONFIG FILE
-default_update_speed = 0.1
+default_update_speed = 0.1  # Game speed. Default: 0.1s
 start_time = time.time()  # Start the clock
 
 #  Create grid
 # current_grid = Grid('ff_level1', 'ff_day').create_from_file()
-current_grid = Grid('ff_level1', "ff_snakemode", 30, 30).create_rectangle()
+current_grid = Grid('ff_level1', "ff_day", 30, 30).create_rectangle()
 
 # Create Entities
-# # Decorations and other static objects
+# # The Player
+my_player = Player("Kisa", 2, (1, 1), 300, 99, 1)
+
+# # Neutral entities and other static objects
+neutral_types = [10, 11, 12]
 my_decorations = []
 number_of_decorations = (current_grid.size_x + current_grid.size_y) // 2
 for i in range(0, number_of_decorations):
     my_decorations.append(
-        Decoration(random.choice([3, 4, 5]), current_grid.get_random_position())
+        Decoration(random.choice(neutral_types), current_grid.get_random_position())
     )
-current_grid.create_rectangle(my_decorations)  # Add decorations to current grid
 
-# # The Player
-my_player = Player("Kisa", 2, (1, 1))
+# # Hazzards
+hazzard_types = [20]
+my_hazzards = []
+number_of_hazzards = (current_grid.size_x + current_grid.size_y) // 2
+for i in range(0, number_of_hazzards):
+    my_hazzards.append(
+        Hazzard(random.choice(hazzard_types), current_grid.get_random_position(), 30)
+    )
+current_grid.create_rectangle(my_decorations + my_hazzards)  # Add decorations to current grid
+
+
+# # Enemies
+enemy_types = [100]
+my_enemies = []
+number_of_enemies = (current_grid.size_x + current_grid.size_y) // 2
+for i in range(0, number_of_enemies):
+    my_enemies.append(
+        Enemy(random.choice(enemy_types), current_grid.get_random_position(), 0.8, 1, 20)
+    )
 
 # Start background music
 stop_playback = False
