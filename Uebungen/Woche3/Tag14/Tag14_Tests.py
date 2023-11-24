@@ -16,8 +16,11 @@ class Animal:
     def sleep(self):
         print(f"Animal {self.name} is sleeping.")
 
-    def __add__(self, other):
+    def __add__(self, other):  # DOES NOT WORK! RECURSION
         return self + other
+
+    def look(self):
+        print("It's and animal!")
 
 
 class Dog(Animal):
@@ -98,3 +101,18 @@ my_cat.sleep()
 
 my_catdog = vars(my_cat) | vars(my_dog)
 print(my_catdog)
+
+
+class Ape(Animal):
+    def look(self):
+        print("It's an ape!")
+
+
+class Gorilla(Ape):
+    def look(self):
+        super().look()
+        Animal.look(self)
+        print("It's a Gorilla!")
+
+my_gorilla = Gorilla(breed="Toll", color="brown", name="Charlie")
+my_gorilla.look()
