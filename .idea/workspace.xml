@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="renamed main script">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,14 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00061" summary="added some notes and proper exception handler for input-loop">
-      <option name="closed" value="true" />
-      <created>1700361940596</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1700361940596</updated>
     </task>
     <task id="LOCAL-00062" summary="added some notes and proper exception handler for input-loop">
       <option name="closed" value="true" />
@@ -547,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700792703930</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="renamed main script">
+      <option name="closed" value="true" />
+      <created>1700793155089</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1700793155089</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -563,7 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="kurze anleitung bevor es losgeht hinzugefügt&#10;TODO: Gameover und Win Ausgaben" />
     <MESSAGE value="Anleitung geändert" />
     <MESSAGE value="Added Tag11 Tests" />
     <MESSAGE value="reduce()" />
@@ -588,7 +589,8 @@
     <MESSAGE value="added player and static decorations" />
     <MESSAGE value="fixed player movement logic" />
     <MESSAGE value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
-    <option name="LAST_COMMIT_MESSAGE" value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
+    <MESSAGE value="renamed main script" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed main script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
