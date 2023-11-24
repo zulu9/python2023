@@ -90,18 +90,14 @@ def clear():
 
 
 class Entitiy:
-    def __init__(self, name: str, type_id: int, position: tuple, attributes: list):
+    def __init__(self, type_id: int, position: tuple):
         """
-
-        :param name: Name of the entity
+        General class for entities
         :param type_id: Type (as integer ID) of the entity as defined in grid-file or function
         :param position: position of the entity on the grid
-        :param attributes:  list of additional attributes [permanent, ]
         """
-        self.name = name
         self.type_id = type_id
         self.position = position
-        self.attributes = attributes
 
     def move(self, direction: str = "None") -> tuple[int, int]:
         """
@@ -132,6 +128,26 @@ class Entitiy:
 
 
 class Player(Entitiy):
+    def __init__(self, name, type_id: int, position: tuple):
+        """
+
+        :param name: Player Name
+        :param type_id: ID for player graphic
+        :param position: Player position
+        """
+        super().__init__(type_id, position)
+        self.name = name
+
+
+class Decoration(Entitiy):
+    pass
+
+
+class Enemy(Entitiy):
+    pass
+
+
+class Fire(Entitiy):
     pass
 
 
@@ -279,12 +295,12 @@ my_decorations = []
 number_of_decorations = (current_grid.size_x + current_grid.size_y) // 2
 for i in range(0, number_of_decorations):
     my_decorations.append(
-        Entitiy("decoration" + str(i), random.choice([3, 4, 5]), current_grid.get_random_position(), [])
+        Decoration(random.choice([3, 4, 5]), current_grid.get_random_position())
     )
 current_grid.create_rectangle(my_decorations)  # Add decorations to current grid
 
 # # The Player
-my_player = Entitiy("Kisa", 2, (1, 1), [])
+my_player = Player("Kisa", 2, (1, 1))
 
 # Start background music
 stop_playback = False
@@ -324,5 +340,5 @@ while True:
         print("BYE")
         for thread in threading.enumerate():
             print(thread.name)
-            thread.join() # FIXME Sound thread sitill does not exit
+            thread.join()  # FIXME Sound thread sitill does not exit
         sys.exit()
