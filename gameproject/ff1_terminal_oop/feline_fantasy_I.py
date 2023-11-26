@@ -161,7 +161,7 @@ class Player(Entitiy):
         self.attack = attack
 
     def collide(self, type_id: int):  # TODO USE ATTACK AND ENEMY AP VALUES, CATCH ENEMIES
-        if type_id in enemy_types:
+        if type_id in enemy_types:  # FIXME MAKE IT USE enemy.name_id
             self.health = self.health + 20
             my_state.score += 1
         if type_id in hazzard_types:
@@ -223,7 +223,7 @@ class GameState:
         self.gametime = gametime
         self.health = health
         self.steps = steps
-        self.enemy_count = enemy_count  # FIXME
+        self.enemy_count = enemy_count  # FIXME USE enemy.name_id
         self.score = score
 
     def update(self):
@@ -346,6 +346,15 @@ class Grid:
         # Update other things
         #  my_player.health = my_player.health - (time.time() - start_time) / my_player.steps * 10  # Simulate Hunger
 
+        # Switch graphics while running #EXPERIMENTAL
+        if my_state.gametime % 2 == 0:
+            self.graphics.name = "ff_day"
+        elif my_state.gametime % 3 or my_state.gametime % 7 == 0:
+            self.graphics.name = "ff_snakemode"
+        else:
+            self.graphics.name = "ff_night"
+        self.graphics.read_from_file()
+
     def paint(self, graphicset: Graphicset):
         """
         # Actually paint the grid to screen
@@ -419,8 +428,8 @@ my_player = Player(
     name="Kisa",
     type_id=2,  # ID of the player as defined in the graphics set
     position=(1, 1),  # Start position
-    steps=300,
-    health=99,
+    steps=64000,
+    health=64000,
     attack=1)
 
 # # Neutral entities and other static objects at random positions
@@ -475,7 +484,7 @@ my_state = GameState(
 
 # Start background music  # FIXME DOES NOT STOP PROPERLY
 stop_playback = False
-play_soundfile('./res/music.mp3')
+# play_soundfile('./res/music.mp3') # Soundfile to play
 
 #  Evaluate Keyboard input and update grid
 start_time = time.time()  # Start the clock
@@ -483,7 +492,7 @@ while True:
     my_state.gametime = round(start_time - time.time())  # Set the game clock
     try:
         # Abbruchbeningungen (WIN oder GAMEOVER)
-        # if my_player.health < 1:  # Wir sind tot
+        # if my_player.health < 1:
         #    print("DU BIST TOT")
         #    break
 
@@ -500,15 +509,6 @@ while True:
             break
         else:
             player_input = None
-
-        # Switch graphics while running #EXPERIMENTAL
-        if my_state.gametime % 2 == 0:
-            current_grid.graphics.name = "ff_night"
-        elif my_state.gametime % 5 == 0:
-            current_grid.graphics.name = "ff_snakemode"
-        else:
-            current_grid.graphics.name = "ff_day"
-        current_grid.graphics.read_from_file()
 
         # Update grid and draw on screen
         current_grid.update(player_input)

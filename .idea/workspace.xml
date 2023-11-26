@@ -7,9 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="dynamic change of graphics sets added (EXPERIMENTAL)">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="moved graphics change to proper method (update grid)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_day.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_day.grf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_snakemode.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_snakemode.grf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,14 +159,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00070" summary="chchcch... changes. &#10;jetzt spielbar">
-      <option name="closed" value="true" />
-      <created>1700451684470</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1700451684470</updated>
     </task>
     <task id="LOCAL-00071" summary="TODO: Gameover und Win Ausgaben">
       <option name="closed" value="true" />
@@ -550,7 +544,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700970853119</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="moved graphics change to proper method (update grid)">
+      <option name="closed" value="true" />
+      <created>1700971354477</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1700971354477</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +568,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Übungen zu Klassen" />
     <MESSAGE value="Kommentare hinzugefügt" />
     <MESSAGE value="Adeded catventure für Entdecker" />
     <MESSAGE value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
@@ -591,7 +592,8 @@
     <MESSAGE value="fixed player movement, added enemies and hazzards, started on collision detection" />
     <MESSAGE value="made status a class, status bar an object. added optional IDs to entities to identify" />
     <MESSAGE value="dynamic change of graphics sets added (EXPERIMENTAL)" />
-    <option name="LAST_COMMIT_MESSAGE" value="dynamic change of graphics sets added (EXPERIMENTAL)" />
+    <MESSAGE value="moved graphics change to proper method (update grid)" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved graphics change to proper method (update grid)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
