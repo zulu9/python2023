@@ -56,7 +56,8 @@ def play_soundfile(path):  # FIXME DOES NOT PROPERLY THREAD
     :return: no return. starts thread
     """
     global stop_playback
-    play_thread = threading.Thread(target=playsound(path, False), daemon=True)
+    play_thread = threading.Thread(
+        target=playsound(path, False), daemon=True)
     play_thread.start()
 
 
@@ -113,8 +114,12 @@ class Entitiy:
             steps = (0, 1)
         else:
             steps = (0, 0)
-        new_position = tuple(np.add(self.position, steps))
-        if (
+
+        new_position = tuple(
+            np.add(self.position, steps)
+        )
+        # Set new position
+        if (  # Check if new position is out of grid
                 new_position[0] != 0
                 and new_position[1] != 0
                 and new_position[0] < current_grid.size_x
@@ -123,18 +128,23 @@ class Entitiy:
         else:
             pass
 
-    def kill(self, id_number, entity_list: list = None):
+    def kill(self, number_id, type_id):
         """
 
-        :param id_number: Number ID of the entity object (example: enemy.number_id)
-        :param entity_list: Name of the list the entities are stored (optional)
+        :param number_id: Number ID of the entity object (example: enemy.number_id)
+        :param type_id: Type ID of the entity
         :return:  no return. removes object from corresponding list
         """
         # TODO REMOVE ENTITY
 
 
 class Player(Entitiy):
-    def __init__(self, name, type_id: int, position: tuple, steps: int, health: int, attack: int):
+    def __init__(self,
+                 name, type_id: int,
+                 position: tuple,
+                 steps: int,
+                 health: int,
+                 attack: int):
         """
 
         :param name:
@@ -153,6 +163,7 @@ class Player(Entitiy):
     def collide(self, type_id: int):  # TODO USE ATTACK AND ENEMY AP VALUES, CATCH ENEMIES
         if type_id in enemy_types:
             self.health = self.health + 20
+            my_state.score += 1
         if type_id in hazzard_types:
             self.health = self.health - 30
 
@@ -162,7 +173,14 @@ class Decoration(Entitiy):
 
 
 class Enemy(Entitiy):
-    def __init__(self, type_id: int, position: tuple, move_prob: float, health: int, points: int, number_id: int):
+    def __init__(self,
+                 type_id: int,
+                 position: tuple,
+                 move_prob: float,
+                 health: int,
+                 points: int,
+                 number_id: int,
+                 attack: int = 0):
         """
 
         :param type_id:
@@ -177,11 +195,15 @@ class Enemy(Entitiy):
         self.health = health
         self.points = points
         self.number_id = number_id
+        self.attack: attack
 
 
 class Hazzard(Entitiy):
-    def __init__(self, type_id: int, position: tuple, attack: int):
-        """my_player.steps /
+    def __init__(self,
+                 type_id: int,
+                 position: tuple,
+                 attack: int):
+        """
 
         :param type_id:
         :param position:
@@ -191,17 +213,23 @@ class Hazzard(Entitiy):
         self.attack = attack
 
 
-class GameStatus:
-    def __init__(self, gametime: int, health: int, steps: int, enemy_count: int):
+class GameState:
+    def __init__(self,
+                 gametime: int,
+                 health: int,
+                 steps: int,
+                 enemy_count: int,
+                 score: int):
         self.gametime = gametime
         self.health = health
         self.steps = steps
-        self.enemy_count = enemy_count
+        self.enemy_count = enemy_count  # FIXME
+        self.score = score
 
     def update(self):
         self.health = round(my_player.health)
         self.steps = round(my_player.steps)
-        self.gametime = my_timelimit - round(time.time() - start_time)
+        self.gametime = round(time.time() - start_time)
 
 
 class Graphicset:
@@ -233,7 +261,11 @@ class Graphicset:
 
 
 class Grid:
-    def __init__(self, grid_name: str, graphics_name: str, size_x: int = 0, size_y: int = 0):
+    def __init__(self,
+                 grid_name: str,
+                 graphics_name: str,
+                 size_x: int = 0,
+                 size_y: int = 0):
         """
         A grid in the game
         :param grid_name: (file)name of the grid
@@ -247,7 +279,7 @@ class Grid:
         self.graphics = Graphicset(graphics_name).read_from_file()
         self.values = []
 
-    def create_rectangle(self, static_objects: list = None):
+    def create_rectangle(self, static_objects: list = None):  # FIXME USE entity.decorations object directly
         """
         Create a rectangular grid
         :return: Rectangle of 0s, surrounded by 1s and insert values for static game objects
@@ -301,6 +333,10 @@ class Grid:
         if p_input is not None:
             my_player.move(p_input)  # Move Player
             my_player.steps -= 1
+            my_player.health = my_player.health - 1  # Simulate Hunger
+        # ## FIXME TODO REMOVE THIS MAKE PLAYER MOVE RANDOMLY TO TEST
+        else:
+            my_player.move(random.choice(["up", "down", "left", "right"]))
 
         # Move movable entities
         for enemy in my_enemies:
@@ -308,7 +344,7 @@ class Grid:
                 enemy.move(random.choice(["up", "down", "left", "right"]))
 
         # Update other things
-        my_player.health = my_player.health - (time.time() - start_time) / my_player.steps * 10  # Simulate Hunger
+        #  my_player.health = my_player.health - (time.time() - start_time) / my_player.steps * 10  # Simulate Hunger
 
     def paint(self, graphicset: Graphicset):
         """
@@ -344,9 +380,9 @@ class Grid:
             print()
 
         # Add Status Line
-        # FIXME MAKE STATUS LINE MORE FLEXIBLE / CONFIGURABLE. AS CLASS?
-        my_status.update()
-        print(vars(my_status))
+        # FIXME MAKE STATUS LINE PRETTY
+        my_state.update()
+        print(vars(my_state))
 
 
 # ##------MAIN LOOP------## #
@@ -371,57 +407,86 @@ default_update_speed = 0.1  # Game speed. Default: 0.1s
 
 #  Create grid
 # current_grid = Grid('ff_level1', 'ff_day').create_from_file()
-current_grid = Grid(grid_name='ff_level1', graphics_name="ff_day", size_x=30, size_y=30).create_rectangle()
+current_grid = Grid(
+    grid_name='ff_level1',
+    graphics_name="ff_day",
+    size_x=30, size_y=30
+).create_rectangle()
 
 # Create Entities
 # # The Player
-my_player = Player(name="Kisa", type_id=2, position=(1, 1), steps=300, health=99, attack=1)
+my_player = Player(
+    name="Kisa",
+    type_id=2,  # ID of the player as defined in the graphics set
+    position=(1, 1),  # Start position
+    steps=300,
+    health=99,
+    attack=1)
 
-# # Neutral entities and other static objects
-neutral_types = [10, 11, 12]
+# # Neutral entities and other static objects at random positions
+neutral_types = [10, 11, 12]  # List of IDs of different neutral types as defined in the graphics set
 my_decorations = []
 number_of_decorations = (current_grid.size_x + current_grid.size_y) // 2
 for i in range(0, number_of_decorations):
     my_decorations.append(
-        Decoration(random.choice(neutral_types), current_grid.get_random_position())
+        Decoration(
+            type_id=random.choice(neutral_types),
+            position=current_grid.get_random_position())
     )
 
 # # Hazzards
-hazzard_types = [20]
+hazzard_types = [20]  # List of IDs of different static hazzard types as defined in the graphics set
 my_hazzards = []
 number_of_hazzards = (current_grid.size_x + current_grid.size_y) // 2
 for i in range(0, number_of_hazzards):
     my_hazzards.append(
-        Hazzard(random.choice(hazzard_types), current_grid.get_random_position(), 30)
+        Hazzard(
+            type_id=random.choice(hazzard_types),
+            position=current_grid.get_random_position(),
+            attack=30)
     )
 current_grid.create_rectangle(my_decorations + my_hazzards)  # Add decorations to current grid
 
 
 # # Enemies
-enemy_types = [100]  # List of IDs of different enemy types
+enemy_types = [100]  # List of IDs of different enemy types as defined in the graphics set
 my_enemies = set()
-number_of_enemies = (current_grid.size_x + current_grid.size_y) // 2
+number_of_enemies = (current_grid.size_x + current_grid.size_y) // 2  # Enemy count depending on gridsize
 for i in range(0, number_of_enemies):
     my_enemies.add(
-        Enemy(random.choice(enemy_types), current_grid.get_random_position(), move_prob=0.8, health=1, points=20, number_id=i)
+        Enemy(
+            random.choice(enemy_types),
+            current_grid.get_random_position(),
+            move_prob=0.8,
+            health=1,
+            points=20,
+            number_id=i)
     )
 
-# Anfangsstatus
-# Allgemeine Anfangsbedingungen
-my_timelimit = 300
-my_status = GameStatus(gametime=my_timelimit,  health=my_player.health, steps=my_player.steps, enemy_count=3)  # TODO ACUTALLY COUNT ENEMIES
-# Start background music
+# Initial state
+my_timelimit = 4500  # Maximum Game time in seconds
+my_state = GameState(
+    gametime=my_timelimit,
+    health=my_player.health,
+    steps=my_player.steps,
+    enemy_count=len(my_enemies),
+    score=0
+)  # TODO ACUTALLY COUNT ENEMIES
+
+# Start background music  # FIXME DOES NOT STOP PROPERLY
 stop_playback = False
 play_soundfile('./res/music.mp3')
 
 #  Evaluate Keyboard input and update grid
 start_time = time.time()  # Start the clock
 while True:
+    my_state.gametime = round(start_time - time.time())  # Set the game clock
     try:
         # Abbruchbeningungen (WIN oder GAMEOVER)
-        if my_player.health < 1:  # Wir sind tot
-            print("DU BIST TOT")
-            break
+        # if my_player.health < 1:  # Wir sind tot
+        #    print("DU BIST TOT")
+        #    break
+
         # Keyboard Eingaben
         if str(Keyboard_Input) == "Key.left":
             player_input = 'left'
@@ -436,10 +501,11 @@ while True:
         else:
             player_input = None
 
-        # Do things based on gametime
-        my_status.gametime = round(start_time - time.time())
-        if my_status.gametime % 2 == 0:
+        # Switch graphics while running #EXPERIMENTAL
+        if my_state.gametime % 2 == 0:
             current_grid.graphics.name = "ff_night"
+        elif my_state.gametime % 5 == 0:
+            current_grid.graphics.name = "ff_snakemode"
         else:
             current_grid.graphics.name = "ff_day"
         current_grid.graphics.read_from_file()
