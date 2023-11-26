@@ -2,7 +2,6 @@
 # Needs:
 #   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
-# FIXME TYPE ERRORS (NUMPY?)
 # ##------IMPORTS------## #
 import numpy as np
 import os
@@ -124,6 +123,15 @@ class Entitiy:
         else:
             pass
 
+    def kill(self, id_number, entity_list: list = None):
+        """
+
+        :param id_number: Number ID of the entity object (example: enemy.number_id)
+        :param entity_list: Name of the list the entities are stored (optional)
+        :return:  no return. removes object from corresponding list
+        """
+        # TODO REMOVE ENTITY
+
 
 class Player(Entitiy):
     def __init__(self, name, type_id: int, position: tuple, steps: int, health: int, attack: int):
@@ -142,9 +150,9 @@ class Player(Entitiy):
         self.health = health
         self.attack = attack
 
-    def collide(self, type_id: int, posx: int, posy: int):  # TODO USE ATTACK AND ENEMY AP VALUES, CATCH ENEMIES
+    def collide(self, type_id: int):  # TODO USE ATTACK AND ENEMY AP VALUES, CATCH ENEMIES
         if type_id in enemy_types:
-            self.health = self.health - 20
+            self.health = self.health + 20
         if type_id in hazzard_types:
             self.health = self.health - 30
 
@@ -154,24 +162,26 @@ class Decoration(Entitiy):
 
 
 class Enemy(Entitiy):
-    def __init__(self, type_id: int, position: tuple, move_prob: float, health: int, attack: int):
+    def __init__(self, type_id: int, position: tuple, move_prob: float, health: int, points: int, number_id: int):
         """
 
         :param type_id:
         :param position:
         :param move_prob:
         :param health:
-        :param attack:
+        :param points:
+        :param number_id:
         """
         super().__init__(type_id, position)
         self.move_prob = move_prob
         self.health = health
-        self.attack = attack
+        self.points = points
+        self.number_id = number_id
 
 
 class Hazzard(Entitiy):
     def __init__(self, type_id: int, position: tuple, attack: int):
-        """
+        """my_player.steps /
 
         :param type_id:
         :param position:
@@ -179,6 +189,19 @@ class Hazzard(Entitiy):
         """
         super().__init__(type_id, position)
         self.attack = attack
+
+
+class GameStatus:
+    def __init__(self, gametime: int, health: int, steps: int, enemy_count: int):
+        self.gametime = gametime
+        self.health = health
+        self.steps = steps
+        self.enemy_count = enemy_count
+
+    def update(self):
+        self.health = round(my_player.health)
+        self.steps = round(my_player.steps)
+        self.gametime = my_timelimit - round(time.time() - start_time)
 
 
 class Graphicset:
@@ -277,6 +300,7 @@ class Grid:
         # Move player
         if p_input is not None:
             my_player.move(p_input)  # Move Player
+            my_player.steps -= 1
 
         # Move movable entities
         for enemy in my_enemies:
@@ -284,7 +308,8 @@ class Grid:
                 enemy.move(random.choice(["up", "down", "left", "right"]))
 
         # Update other things
-        # ...
+        my_player.health = my_player.health - (time.time() - start_time) / my_player.steps * 10  # Simulate Hunger
+
     def paint(self, graphicset: Graphicset):
         """
         # Actually paint the grid to screen
@@ -301,13 +326,13 @@ class Grid:
                         element = enemy.type_id
                 if (row_num, el_num) == my_player.position:  # Insert player
                     if element in enemy_types:  # Player hat Gegner gefangen
-                        my_player.collide(element, (row_num, el_num))
+                        my_player.collide(element)
                         # catch_count += 1
                         # number_of_enemies -= 1
                         # e_current_positions.remove((row_num, el_num))  # Gegner aus Liste entfernen
                         # health_count += enemy_nutrition  # Fressen
                     elif element in hazzard_types:  # Player ist in Hinderniss gelaufen
-                        my_player.collide(element, (row_num, el_num))
+                        my_player.collide(element)
                         # health_count -= obstacle_punishment  # Aua
                     element = my_player.type_id
                 # Check the graphics assignment dict and replace elements with emojis etc
@@ -320,8 +345,8 @@ class Grid:
 
         # Add Status Line
         # FIXME MAKE STATUS LINE MORE FLEXIBLE / CONFIGURABLE. AS CLASS?
-        gametime = fullwidth_str(str(round(time.time() - start_time)))
-        print(gametime)
+        my_status.update()
+        print(vars(my_status))
 
 
 # ##------MAIN LOOP------## #
@@ -341,17 +366,16 @@ class Grid:
 # ...
 
 #
-# TODO MOVE OPTIONS TO CONFIG FILE
+# ### CONFGIG ###
 default_update_speed = 0.1  # Game speed. Default: 0.1s
-start_time = time.time()  # Start the clock
 
 #  Create grid
 # current_grid = Grid('ff_level1', 'ff_day').create_from_file()
-current_grid = Grid('ff_level1', "ff_day", 30, 30).create_rectangle()
+current_grid = Grid(grid_name='ff_level1', graphics_name="ff_day", size_x=30, size_y=30).create_rectangle()
 
 # Create Entities
 # # The Player
-my_player = Player("Kisa", 2, (1, 1), 300, 99, 1)
+my_player = Player(name="Kisa", type_id=2, position=(1, 1), steps=300, health=99, attack=1)
 
 # # Neutral entities and other static objects
 neutral_types = [10, 11, 12]
@@ -374,22 +398,30 @@ current_grid.create_rectangle(my_decorations + my_hazzards)  # Add decorations t
 
 
 # # Enemies
-enemy_types = [100]
-my_enemies = []
+enemy_types = [100]  # List of IDs of different enemy types
+my_enemies = set()
 number_of_enemies = (current_grid.size_x + current_grid.size_y) // 2
 for i in range(0, number_of_enemies):
-    my_enemies.append(
-        Enemy(random.choice(enemy_types), current_grid.get_random_position(), 0.8, 1, 20)
+    my_enemies.add(
+        Enemy(random.choice(enemy_types), current_grid.get_random_position(), move_prob=0.8, health=1, points=20, number_id=i)
     )
 
+# Anfangsstatus
+# Allgemeine Anfangsbedingungen
+my_timelimit = 300
+my_status = GameStatus(gametime=my_timelimit,  health=my_player.health, steps=my_player.steps, enemy_count=3)  # TODO ACUTALLY COUNT ENEMIES
 # Start background music
 stop_playback = False
 play_soundfile('./res/music.mp3')
 
 #  Evaluate Keyboard input and update grid
+start_time = time.time()  # Start the clock
 while True:
     try:
-        # print(Keyboard_Input)
+        # Abbruchbeningungen (WIN oder GAMEOVER)
+        if my_player.health < 1:  # Wir sind tot
+            print("DU BIST TOT")
+            break
         # Keyboard Eingaben
         if str(Keyboard_Input) == "Key.left":
             player_input = 'left'
@@ -404,12 +436,13 @@ while True:
         else:
             player_input = None
 
-        # current_time = round(start_time - time.time())
-        # if current_time % 2 == 0:
-        #     my_grid.graphics.name = "ff_night"
-        # else:
-        #     my_grid.graphics.name = "ff_day"
-        # my_grid.graphics.read_from_file()
+        # Do things based on gametime
+        my_status.gametime = round(start_time - time.time())
+        if my_status.gametime % 2 == 0:
+            current_grid.graphics.name = "ff_night"
+        else:
+            current_grid.graphics.name = "ff_day"
+        current_grid.graphics.read_from_file()
 
         # Update grid and draw on screen
         current_grid.update(player_input)

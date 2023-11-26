@@ -7,12 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="renamed folder">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="fixed player movement, added enemies and hazzards, started on collision detection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_day.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_day.grf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_night.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_night.grf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_snakemode.grf" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff_snakemode.grf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,22 +62,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop",
-    "settings.editor.selected.configurable": "configurable.group.build"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="Code" is-module-sdk="true">
@@ -132,7 +129,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gameproject/Xventure_terminal_oop" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gameproject/ff1_terminal_oop" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -160,14 +157,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00067" summary="hunger function implemented but buggy">
-      <option name="closed" value="true" />
-      <created>1700373168251</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1700373168251</updated>
     </task>
     <task id="LOCAL-00068" summary="fixed hunger function">
       <option name="closed" value="true" />
@@ -553,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700828312524</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="fixed player movement, added enemies and hazzards, started on collision detection">
+      <option name="closed" value="true" />
+      <created>1700841428323</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1700841428323</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -569,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aufgabe 7" />
     <MESSAGE value="Tag 12 Tests" />
     <MESSAGE value="Typos" />
     <MESSAGE value="Übungen zu Klassen" />
@@ -594,7 +590,8 @@
     <MESSAGE value="catdog" />
     <MESSAGE value="unsnakyfy player" />
     <MESSAGE value="renamed folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed folder" />
+    <MESSAGE value="fixed player movement, added enemies and hazzards, started on collision detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed player movement, added enemies and hazzards, started on collision detection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
