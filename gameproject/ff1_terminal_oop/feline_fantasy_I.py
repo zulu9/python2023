@@ -9,8 +9,10 @@ import sys
 import time
 import random
 import threading
-from playsound import playsound
 from pynput import keyboard
+from pydub import AudioSegment
+from pydub.playback import play
+from contextlib import redirect_stderr
 
 # ##------GLOBAL FUNCTIONS------## #
 # Keybord handling
@@ -46,20 +48,6 @@ listener = keyboard.Listener(
 listener.start()
 # //END Initialize Keyboard listener
 
-# Sound Handling
-
-
-def play_soundfile(path):  # FIXME DOES NOT PROPERLY THREAD
-    """
-
-    :param path: Path to soundfile
-    :return: no return. starts thread
-    """
-    global stop_playback
-    play_thread = threading.Thread(
-        target=playsound(path, False), daemon=True)
-    play_thread.start()
-
 
 def fullwidth_str(text: str) -> str:
     """
@@ -68,9 +56,40 @@ def fullwidth_str(text: str) -> str:
     :return: Converted string
     """
     to_fullwidth = str.maketrans(
-        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[]^_`{|}~',
-        '０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！゛＃＄％＆（）＊＋、ー。／：；〈＝〉？＠［］＾＿‘｛｜｝～')
+        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[]^_`{|}~ ',
+        '０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！゛＃＄％＆（）＊＋、ー。／：；〈＝〉？＠［］＾＿‘｛｜｝～　')
     return text.translate(to_fullwidth)
+
+
+def fancy_string(
+        string: str = "Hier könnte Ihre Werbung stehen!",
+        width: int = 30) -> str:
+    """
+    :param string: Text
+    :param width: width of the  box
+    :return: fancystring
+    """
+    border = "#"
+    padder = " "
+    # We have a mix of even and uneven parameter. Add an extra char
+    if len(string) % 2 != width % 2:
+        topline = border + border
+    else:
+        topline = border
+
+    for i in range(0, width-2):  # -2 because we have the border
+        topline = topline + border
+
+    topline = topline + border + "\n"
+    padding = ""
+
+    for i in range(0, int((width-1)/2-len(string)/2)):
+        padding = padding + padder
+
+    middleline = border + padding + string + padding + border + "\n"
+    bottomline = topline
+    fancystring = topline + middleline + bottomline
+    return fullwidth_str(fancystring)
 
 
 def clear():
@@ -85,6 +104,19 @@ def clear():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = os.system('clear')
+
+
+def gameover(
+        reason: str = "Game Over!"):
+    """
+
+    :param reason: Reason for Game Over
+    :return:
+    """
+    current_grid.update()
+    print(fancy_string(reason, current_grid.size_y))
+    print("Press CTRL+C to quit")
+
 
 # ##------CLASSES------## #
 
@@ -395,16 +427,11 @@ class Grid:
                     if (row_num, el_num) == enemy.position:
                         element = enemy.type_id
                 if (row_num, el_num) == my_players[0].position:  # We are at player position
-                    if element in enemy_types:  # Player hat Gegner gefangen
+                    if element in enemy_types:  # Player hit enemy
                         my_players[0].collide(element, (row_num, el_num))
-                        # catch_count += 1
-                        # number_of_enemies -= 1
-                        # e_current_positions.remove((row_num, el_num))  # Gegner aus Liste entfernen
-                        # health_count += enemy_nutriticollideon  # Fressen
-                    elif element in hazzard_types:  # Player ist in Hinderniss gelaufen
+                    elif element in hazzard_types:  # Player hit hazzard
                         my_players[0].collide(element, (row_num, el_num))
-                        # health_count -= obstacle_punishment  # Aua
-                    element = my_players[0].type_id  # Insert player
+                    element = my_players[0].type_id  # Insert player type ID
                 # Check the graphics assignment dict and replace elements with emojis etc
                 element = graphicset.assignments.get(element)
                 print(format(str(element), "<1"), end="")
@@ -451,7 +478,7 @@ current_grid = Grid(
 player_types = [2]
 my_players = []
 number_of_players = 1  # FIXME SUPPORT MORE THAN ONE PLAYER OBJECT: CHANGE my_players[0]
-for i in range(0, number_of_players):
+for _ in range(0, number_of_players):
     my_players.append(
         Player(
             name="Kisa",
@@ -467,7 +494,7 @@ for i in range(0, number_of_players):
 neutral_types = [10, 11, 12]  # List of IDs of different neutral types as defined in the graphics set
 my_neutrals = []
 number_of_neutrals = (current_grid.size_x + current_grid.size_y) // 2
-for i in range(0, number_of_neutrals):
+for _ in range(0, number_of_neutrals):
     my_neutrals.append(
         Decoration(
             type_id=random.choice(neutral_types),
@@ -479,7 +506,7 @@ for i in range(0, number_of_neutrals):
 hazzard_types = [20]  # List of IDs of different static hazzard types as defined in the graphics set
 my_hazzards = []
 number_of_hazzards = (current_grid.size_x + current_grid.size_y) // 2
-for i in range(0, number_of_hazzards):
+for _ in range(0, number_of_hazzards):
     my_hazzards.append(
         Hazzard(
             type_id=random.choice(hazzard_types),
@@ -493,7 +520,7 @@ current_grid.create_rectangle(static_objects=my_neutrals + my_hazzards)  # Add d
 enemy_types = [100]  # List of IDs of different enemy types as defined in the graphics set
 my_enemies = []
 number_of_enemies = (current_grid.size_x + current_grid.size_y) // 2  # Enemy count depending on gridsize
-for i in range(0, number_of_enemies):
+for num in range(0, number_of_enemies):
     my_enemies.append(
         Enemy(
             random.choice(enemy_types),
@@ -501,7 +528,7 @@ for i in range(0, number_of_enemies):
             move_prob=0.8,
             health=1,
             points=20,
-            number_id=i)
+            number_id=num)
     )
 
 
@@ -516,17 +543,23 @@ my_state = Gamestate(
 
 
 # Start background music  # FIXME DOES NOT STOP PROPERLY
-stop_playback = False
-# play_soundfile('./res/music.mp3') # Soundfile to play
+sound = AudioSegment.from_mp3('./res/ff1_music.mp3')
+t = threading.Thread(target=play, args=(sound,))
+with open(os.devnull, 'w') as stderr, redirect_stderr(stderr):
+    t.start()
+
 
 #  MAIN LOOP Evaluate Keyboard input and update grid
 start_time = time.time()  # Start the clock
 while True:
     my_state.gametime = round(start_time - time.time())  # Set the game clock
     try:
-        # Abbruchbeningungen (WIN oder GAMEOVER)
-        if my_players[0].health < 1:
-            print("DU BIST TOT")
+        # Break conditions (WIN or GAMEOVER)
+        if my_players[0].health < 1 or my_players[0].steps < 1:  # Ran out of health or steps
+            gameover("YOU ARE DEAD!")
+            break
+        elif len(my_enemies) < 1:  # Caught all enemies
+            gameover("YOU ARE WINNER!")
             break
 
         # Keyboard Eingaben
@@ -548,9 +581,6 @@ while True:
         current_grid.paint(graphicset=current_grid.graphics)
         time.sleep(default_update_speed)
 
-    except KeyboardInterrupt:  # CTRL-C was pressed
+    except KeyboardInterrupt:
         print("BYE")
-        for thread in threading.enumerate():
-            print(thread.name)
-            thread.join()  # FIXME Sound thread sitill does not exit
         sys.exit()
