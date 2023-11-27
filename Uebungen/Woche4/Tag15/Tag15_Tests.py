@@ -17,4 +17,14 @@ bsp_teilnehmer.print_attributes()
 
 bsp_teilnehmer2 = astuple(Teilnehmer(4, 'Mahoney'))
 print(bsp_teilnehmer2)
-bsp_teilnehmer2.print_attributes()
+# bsp_teilnehmer2.print_attributes()
+
+
+mylist = ['a', 'b', 'c']
+print(mylist)
+mylist = iter(mylist)
+print(mylist)
+print(next(mylist))
+print(next(mylist))
+print(next(mylist))
+print(next(mylist))

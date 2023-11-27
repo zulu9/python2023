@@ -7,8 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Woche 4, Tag1 (=Tag15) Tests">
-      <change afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Decoratoren.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Tag15 Decorators">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Tag15_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Tag15_Tests.py" afterDir="false" />
     </list>
@@ -158,14 +157,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Added Tag11 Tests">
-      <option name="closed" value="true" />
-      <created>1700473413077</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1700473413077</updated>
     </task>
     <task id="LOCAL-00076" summary="reduce()">
       <option name="closed" value="true" />
@@ -551,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701071486467</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Tag15 Decorators">
+      <option name="closed" value="true" />
+      <created>1701079579363</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1701079579363</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -567,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses" />
     <MESSAGE value="BROKEN. trying to pass the Grid-Object instead of just the coordinate list to keep the information and make it more OOP" />
     <MESSAGE value="fixed. grid object now stays accessible" />
     <MESSAGE value="load level from file tested" />
@@ -592,7 +590,8 @@
     <MESSAGE value="BROKEN. added statusbar grf loading and processing. renamed some files" />
     <MESSAGE value="FIXED statusbar, renamed some files" />
     <MESSAGE value="Woche 4, Tag1 (=Tag15) Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Woche 4, Tag1 (=Tag15) Tests" />
+    <MESSAGE value="Tag15 Decorators" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tag15 Decorators" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
