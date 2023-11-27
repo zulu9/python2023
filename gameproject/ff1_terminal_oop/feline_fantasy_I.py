@@ -243,29 +243,45 @@ class GameState:
                  steps: int,
                  score: int,
                  graphics_name: str = "status"):
+        """
+        Current state of the Game
+        :param gametime:
+        :param health:
+        :param steps:
+        :param score:
+        :param graphics_name:
+        """
         self.gametime = gametime
         self.health = health
         self.steps = steps
         self.enemy_count = len(my_enemies)
         self.score = score
         self.graphics = Graphicset(graphics_name).read_grf_file()
+        self.statusbar = []
 
-    def update(self):
+    def update(self):  # Update Gamestate with current values
         self.health = round(my_players[0].health)
         self.steps = round(my_players[0].steps)
         self.gametime = round(time.time() - start_time)
         self.enemy_count = len(my_enemies)
 
-    def paint(self):
-        self.statusbar = {
-            0: str(self.gametime),
-            "health": str(self.health),
-            "steps": str(self.steps),
-            "enemy_count": str(self.enemy_count),
-            "score": str(self.score)}
-        for key in self.statusbar:
-            self.statusbar[key] = self.graphics.assignments.get(key)
-        print(self.statusbar)
+    def print_statusbar(self):  # Paint Status bar TODO FIXME!!!
+        """
+
+        """
+        #  ID of Symbol as defined in the status grf file, value to display
+        self.statusbar = [
+            [0, self.gametime],
+            [1, self.health],
+            [2, self.steps],
+            [3, self.enemy_count],
+            [4, self.score]
+        ]
+        #  Replace things with Symbols from status grf file and numbers full-width UTF-8 chars
+        for item in self.statusbar:
+            item[0] = self.graphics.assignments.get(item[0])
+            item[1] = fullwidth_str(str(item[1]))
+            print(f"{item[0]}: {item[1]:5}", end="")
 
 
 class Grid:
@@ -342,9 +358,9 @@ class Grid:
             my_players[0].move(p_input)  # Move Player
             my_players[0].steps -= 1
             my_players[0].health = my_players[0].health - 1  # Simulate Hunger
-        # EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
-        # else:
-        #     my_players[0].move(random.choice(["up", "down", "left", "right"]))
+        #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
+        else:
+            my_players[0].move(random.choice(["up", "down", "left", "right"]))
 
         # Move movable entities
         for enemy in my_enemies:
@@ -352,17 +368,17 @@ class Grid:
                 enemy.move(random.choice(["up", "down", "left", "right"]))
 
         # Update other things
-        my_state.update()  # Update Status Bar
+        my_state.update()  # Update Game status
         #  my_player.health = my_player.health - (time.time() - start_time) / my_player.steps * 10  # Simulate Hunger
 
         # Switch graphics while running #EXPERIMENTAL
-        # if my_state.gametime % 2 == 0:
-        #     self.graphics.name = "ff2_day"
-        # elif my_state.gametime % 3 or my_state.gametime % 7 == 0:
-        #     self.graphics.name = "ff1_snakemode"
-        # else:
-        #     self.graphics.name = "ff1_night"
-        # self.graphics.read_from_file()
+        if my_state.gametime % 2 == 0:
+            self.graphics.name = "ff1_day"
+        elif my_state.gametime % 3 or my_state.gametime % 7 == 0:
+            self.graphics.name = "ff1_spooky"
+        else:
+            self.graphics.name = "ff1_night"
+        self.graphics.read_grf_file()
 
     def paint(self, graphicset: Graphicset):
         """
@@ -395,12 +411,11 @@ class Grid:
                 el_num += 1
             el_num = 0
             row_num += 1
-            print()
+            print()  # Final newline before status
 
-        # Add Status Line
-        # FIXME MAKE STATUS LINE PRETTY
-
-        my_state.paint()
+        # Print Status Line
+        my_state.print_statusbar()
+        print()
 
 
 # ##------MAIN LOOP------## #
@@ -421,7 +436,7 @@ class Grid:
 
 #
 # ### CONFGIG ###
-default_update_speed = 0.2  # Game speed. Default: 0.2s, minimum on my system 0.01s
+default_update_speed = 0.1  # Game speed. Default: 0.2s, minimum (=Fastest without flicker) on my system 0.01s
 
 #  Create grid
 # current_grid = Grid('ff1_level1', 'ff1_day').create_from_file()
@@ -433,7 +448,6 @@ current_grid = Grid(
 
 # Create Entities
 # # The Players
-
 player_types = [2]
 my_players = []
 number_of_players = 1  # FIXME SUPPORT MORE THAN ONE PLAYER OBJECT: CHANGE my_players[0]
@@ -443,8 +457,8 @@ for i in range(0, number_of_players):
             name="Kisa",
             type_id=2,  # ID of the player as defined in the graphics set
             position=(1, 1),  # Start position
-            steps=1000,
-            health=1000,
+            steps=999,
+            health=9999,
             attack=1)
     )
 
@@ -491,14 +505,14 @@ for i in range(0, number_of_enemies):
     )
 
 
-# Initial state
-my_timelimit = 3600  # Maximum Game time in seconds
+# Initial game state
 my_state = GameState(
-    gametime=my_timelimit,
+    gametime=3600,
     health=my_players[0].health,
     steps=my_players[0].steps,
     score=0,
-    graphics_name="ff1_day_status")
+    graphics_name="ff1_day_status"
+)
 
 
 # Start background music  # FIXME DOES NOT STOP PROPERLY
