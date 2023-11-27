@@ -236,7 +236,7 @@ class Graphicset:
                 return self
 
 
-class GameState:
+class Gamestate:
     def __init__(self,
                  gametime: int,
                  health: int,
@@ -506,7 +506,7 @@ for i in range(0, number_of_enemies):
 
 
 # Initial game state
-my_state = GameState(
+my_state = Gamestate(
     gametime=3600,
     health=my_players[0].health,
     steps=my_players[0].steps,
