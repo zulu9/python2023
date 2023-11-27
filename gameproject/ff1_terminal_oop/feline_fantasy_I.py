@@ -582,5 +582,5 @@ while True:
         time.sleep(default_update_speed)
 
     except KeyboardInterrupt:
-        print("BYE")
+        print(fancy_string("BYE"))
         sys.exit()
