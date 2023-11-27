@@ -7,13 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="BROKEN. added statusbar grf loading and processing. renamed some files">
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1_spooky.grf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1_sspooky_status.grf" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="FIXED statusbar, renamed some files">
+      <change afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Tag15_Tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1_snakemode.grf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1_snakemode_status.grf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,22 +62,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop/feline_fantasy_I.py",
-    "settings.editor.selected.configurable": "configurable.group.build"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop/feline_fantasy_I.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="Code" is-module-sdk="true">
@@ -161,14 +157,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00073" summary="kurze anleitung bevor es losgeht hinzugefügt&#10;TODO: Gameover und Win Ausgaben">
-      <option name="closed" value="true" />
-      <created>1700466312797</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1700466312797</updated>
     </task>
     <task id="LOCAL-00074" summary="Anleitung geändert">
       <option name="closed" value="true" />
@@ -554,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701044719902</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="FIXED statusbar, renamed some files">
+      <option name="closed" value="true" />
+      <created>1701051195513</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1701051195513</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -570,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert" />
     <MESSAGE value="unfinished: &#10;methode um Grid aus Datei zu laden" />
     <MESSAGE value="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses" />
     <MESSAGE value="BROKEN. trying to pass the Grid-Object instead of just the coordinate list to keep the information and make it more OOP" />
@@ -595,7 +590,8 @@
     <MESSAGE value="moved graphics change to proper method (update grid)" />
     <MESSAGE value="moved graphics change again :D" />
     <MESSAGE value="BROKEN. added statusbar grf loading and processing. renamed some files" />
-    <option name="LAST_COMMIT_MESSAGE" value="BROKEN. added statusbar grf loading and processing. renamed some files" />
+    <MESSAGE value="FIXED statusbar, renamed some files" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIXED statusbar, renamed some files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
