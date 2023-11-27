@@ -1,15 +1,20 @@
 # Tag 15 Tests
-def my_decorator(fkt):
-    def fkt_wrapper():
-        print("Before funcion call")
-        fkt()
-        print("After function call")
-    return fkt_wrapper
+from dataclasses import *
 
 
-@my_decorator
-def myfkt():
-    print("Inside the function")
+@dataclass
+class Teilnehmer:
+    age: int
+    name: str = "muh"
+
+    def print_attributes(self):
+        print(f'{self.name} is {self.age} years old')
 
 
-myfkt()
+bsp_teilnehmer = Teilnehmer(2, 'Kisa')
+print(bsp_teilnehmer)
+bsp_teilnehmer.print_attributes()
+
+bsp_teilnehmer2 = astuple(Teilnehmer(4, 'Mahoney'))
+print(bsp_teilnehmer2)
+bsp_teilnehmer2.print_attributes()
