@@ -209,8 +209,8 @@ def fancy_string(
     :param breite: Breite der Box
     :return: fancystring
     """
-    border = "🟧"
-    padder = "⬜"
+    border = "#"
+    padder = " "
     # string gerade Anzahl zeichen und breite ungerade oder umgekehrt. Wir brauchen ein extra Zeichen
     if len(string) % 2 != breite % 2:
         topline = border + border

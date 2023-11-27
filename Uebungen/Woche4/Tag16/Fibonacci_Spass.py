@@ -1,6 +1,6 @@
 ''' 4 Methods to calculate the fibonacci sequenz '''
 
-'''As recursiv function'''
+print('''As recursiv function''')
 def fib_recu(n):
    if n <= 1:
        return n
@@ -11,11 +11,11 @@ for i in range(14):
     print(fib_recu(i))
 
 
-''' As iterator '''
+print(''' As iterator ''')
 class fib_iter():
     def __init__(self, howMany):
         self.counter = howMany
-        self.curFib = 0
+        self.curFib = -1
         self.nextFib = 1
 
     def __iter__(self):
@@ -37,7 +37,7 @@ class fib_iter():
 for fib in fib_iter(14):
     print(fib)
 
-''' As generator '''
+print(""''' As generator '''"")
 stop_point = 600
 fib_out = [0, 1]
 while fib_out[-1] < stop_point:
@@ -45,7 +45,7 @@ while fib_out[-1] < stop_point:
     fib_out.append(fib_out[-1] + fib_out[-2])
 
 
-''' As generator function '''
+print(''' As generator function ''')
 def fib_fkt():
     a = 0
     b = 1

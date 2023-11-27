@@ -7,8 +7,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Tag15 Generators">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="changed sound library. &#10;added break conditions&#10;made output for break conditions nicer&#10;finished status bar look">
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Decoratoren.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag16/Decoratoren.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Fibonacci_Spass.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag16/Fibonacci_Spass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Iteratoren_Generatorn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag16/Iteratoren_Generatorn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/Tag15_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag16/Tag16_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag15/datenklassen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag16/datenklassen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/catventure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,22 +165,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Uebungen Tag11">
-      <option name="closed" value="true" />
-      <created>1700490678256</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1700490678256</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Aufgabe 7">
-      <option name="closed" value="true" />
-      <created>1700494394344</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1700494394344</updated>
     </task>
     <task id="LOCAL-00080" summary="Tag 12 Tests">
       <option name="closed" value="true" />
@@ -550,7 +542,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701082944668</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="added kursbeispiele">
+      <option name="closed" value="true" />
+      <created>1701083794994</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1701083794994</updated>
+    </task>
+    <task id="LOCAL-00128" summary="changed sound library. &#10;added break conditions&#10;made output for break conditions nicer&#10;finished status bar look">
+      <option name="closed" value="true" />
+      <created>1701096248345</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1701096248345</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,8 +574,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="load level from file tested" />
-    <MESSAGE value="load level from file tested (linux only)" />
     <MESSAGE value="maybe level loading works on windows too now" />
     <MESSAGE value="IDs in Listen und Strings" />
     <MESSAGE value="moved stuff, can load graphics from file now" />
@@ -591,7 +597,9 @@
     <MESSAGE value="Tag15 Decorators" />
     <MESSAGE value="Tag15 Iterators" />
     <MESSAGE value="Tag15 Generators" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tag15 Generators" />
+    <MESSAGE value="added kursbeispiele" />
+    <MESSAGE value="changed sound library. &#10;added break conditions&#10;made output for break conditions nicer&#10;finished status bar look" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed sound library. &#10;added break conditions&#10;made output for break conditions nicer&#10;finished status bar look" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
