@@ -20,18 +20,21 @@ from lib.ff1_functions import *
 def on_press(key):
     """
     handle key presses
-    :param key:
+    :param key: key pressed
     :return:
     """
     global Keyboard_Input
     Keyboard_Input = key
 
 
-def on_release(key):  # FIXME DOES NOT WORK AND MIGHT CAUSE DOUBLE EVENTS
+def on_release(key):
     """
     handle key releases
+    :param key: key released
     :return:
     """
+    if str(key) == "q":  # FIXME DOES NOT WORK
+        exit(0)
     global Keyboard_Input
     Keyboard_Input = None
 
@@ -490,7 +493,9 @@ while True:
             break
 
         # Keyboard Eingaben
-        if str(Keyboard_Input) == "Key.left":
+        print(str(Keyboard_Input))
+        # input()
+        if str(Keyboard_Input) == 'Key.right':
             player_input = 'left'
         elif str(Keyboard_Input) == "Key.right":
             player_input = 'right'
