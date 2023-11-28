@@ -4,22 +4,23 @@
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
 # ##------IMPORTS------## #
 import numpy as np
+import os
 import sys
 import time
 import random
 import threading
+from pynput import keyboard
 from pydub import AudioSegment
 from pydub.playback import play
 from contextlib import redirect_stderr
 
-from lib.ff1_functions import *
-
-# ##------KEYBOARD HANDLING------## #
+# ##------GLOBAL FUNCTIONS------## #
+# Keybord handling
 
 
 def on_press(key):
     """
-    handle key presses
+    Handle key presses
     :param key:
     :return:
     """
@@ -27,12 +28,15 @@ def on_press(key):
     Keyboard_Input = key
 
 
-def on_release(key):  # FIXME DOES NOT WORK AND MIGHT CAUSE DOUBLE EVENTS
+def on_release(key):
     """
     handle key releases
+    :param key:
     :return:
     """
     global Keyboard_Input
+    if str(key) == "Key.Q":
+        exit(0)
     Keyboard_Input = None
 
 
@@ -43,6 +47,76 @@ listener = keyboard.Listener(
     on_release=on_release)
 listener.start()
 # //END Initialize Keyboard listener
+
+
+def fullwidth_str(text: str) -> str:
+    """
+    Translate string to fullwidth unicode characters to avoid weird spacing (Can't do Umlauts!)
+    :param text: String to convert
+    :return: Converted string
+    """
+    to_fullwidth = str.maketrans(
+        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&()*+,-./:;<=>?@[]^_`{|}~ ',
+        '０１２３４５６７８９ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！゛＃＄％＆（）＊＋、ー。／：；〈＝〉？＠［］＾＿‘｛｜｝～　')
+    return text.translate(to_fullwidth)
+
+
+def fancy_string(
+        string: str = "Hier könnte Ihre Werbung stehen!",
+        width: int = 30) -> str:
+    """
+    :param string: Text
+    :param width: width of the  box
+    :return: fancystring
+    """
+    border = "#"
+    padder = " "
+    # We have a mix of even and uneven parameter. Add an extra char
+    if len(string) % 2 != width % 2:
+        topline = border + border
+    else:
+        topline = border
+
+    for i in range(0, width-2):  # -2 because we have the border
+        topline = topline + border
+
+    topline = topline + border + "\n"
+    padding = ""
+
+    for i in range(0, int((width-1)/2-len(string)/2)):
+        padding = padding + padder
+
+    middleline = border + padding + string + padding + border + "\n"
+    bottomline = topline
+    fancystring = topline + middleline + bottomline
+    return fullwidth_str(fancystring)
+
+
+def clear():
+    """
+    Clears screen (needs "real" Terminal!)
+    :return: No return
+    """
+    # for windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = os.system('clear')
+
+
+def gameover(
+        reason: str = "Game Over!"):
+    """
+
+    :param reason: Reason for Game Over
+    :return:
+    """
+    current_grid.update()
+    print(fancy_string(reason, current_grid.size_y))
+    print("Press CTRL+C to quit")
+
 
 # ##------CLASSES------## #
 
@@ -57,11 +131,10 @@ class Entitiy:
         self.type_id = type_id
         self.position = position
 
-    def move(self, direction: str = "None", gridsize: tuple[int, int] = (0, 0)):
+    def move(self, direction: str = "None"):
         """
-        move objects on the grid
-        :param direction: move direction
-        :param gridsize: current gridsize as defined in Grid class (Grid.size_x, Grid.size_y)
+        Objekte im Grid bewegen
+        :param direction: Richtung, in die sich bewegt werden soll
         """
         if direction == "up":
             steps = (-1, 0)
@@ -81,8 +154,8 @@ class Entitiy:
         if (  # Check if new position is out of grid
                 new_position[0] != 0
                 and new_position[1] != 0
-                and new_position[0] < gridsize[0]
-                and new_position[1] < gridsize[1]):
+                and new_position[0] < current_grid.size_x
+                and new_position[1] < current_grid.size_y):
             self.position = new_position
         else:
             pass
@@ -314,17 +387,17 @@ class Grid:
 
         # Move player
         if p_input is not None:
-            my_players[0].move(p_input, (self.size_x, self.size_y))  # Move Player
+            my_players[0].move(p_input)  # Move Player
             my_players[0].steps -= 1
             my_players[0].health = my_players[0].health - 1  # Simulate Hunger
-        # #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
-        # else:
-        #     my_players[0].move(random.choice(["up", "down", "left", "right"]))
+        #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
+        else:
+            my_players[0].move(random.choice(["up", "down", "left", "right"]))
 
         # Move movable entities
         for enemy in my_enemies:
             if random.random() < enemy.move_prob:
-                enemy.move(random.choice(["up", "down", "left", "right"]), (self.size_x, self.size_y))
+                enemy.move(random.choice(["up", "down", "left", "right"]))
 
         # Update other things
         my_state.update()  # Update Game status
@@ -394,7 +467,7 @@ default_update_speed = 0.1  # Game speed. Default: 0.2s, minimum (=Fastest witho
 
 #  Create grid
 # my_grid = Grid('ff1_level1', 'ff1_day').create_from_file()
-my_grid = Grid(
+current_grid = Grid(
     grid_name='ff1_level1',
     graphics_name="ff1_day",
     size_x=30, size_y=40
@@ -420,38 +493,38 @@ for _ in range(0, number_of_players):
 # # Neutral entities and other static objects at random positions
 neutral_types = [10, 11, 12]  # List of IDs of different neutral types as defined in the graphics set
 my_neutrals = []
-number_of_neutrals = (my_grid.size_x + my_grid.size_y) // 2
+number_of_neutrals = (current_grid.size_x + current_grid.size_y) // 2
 for _ in range(0, number_of_neutrals):
     my_neutrals.append(
         Decoration(
             type_id=random.choice(neutral_types),
-            position=my_grid.get_random_position())
+            position=current_grid.get_random_position())
     )
 
 
 # # Hazzards
 hazzard_types = [20]  # List of IDs of different static hazzard types as defined in the graphics set
 my_hazzards = []
-number_of_hazzards = (my_grid.size_x + my_grid.size_y) // 2
+number_of_hazzards = (current_grid.size_x + current_grid.size_y) // 2
 for _ in range(0, number_of_hazzards):
     my_hazzards.append(
         Hazzard(
             type_id=random.choice(hazzard_types),
-            position=my_grid.get_random_position(),
+            position=current_grid.get_random_position(),
             attack=30)
     )
-my_grid.create_rectangle(static_objects=my_neutrals + my_hazzards)  # Add decorations to current grid
+current_grid.create_rectangle(static_objects=my_neutrals + my_hazzards)  # Add decorations to current grid
 
 
 # # Enemies
 enemy_types = [100]  # List of IDs of different enemy types as defined in the graphics set
 my_enemies = []
-number_of_enemies = (my_grid.size_x + my_grid.size_y) // 2  # Enemy count depending on gridsize
+number_of_enemies = (current_grid.size_x + current_grid.size_y) // 2  # Enemy count depending on gridsize
 for num in range(0, number_of_enemies):
     my_enemies.append(
         Enemy(
             random.choice(enemy_types),
-            my_grid.get_random_position(),
+            current_grid.get_random_position(),
             move_prob=0.8,
             health=1,
             points=20,
@@ -468,7 +541,8 @@ my_state = Gamestate(
     graphics_name="ff1_day_status"
 )
 
-# Start background music  #
+
+# Start background music  # FIXME DOES NOT STOP PROPERLY
 sound = AudioSegment.from_mp3('./res/ff1_music.mp3')
 t = threading.Thread(target=play, args=(sound,))
 with open(os.devnull, 'w') as stderr, redirect_stderr(stderr):
@@ -477,16 +551,15 @@ with open(os.devnull, 'w') as stderr, redirect_stderr(stderr):
 
 #  MAIN LOOP Evaluate Keyboard input and update grid
 start_time = time.time()  # Start the clock
-
 while True:
     my_state.gametime = round(start_time - time.time())  # Set the game clock
     try:
         # Break conditions (WIN or GAMEOVER)
         if my_players[0].health < 1 or my_players[0].steps < 1:  # Ran out of health or steps
-            gameover(my_grid, "YOU ARE DEAD!")
+            gameover("YOU ARE DEAD!")
             break
         elif len(my_enemies) < 1:  # Caught all enemies
-            gameover(my_grid, "YOU ARE WINNER!")
+            gameover("YOU ARE WINNER!")
             break
 
         # Keyboard Eingaben
@@ -504,8 +577,8 @@ while True:
             player_input = None
 
         # Update grid and draw on screen
-        my_grid.update(p_input=player_input)
-        my_grid.paint(graphicset=my_grid.graphics)
+        current_grid.update(p_input=player_input)
+        current_grid.paint(graphicset=current_grid.graphics)
         time.sleep(default_update_speed)
 
     except KeyboardInterrupt:

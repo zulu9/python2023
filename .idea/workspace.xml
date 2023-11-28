@@ -7,8 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="addes Tag17_Tests.py GUIs mit tkinter">
-      <change beforePath="$PROJECT_DIR$/Uebungen/Woche4/Tag17/Tag17_Tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Uebungen/Woche4/Tag17/Tag17_Tests.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="empty window">
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I_monolith.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib/ff1_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/Catventure_entdecker.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/catventure_terminal_functions/Catventure_entdecker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,14 +161,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Typos">
-      <option name="closed" value="true" />
-      <created>1700558043674</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1700558043674</updated>
     </task>
     <task id="LOCAL-00085" summary="Übungen zu Klassen">
       <option name="closed" value="true" />
@@ -549,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701157889834</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="empty window">
+      <option name="closed" value="true" />
+      <created>1701158632130</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1701158632130</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -565,7 +570,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="moved stuff, can load graphics from file now" />
     <MESSAGE value="added player and static decorations" />
     <MESSAGE value="fixed player movement logic" />
     <MESSAGE value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
@@ -590,7 +594,8 @@
     <MESSAGE value="changed sound library. &#10;added break conditions&#10;made output for break conditions nicer&#10;finished status bar look" />
     <MESSAGE value="changed sound library. &#10;added break conditions&#10;made output for break conditions nicer&#10;finished status bar look&#10;&#10;addes script to run game on linux with anaconda and redirecting stderr to /dev/null to surpess messages" />
     <MESSAGE value="addes Tag17_Tests.py GUIs mit tkinter" />
-    <option name="LAST_COMMIT_MESSAGE" value="addes Tag17_Tests.py GUIs mit tkinter" />
+    <MESSAGE value="empty window" />
+    <option name="LAST_COMMIT_MESSAGE" value="empty window" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
