@@ -3,13 +3,15 @@ import tkinter as tk
 
 root = tk.Tk()
 
-root.title("My Windows")
+root.title("My Window")
 
 window_width = 1280
 window_height = 1024
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
 
-centerX = 200
-centerY = 200
+centerX = int(screen_width / 2 - window_width / 2)
+centerY = int(screen_height / 2 - window_height / 2)
 root.geometry(f"{window_width}x{window_height}+{centerX}+{centerY}")
 
 root.mainloop()

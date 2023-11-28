@@ -157,14 +157,6 @@
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
     </task>
-    <task id="LOCAL-00083" summary="Tag 12 Tests">
-      <option name="closed" value="true" />
-      <created>1700557441120</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1700557441120</updated>
-    </task>
     <task id="LOCAL-00084" summary="Typos">
       <option name="closed" value="true" />
       <created>1700558043674</created>
@@ -549,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701157491407</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="addes Tag17_Tests.py GUIs mit tkinter">
+      <option name="closed" value="true" />
+      <created>1701157889834</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1701157889834</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
