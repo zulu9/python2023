@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
         my_player_input = None
         # my_player_input = random.choice(list(my_game.ruleset.keys()))  # Random Player Choice (DEBUG)
-        while my_player_input not in my_game.ruleset.keys():       # TODO make all input case insensitive
+        while my_player_input not in my_game.ruleset.keys():
             attack_options = ', '.join(f"[{key}]" for key in my_game.ruleset.keys())
             my_player_input = input(f"Choose attack: {attack_options}: ")
 
