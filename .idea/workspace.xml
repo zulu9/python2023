@@ -7,11 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Release 1.0b2&#10;fixed status bar graphics changes">
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="RPS first working version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,22 +63,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop/feline_fantasy_I.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop/rps/rps.py",
+    "settings.editor.selected.configurable": "configurable.group.build"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="Code" is-module-sdk="true">
@@ -100,7 +99,29 @@
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.RPS">
+    <configuration name="RPS" type="PythonConfigurationType" factoryName="Python">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="$PROJECT_DIR$/../anaconda3" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" focusToolWindowBeforeRun="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,6 +165,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.RPS" />
+      <item itemvalue="Python.feline_fantasy_I" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.feline_fantasy_I" />
@@ -159,14 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00090" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
-      <option name="closed" value="true" />
-      <created>1700620181560</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1700620181560</updated>
     </task>
     <task id="LOCAL-00091" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
       <option name="closed" value="true" />
@@ -552,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701246653281</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="RPS first working version">
+      <option name="closed" value="true" />
+      <created>1701262166848</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1701262166848</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -568,7 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="inheritence for player class" />
     <MESSAGE value="catdog" />
     <MESSAGE value="unsnakyfy player" />
     <MESSAGE value="renamed folder" />
@@ -593,7 +617,8 @@
     <MESSAGE value="added folder for RPS module" />
     <MESSAGE value="Release 1.0b1" />
     <MESSAGE value="Release 1.0b2&#10;fixed status bar graphics changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release 1.0b2&#10;fixed status bar graphics changes" />
+    <MESSAGE value="RPS first working version" />
+    <option name="LAST_COMMIT_MESSAGE" value="RPS first working version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

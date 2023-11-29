@@ -3,21 +3,24 @@ import time
 
 class Game:
     def __init__(self, ruleset: dict, rounds: int = 1):
-        self.starttime = time.time()
+        """
+
+        :param ruleset: Dict of possible choices and list of winning condition
+        :param rounds: Number of rounds to play
+        """
+        self.starttime = time.time()  # Get current time
         self.rounds = rounds
         self.ruleset = ruleset
 
 
 class Choice:
     def __init__(self, game: Game, choice: str):
-        super().__init__()
         self.game = game
         self.choice = choice
 
     def __gt__(self, other):
-        self.victory_conditions = self.game.ruleset
-
-        other_looses = self.victory_conditions[self.choice]
+       # print(self.game.ruleset[self.choice])
+        other_looses = self.game.ruleset[self.choice].keys()
         if other.choice in other_looses:
             return True
         else:
