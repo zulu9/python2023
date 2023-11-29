@@ -7,7 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="small experiments with keyboard listener" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="added folder for RPS module">
+      <change afterPath="$PROJECT_DIR$/gameproject/feline_fantasy_I_monolith.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I_monolith.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,11 +92,11 @@
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/" />
+      <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib" />
       <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche3/Tag12" />
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
-      <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag9" />
-      <recent name="$PROJECT_DIR$/Uebungen/Woche2/Tag8" />
     </key>
   </component>
   <component name="RunManager">
@@ -154,14 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Adeded catventure für Entdecker">
-      <option name="closed" value="true" />
-      <created>1700574703088</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1700574703089</updated>
     </task>
     <task id="LOCAL-00088" summary="Grid Klasse definiert&#10;Methode für Rechteckiges Grid implementiert">
       <option name="closed" value="true" />
@@ -547,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701182759064</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="added folder for RPS module">
+      <option name="closed" value="true" />
+      <created>1701244905664</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1701244905664</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -563,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
     <MESSAGE value="renamed main script" />
     <MESSAGE value="added Tag 14 Tests" />
     <MESSAGE value="inheritence for player class" />
@@ -588,7 +591,8 @@
     <MESSAGE value="empty window" />
     <MESSAGE value="moved functions to seperate file&#10;renamed current_grid to my_grid to be consistant&#10;made entity and grid classes independant&#10;&#10;cleaned up folders" />
     <MESSAGE value="small experiments with keyboard listener" />
-    <option name="LAST_COMMIT_MESSAGE" value="small experiments with keyboard listener" />
+    <MESSAGE value="added folder for RPS module" />
+    <option name="LAST_COMMIT_MESSAGE" value="added folder for RPS module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -113,8 +113,8 @@ class Player(Entitiy):
         self.health = health
         self.attack = attack
 
-    def collide(self, type_id: int, position: tuple):  # TODO USE ATTACK AND ENEMY AP VALUES, CATCH ENEMIES
-        if type_id in enemy_types:  # FIXME MAKE IT USE enemy.name_id
+    def collide(self, type_id: int, position: tuple):  # TODO USE RPS MODULE TO BATTLE
+        if type_id in enemy_types:
             self.health = self.health + 20
             my_state.score += 1
             for enemy in my_enemies:  # remove enemy from enemy list and delete object
@@ -185,7 +185,7 @@ class Graphicset:
         :return:  Graphicset assignments
         """
         graphicset_file = os.path.dirname(__file__) + '/res/' + self.name + '.grf'
-        with open(graphicset_file, encoding="utf-8", mode='r') as graphicsfile:  # TODO Make sure it works on Windows
+        with open(graphicset_file, encoding="utf-8", mode='r') as graphicsfile:
             try:
                 for lines in graphicsfile:
                     key, value = lines.strip().split(':')  # An : trennen
@@ -227,7 +227,7 @@ class Gamestate:
         self.gametime = round(time.time() - start_time)
         self.enemy_count = len(my_enemies)
 
-    def print_statusbar(self):  # Paint Status bar TODO FIXME!!!
+    def print_statusbar(self):  # Paint Status bar
         """
 
         """
@@ -286,7 +286,7 @@ class Grid:
         :return:  Grid read from file
         """
         grid_file = os.path.dirname(__file__) + '/res/' + self.name + '.lvl'
-        with open(grid_file, encoding="utf-8", mode='r') as levelfile:  # TODO Make sure it works on Windows too
+        with open(grid_file, encoding="utf-8", mode='r') as levelfile:
             try:
                 for lines in levelfile:
                     elements = lines.strip().split(' ')  # An Leerzeichen trennen
@@ -414,7 +414,7 @@ for _ in range(0, number_of_players):
             name="Kisa",
             type_id=2,  # ID of the player as defined in the graphics set
             position=(1, 1),  # Start position
-            steps=999,
+            steps=999,  # TODO Set steps and health to reasonable values (or change statusbar...)
             health=9999,
             attack=1)
     )
@@ -495,7 +495,7 @@ while True:
         # Keyboard Eingaben
         print(str(Keyboard_Input))
         # input()
-        if str(Keyboard_Input) == 'Key.right':
+        if str(Keyboard_Input) == 'Key.left':
             player_input = 'left'
         elif str(Keyboard_Input) == "Key.right":
             player_input = 'right'
