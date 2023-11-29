@@ -227,7 +227,7 @@ class Gamestate:
         self.gametime = round(time.time() - start_time)
         self.enemy_count = len(my_enemies)
 
-    def print_statusbar(self):  # Paint Status bar
+    def print_statusbar(self, graphics_name):  # Paint Status bar
         """
 
         """
@@ -239,6 +239,7 @@ class Gamestate:
             [3, self.enemy_count],
             [4, self.score]
         ]
+        self.graphics = Graphicset(graphics_name).read_grf_file()
         #  Replace things with Symbols from status grf file and numbers full-width UTF-8 chars
         for item in self.statusbar:
             item[0] = self.graphics.assignments.get(item[0])
@@ -371,7 +372,7 @@ class Grid:
             print()  # Final newline before status
 
         # Print Status Line
-        my_state.print_statusbar()
+        my_state.print_statusbar(self.graphics.name + "_status")
         print()
 
 
