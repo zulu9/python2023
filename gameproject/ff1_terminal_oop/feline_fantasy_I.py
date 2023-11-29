@@ -1,4 +1,4 @@
-#  ---Feline Fantasy I - The XTERMinator 0.0.0.3 - The terminal emulator emoji Adventure---
+#  ---Feline Fantasy I - The XTERMinator 1.0- The terminal emulator emoji Adventure---
 # Needs:
 #   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
