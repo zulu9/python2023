@@ -1,3 +1,4 @@
+# FRPS+ (Flexible Rock Paper Scissors) Game / Module Classes File
 import time
 
 
