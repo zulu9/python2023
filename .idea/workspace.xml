@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="moved functions to seperate file&#10;renamed current_grid to my_grid to be consistant&#10;made entity and grid classes independant&#10;&#10;cleaned up folders">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
-    </list>
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="small experiments with keyboard listener" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,14 +154,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Kommentare hinzugefügt">
-      <option name="closed" value="true" />
-      <created>1700574661527</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1700574661527</updated>
     </task>
     <task id="LOCAL-00087" summary="Adeded catventure für Entdecker">
       <option name="closed" value="true" />
@@ -550,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701181455878</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="small experiments with keyboard listener">
+      <option name="closed" value="true" />
+      <created>1701182759064</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1701182759064</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +563,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fixed player movement logic" />
     <MESSAGE value="actually did not fix player movement issues. &#10;reverted changes. player is still snake-like :(" />
     <MESSAGE value="renamed main script" />
     <MESSAGE value="added Tag 14 Tests" />
@@ -591,7 +587,8 @@
     <MESSAGE value="addes Tag17_Tests.py GUIs mit tkinter" />
     <MESSAGE value="empty window" />
     <MESSAGE value="moved functions to seperate file&#10;renamed current_grid to my_grid to be consistant&#10;made entity and grid classes independant&#10;&#10;cleaned up folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved functions to seperate file&#10;renamed current_grid to my_grid to be consistant&#10;made entity and grid classes independant&#10;&#10;cleaned up folders" />
+    <MESSAGE value="small experiments with keyboard listener" />
+    <option name="LAST_COMMIT_MESSAGE" value="small experiments with keyboard listener" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
