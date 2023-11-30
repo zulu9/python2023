@@ -17,13 +17,11 @@ from contextlib import redirect_stderr
 from lib.ff1_functions import *
 import frps
 
-input("Who you gonna call? FRPS Module!")
-print(dir(frps))
 
-my_rps_game = frps.Game(ruleset=None, rounds=1, target_score=None)
-print(type(my_rps_game))
-print(my_rps_game)
-input()
+def play_frps():
+    my_frps = frps.Game(ruleset=frps.load_ruleset_from_file("./res/ff1_rps.yaml"), rounds=1, target_score=1)
+    print(my_frps)
+    return 1
 
 # ##------KEYBOARD HANDLING------## #
 
@@ -127,19 +125,18 @@ class Player(Entitiy):
     def collide(self, type_id: int, position: tuple):  # TODO USE RPS MODULE TO BATTLE
         if type_id in enemy_types:
             # MARK TODO WE GO TO BATTLE
-            # TODO CALL FRPS MODULE
-            # battle result = true:   Player wins
-            if True:
-                # DO STUFF
+            win = play_frps()
+            if win == 1:  # Player has won
                 self.health = self.health + 20
                 my_state.score += 1
                 for enemy in my_enemies:  # remove enemy from enemy list and delete object
                     if enemy.position == position:
                         my_enemies.remove(enemy)
                         del enemy
-            # if battle result = false: Enemy wins
-                # DO STUFF
+            elif win == 2:  # Computer has won
                 self.health = self.health - 20
+            else:  # Tie, do nothing
+                pass
         if type_id in hazzard_types:  # hazzards stay. no need to remove
             self.health = self.health - 30
 

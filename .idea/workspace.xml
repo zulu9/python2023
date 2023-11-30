@@ -7,17 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="ff1 broken&#10;frps done*&#10;&#10;*changes still might happen">
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps_classes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps_functions.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="maybe importing frps into feline_fantasy_I.py works now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/frps_classes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/frps_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/scrapbook.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/ff1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib/ff1_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib/ff1_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,14 +187,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00104" summary="IDs in Listen und Strings">
-      <option name="closed" value="true" />
-      <created>1700727843906</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1700727843906</updated>
     </task>
     <task id="LOCAL-00105" summary="moved stuff, can load graphics from file now">
       <option name="closed" value="true" />
@@ -586,7 +572,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701317219836</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="maybe importing frps into feline_fantasy_I.py works now">
+      <option name="closed" value="true" />
+      <created>1701345425266</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1701345425267</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -602,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="FIXED statusbar, renamed some files" />
     <MESSAGE value="Woche 4, Tag1 (=Tag15) Tests" />
     <MESSAGE value="Tag15 Decorators" />
     <MESSAGE value="Tag15 Iterators" />
@@ -627,7 +620,8 @@
     <MESSAGE value="BROKEN Import to ff1 main file" />
     <MESSAGE value="Moved and renamed stuff" />
     <MESSAGE value="ff1 broken&#10;frps done*&#10;&#10;*changes still might happen" />
-    <option name="LAST_COMMIT_MESSAGE" value="ff1 broken&#10;frps done*&#10;&#10;*changes still might happen" />
+    <MESSAGE value="maybe importing frps into feline_fantasy_I.py works now" />
+    <option name="LAST_COMMIT_MESSAGE" value="maybe importing frps into feline_fantasy_I.py works now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,14 @@
 import os
 from pynput import keyboard
 
+# input("Who you gonna call? FRPS Module!")
+# print(dir(frps))
+#
+# my_rps_game = frps.Game(ruleset=None, rounds=1, target_score=None)
+# print(type(my_rps_game))
+# print(my_rps_game)
+# input()
+
 
 def fullwidth_str(text: str) -> str:
     """
