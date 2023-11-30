@@ -483,7 +483,7 @@ with open(os.devnull, 'w') as stderr, redirect_stderr(stderr):
 start_time = time.time()  # Start the clock
 
 while True:
-    my_state.gametime = round(start_time - time.time())  # Set the game clock
+    my_state.gametime = round(start_time - time.time())  # Update the game clock
     try:
         # Break conditions (WIN or GAMEOVER)
         if my_players[0].health < 1 or my_players[0].steps < 1:  # Ran out of health or steps
