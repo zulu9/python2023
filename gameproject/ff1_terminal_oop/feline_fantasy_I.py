@@ -15,9 +15,15 @@ from contextlib import redirect_stderr
 
 # Import local dependencies
 from lib.ff1_functions import *
-import frps # FIXME TODO USE __init__.py file!
+import frps
 
-# my_game = frps.Game(ruleset={}, rounds=1, target_score=1)
+input("Who you gonna call? FRPS Module!")
+print(dir(frps))
+
+my_rps_game = frps.Game(ruleset=None, rounds=1, target_score=None)
+print(type(my_rps_game))
+print(my_rps_game)
+input()
 
 # ##------KEYBOARD HANDLING------## #
 
@@ -122,8 +128,6 @@ class Player(Entitiy):
         if type_id in enemy_types:
             # MARK TODO WE GO TO BATTLE
             # TODO CALL FRPS MODULE
-            input("Who you gonna call? FRPS Module!")
-            a = fprs.Game(ruleset=None, rounds=1, target_score=None)
             # battle result = true:   Player wins
             if True:
                 # DO STUFF
@@ -338,7 +342,7 @@ class Grid:
             my_players[0].health = my_players[0].health - 1  # Simulate Hunger
         #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
         else:
-            my_players[0].move(random.choice(["up", "down", "left", "right"]))
+            my_players[0].move(random.choice(["up", "down", "left", "right"]), (self.size_x, self.size_y))
 
         # Move movable entities
         for enemy in my_enemies:

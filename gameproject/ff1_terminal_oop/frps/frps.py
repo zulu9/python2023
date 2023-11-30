@@ -1,14 +1,14 @@
 # FRPS+ (Flexible Rock Paper Scissors)
 # Game / Module
-# Release 1.0b3
+# Release 1.0b4
 
 # Import libraries
 import random
 import time
 
 # Import classes and functions
-from lib.frps_classes import *
-import lib.frps_functions as frps
+from frps_classes import *
+import frps_functions as frps_f
 
 # --Main--
 if __name__ == '__main__':
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     Example implementation with two Games.
 
     Rulesets are read from the YAML files into a dict. Here are some examples of the resulting structure
-    See frps_functions.py for an example of YAML
+    See frps_functions.py or files in ./res/ for examples of the YAML
 
     ruleset_classic = {
         "Rock": {"Scissors": "crushes"},
@@ -48,10 +48,10 @@ if __name__ == '__main__':
             continue
         else:
             if my_gamechoice == 1:
-                my_ruleset = frps.load_ruleset_from_file("./res/rps.yaml")
+                my_ruleset = frps_f.load_ruleset_from_file("./res/rps.yaml")
                 break
             elif my_gamechoice == 2:
-                my_ruleset = frps.load_ruleset_from_file("./res/rpsls.yaml")
+                my_ruleset = frps_f.load_ruleset_from_file("./res/rpsls.yaml")
                 break
 
     # Set target score (Number of matches the player needs to win the Game)
@@ -74,14 +74,13 @@ if __name__ == '__main__':
         print(f"\nRound number: {my_game.rounds}")
 
         my_player_input = None
+        # Get and validate player choice.  Create instance of Choice class to save it.
+        attack_options = ', '.join(f"[{key}]" for key in my_game.ruleset.keys())  # Format choices for display
         # my_player_input = random.choice(list(my_game.ruleset.keys()))  # Random Player Choice (DEBUG)
-
-        # Get, validate player choice and create instance of Choice
-        attack_options = ', '.join(f"[{key}]" for key in my_game.ruleset.keys())  # Format choices to display
+        my_player_input = "Rock"  # Static Player Choice (DEBUG)
         while my_player_input not in my_game.ruleset.keys():  # ruleset.keys contains valid choices
             my_player_input = input(f"Choose attack: {attack_options}: ")
         my_player_turn = Choice(my_game, choice=my_player_input)
-        # my_player_turn = Choice(my_game, choice="Rock")  # Static Player Choice (For DEBUG)
 
         # Create computer Choice (random from keys in the ruleset dict)
         my_ai_turn = Choice(my_game, choice=random.choice(list(my_game.ruleset.keys())))
@@ -101,7 +100,7 @@ if __name__ == '__main__':
         else:  # When in doubt, computer always wins
             verb = my_game.ruleset[my_ai_turn.choice][my_player_turn.choice]  # Get verb from the ruleset
             print(f"\t{my_ai_turn.choice} {verb} {my_player_turn.choice}")
-            print("\tYou lost this round. \n")
+            print("\tYou lost this round.")
         print(f"Points left to win the game: {my_game.target_score}")
 
         if my_game.target_score == 0:  # We won
