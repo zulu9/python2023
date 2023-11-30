@@ -3,6 +3,7 @@
 #   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
 # ##------IMPORTS------## #
+# Import external dependencies
 import numpy as np
 import sys
 import time
@@ -12,10 +13,13 @@ from pydub import AudioSegment
 from pydub.playback import play
 from contextlib import redirect_stderr
 
-#TDOD FIXME Import module faiös
+# Import local dependencies
 from lib.ff1_functions import *
+# TDOD FIXME Import module FRPS
 import pkg.frps as frps
-my_game = frps.Game(ruleset={}, rounds=1, target_score=1)
+
+ # my_game = frps.Game(ruleset={}, rounds=1, target_score=1)
+
 # ##------KEYBOARD HANDLING------## #
 
 
