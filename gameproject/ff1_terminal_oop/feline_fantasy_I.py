@@ -1,4 +1,4 @@
-#  ---Feline Fantasy I - The XTERMinator 1.0- The terminal emulator emoji Adventure---
+#  ---Feline Fantasy I - The XTERMinator 1.0 DEMO- The terminal emulator emoji Adventure---
 # Needs:
 #   * python 3.x + some Modules
 #   * UTF-8 Terminal Emulator with Noto Color Emoji Font or similar(TODO TEST ON WINDOWS)
@@ -12,16 +12,11 @@ import threading
 from pydub import AudioSegment
 from pydub.playback import play
 from contextlib import redirect_stderr
+from pynput import keyboard
 
 # Import local dependencies
 from lib.ff1_functions import *
 import frps
-
-
-def play_frps():
-    my_frps = frps.Game(ruleset=frps.load_ruleset_from_file("./res/ff1_rps.yaml"), rounds=1, target_score=1)
-    print(my_frps)
-    return 1
 
 # ##------KEYBOARD HANDLING------## #
 
@@ -55,6 +50,56 @@ listener = keyboard.Listener(
     on_release=on_release)
 listener.start()
 # //END Initialize Keyboard listener
+
+# ##---------FRPS-MODULE---------## #
+
+
+def play_frps():
+    # Play a round of RPS Feline Fantasy I Style
+    my_frps = frps.Game(ruleset=frps.load_ruleset_from_file("./res/ff1_rps.yaml"), rounds=1, target_score=1)
+
+    # Set the start time of the game to now
+    my_frps.start_time = time.time()
+
+    # Get and validate player choice.  Create instance of Choice class to save it.
+    my_player_input = None
+    attack_options = ', '.join(f"[{index + 1}] {key}" for index, key in enumerate(my_frps.ruleset.keys(), start=0))
+    clear()
+    input("\n\nBATTLE STARTED!\n Press ENTER to begin\n\n")
+    while my_player_input not in my_frps.ruleset.keys():
+        clear()
+        my_player_input = input(f"Choose attack type: {attack_options}: ")
+        # FIXME TODO HACK SO WE DONT NEED TO TYPE THE NAMES FOR THE DEMO
+        if my_player_input == "1":
+            my_player_input = "Physical"
+        elif my_player_input == "2":
+            my_player_input = "Speed"
+        elif my_player_input == "3":
+            my_player_input = "Scare"
+        clear()
+    my_player_turn = frps.Choice(my_frps, choice=my_player_input)
+
+    # Create computer Choice (random from keys in the ruleset dict)
+    my_ai_turn = frps.Choice(my_frps, choice=random.choice(list(my_frps.ruleset.keys())))
+
+    print("Cat chooses: ", my_player_turn.choice)
+    print("Mouse chooses: ", my_ai_turn.choice)
+    if my_player_turn > my_ai_turn:  # Player wins
+        verb = my_frps.ruleset[my_player_turn.choice][my_ai_turn.choice]  # Get verb from the ruleset
+        print(f"\nCat {verb} Mouse\n")
+        print("YOU WON!")
+        input("BATTLE ENDED.\nPress ENTER to go back.")
+        return 1
+    elif my_player_turn == my_ai_turn:  # Player and Computer picked the same = Tie
+        print("\nBoth walk away. It's a tie!\n")
+        input("BATTLE ENDED.\nPress ENTER to go back.")
+        return 0
+    else:  # When in doubt, computer always wins
+        verb = my_frps.ruleset[my_ai_turn.choice][my_player_turn.choice]  # Get verb from the ruleset
+        print(f"\nMouse {verb} Cat\n")
+        print("YOU LOST!")
+        input("BATTLE ENDED.\nPress ENTER to go back.")
+        return 2
 
 # ##------CLASSES------## #
 
@@ -424,15 +469,15 @@ my_grid = Grid(
 # # The Players
 player_types = [2]
 my_players = []
-number_of_players = 1  # FIXME SUPPORT MORE THAN ONE PLAYER OBJECT: CHANGE my_players[0]
+number_of_players = 1
 for _ in range(0, number_of_players):
     my_players.append(
         Player(
             name="Kisa",
             type_id=2,  # ID of the player as defined in the graphics set
             position=(1, 1),  # Start position
-            steps=999,  # TODO Set steps and health to reasonable values (or change statusbar...)
-            health=9999,
+            steps=500,
+            health=500,
             attack=1)
     )
 
@@ -466,7 +511,7 @@ my_grid.create_rectangle(static_objects=my_neutrals + my_hazzards)  # Add decora
 # # Enemies
 enemy_types = [100]  # List of IDs of different enemy types as defined in the graphics set
 my_enemies = []
-number_of_enemies = (my_grid.size_x + my_grid.size_y) // 2  # Enemy count depending on gridsize
+number_of_enemies = (my_grid.size_x + my_grid.size_y) // 6  # Enemy count depending on gridsize
 for num in range(0, number_of_enemies):
     my_enemies.append(
         Enemy(
@@ -488,11 +533,11 @@ my_state = Gamestate(
     graphics_name="ff1_day_status"
 )
 
-# Start background music  #
-sound = AudioSegment.from_mp3('./res/ff1_music.mp3')
-t = threading.Thread(target=play, args=(sound,))
-with open(os.devnull, 'w') as stderr, redirect_stderr(stderr):
-    t.start()
+# Start background music  # FIXME BROKEN WITH FRPS ENABLED TODO Find another lib?
+# sound = AudioSegment.from_mp3('./res/ff1_music.mp3')
+# t = threading.Thread(target=play, args=(sound,))
+# with open(os.devnull, 'w') as stderr, redirect_stderr(stderr):
+#     t.start()
 
 
 #  MAIN LOOP Evaluate Keyboard input and update grid
@@ -510,7 +555,6 @@ while True:
             break
 
         # Keyboard Eingaben
-        print(str(Keyboard_Input))
         # input()
         if str(Keyboard_Input) == 'Key.left':
             player_input = 'left'

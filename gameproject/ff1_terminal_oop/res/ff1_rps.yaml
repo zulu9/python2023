@@ -1,6 +1,6 @@
-physical:
-  scare: hits
-scare:
-  speed: scares
-speed:
-  physical: outruns
+Physical:
+  Scare: bites
+Scare:
+  Speed: frightens
+Speed:
+  Physical: "is faster than"

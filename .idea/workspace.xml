@@ -7,11 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="maybe importing frps into feline_fantasy_I.py works now">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="import seems to work but not sure if I did it properly">
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/FRPS_Documentation.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/ff1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib/ff1_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib/ff1_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1_rps.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/ff1_rps.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +98,11 @@
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/res/" />
       <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/" />
       <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/lib" />
       <recent name="$PROJECT_DIR$/gameproject" />
       <recent name="$PROJECT_DIR$/Uebungen/Woche3/Tag12" />
-      <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
   </component>
   <component name="RunManager">
@@ -187,14 +190,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00105" summary="moved stuff, can load graphics from file now">
-      <option name="closed" value="true" />
-      <created>1700740976865</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1700740976865</updated>
     </task>
     <task id="LOCAL-00106" summary="moved stuff, can load graphics from file now">
       <option name="closed" value="true" />
@@ -580,7 +575,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701345425267</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="import seems to work but not sure if I did it properly">
+      <option name="closed" value="true" />
+      <created>1701347566169</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1701347566169</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -596,7 +599,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Woche 4, Tag1 (=Tag15) Tests" />
     <MESSAGE value="Tag15 Decorators" />
     <MESSAGE value="Tag15 Iterators" />
     <MESSAGE value="Tag15 Generators" />
@@ -621,7 +623,8 @@
     <MESSAGE value="Moved and renamed stuff" />
     <MESSAGE value="ff1 broken&#10;frps done*&#10;&#10;*changes still might happen" />
     <MESSAGE value="maybe importing frps into feline_fantasy_I.py works now" />
-    <option name="LAST_COMMIT_MESSAGE" value="maybe importing frps into feline_fantasy_I.py works now" />
+    <MESSAGE value="import seems to work but not sure if I did it properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="import seems to work but not sure if I did it properly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

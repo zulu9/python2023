@@ -1,6 +1,6 @@
 # FRPS+ (Flexible Rock Paper Scissors)
 # Game / Module
-# Release 1.0b4
+# Release 1.0.1
 
 # Import libraries
 import random
@@ -73,11 +73,11 @@ if __name__ == '__main__':
     while my_game.target_score > 0:
         print(f"\nRound number: {my_game.rounds}")
 
-        my_player_input = None
         # Get and validate player choice.  Create instance of Choice class to save it.
+        my_player_input = None
         attack_options = ', '.join(f"[{key}]" for key in my_game.ruleset.keys())  # Format choices for display
         # my_player_input = random.choice(list(my_game.ruleset.keys()))  # Random Player Choice (DEBUG)
-        my_player_input = "Rock"  # Static Player Choice (DEBUG)
+        # my_player_input = "Rock"  # Static Player Choice (DEBUG)
         while my_player_input not in my_game.ruleset.keys():  # ruleset.keys contains valid choices
             my_player_input = input(f"Choose attack: {attack_options}: ")
         my_player_turn = Choice(my_game, choice=my_player_input)
