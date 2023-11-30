@@ -1,6 +1,5 @@
-# FRPS+ (Flexible Rock Paper Scissors) Game / Module Classes File
-import time
-
+# FRPS+ (Flexible Rock Paper Scissors)
+# Classes
 
 class Game:
     def __init__(self, ruleset: dict, rounds: int = 1, target_score: int = 1):
@@ -12,7 +11,7 @@ class Game:
         :param rounds: Number of rounds to play
         :param target_score: Number of victories to win game
         """
-        self.starttime = time.time()  # Get current time to calculate gametime
+        self.start_time = None  # Placeholder so Games can handle the starttime within the Game class
         self.rounds = rounds
         self.target_score = target_score
         self.ruleset = ruleset
@@ -32,9 +31,9 @@ class Choice:
     # Define equal and greater than methods to compare choices
     def __eq__(self, other):
         """
-
-        :param other: instance of Choice for the AI
-        :return: True if player and AI picked the same. False if not.
+        Checks if P1 and P2 chose the same
+        :param other: instance of Choice for P2
+        :return: True if P1 and P2 picked the same. False if not.
         """
         if self.choice == other.choice:
             return True
@@ -43,9 +42,9 @@ class Choice:
 
     def __gt__(self, other):
         """
-
-        :param other: instance of Choice for the AI
-        :return: True if player has won, false if player has lost
+        Check if action
+        :param other: instance of Choice for P2
+        :return: True if P1 has won, false if P1 has lost or chose same as P2
         """
         other_looses = self.game.ruleset[self.choice].keys()  # List of conditions where P2 looses
         if other.choice in other_looses:

@@ -7,9 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Fullfilled minimum project requirements">
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/rpsls.yaml" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Clarified my_state.gametime handling">
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/frps_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/scrapbook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/frps_classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/ff1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/ff1.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/rps.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/rps.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/rpsls.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/rpsls.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +71,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop/rps/rps.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/zulu9/Documents/Python/Code/gameproject/ff1_terminal_oop/rps/res",
+    "settings.editor.selected.configurable": "configurable.group.build"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="Code" is-module-sdk="true">
@@ -88,6 +97,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res" />
+      <recent name="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps" />
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -98,8 +109,8 @@
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.RPS">
-    <configuration name="RPS" type="PythonConfigurationType" factoryName="Python">
+  <component name="RunManager">
+    <configuration name="FRPS" type="PythonConfigurationType" factoryName="Python">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gameproject/ff1_terminal_oop/fps/frps.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,7 +176,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.RPS" />
+      <item itemvalue="Python.FRPS" />
       <item itemvalue="Python.feline_fantasy_I" />
     </list>
     <recent_temporary>
@@ -183,22 +194,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00095" summary="BROKEN. trying to pass the Grid-Object instead of just the coordinate list to keep the information and make it more OOP">
-      <option name="closed" value="true" />
-      <created>1700624359930</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1700624359930</updated>
-    </task>
-    <task id="LOCAL-00096" summary="fixed. grid object now stays accessible">
-      <option name="closed" value="true" />
-      <created>1700624949901</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1700624949901</updated>
     </task>
     <task id="LOCAL-00097" summary="fixed. grid object now stays accessible">
       <option name="closed" value="true" />
@@ -576,7 +571,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701302351449</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="Created YAML-Files for Game rules">
+      <option name="closed" value="true" />
+      <created>1701303280135</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1701303280135</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Clarified my_state.gametime handling">
+      <option name="closed" value="true" />
+      <created>1701310597331</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1701310597331</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -592,8 +603,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="renamed folder" />
-    <MESSAGE value="fixed player movement, added enemies and hazzards, started on collision detection" />
     <MESSAGE value="made status a class, status bar an object. added optional IDs to entities to identify" />
     <MESSAGE value="dynamic change of graphics sets added (EXPERIMENTAL)" />
     <MESSAGE value="moved graphics change to proper method (update grid)" />
@@ -617,7 +626,9 @@
     <MESSAGE value="RPS first working version" />
     <MESSAGE value="Included verbs.&#10;Updated ruleset format." />
     <MESSAGE value="Fullfilled minimum project requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fullfilled minimum project requirements" />
+    <MESSAGE value="Created YAML-Files for Game rules" />
+    <MESSAGE value="Clarified my_state.gametime handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clarified my_state.gametime handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
