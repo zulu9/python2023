@@ -15,10 +15,9 @@ from contextlib import redirect_stderr
 
 # Import local dependencies
 from lib.ff1_functions import *
-# TDOD FIXME Import module FRPS
-import pkg.frps as frps
+import frps # FIXME TODO USE __init__.py file!
 
- # my_game = frps.Game(ruleset={}, rounds=1, target_score=1)
+# my_game = frps.Game(ruleset={}, rounds=1, target_score=1)
 
 # ##------KEYBOARD HANDLING------## #
 
@@ -122,12 +121,21 @@ class Player(Entitiy):
     def collide(self, type_id: int, position: tuple):  # TODO USE RPS MODULE TO BATTLE
         if type_id in enemy_types:
             # MARK TODO WE GO TO BATTLE
-            self.health = self.health + 20
-            my_state.score += 1
-            for enemy in my_enemies:  # remove enemy from enemy list and delete object
-                if enemy.position == position:
-                    my_enemies.remove(enemy)
-                    del enemy
+            # TODO CALL FRPS MODULE
+            input("Who you gonna call? FRPS Module!")
+            a = fprs.Game(ruleset=None, rounds=1, target_score=None)
+            # battle result = true:   Player wins
+            if True:
+                # DO STUFF
+                self.health = self.health + 20
+                my_state.score += 1
+                for enemy in my_enemies:  # remove enemy from enemy list and delete object
+                    if enemy.position == position:
+                        my_enemies.remove(enemy)
+                        del enemy
+            # if battle result = false: Enemy wins
+                # DO STUFF
+                self.health = self.health - 20
         if type_id in hazzard_types:  # hazzards stay. no need to remove
             self.health = self.health - 30
 
@@ -328,9 +336,9 @@ class Grid:
             my_players[0].move(p_input, (self.size_x, self.size_y))  # Move Player
             my_players[0].steps -= 1
             my_players[0].health = my_players[0].health - 1  # Simulate Hunger
-        # #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
-        # else:
-        #     my_players[0].move(random.choice(["up", "down", "left", "right"]))
+        #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
+        else:
+            my_players[0].move(random.choice(["up", "down", "left", "right"]))
 
         # Move movable entities
         for enemy in my_enemies:

@@ -12,21 +12,25 @@ import lib.frps_functions as frps
 
 # --Main--
 if __name__ == '__main__':
-    # Rulesets are read from the YAML files into a dict. Here are some examples of the resulting structure
-    # See frps_functions.py for an example of YAML
-    #
-    # ruleset_classic = {
-    #     "Rock": {"Scissors": "crushes"},
-    #     "Paper": {"Rock": "covers"},
-    #     "Scissors": {"Paper": "cut"}
-    # }
-    # ruleset_rpsls = {
-    #     "Rock": {"Scissors": "crushes", "Lizard": "crushes"},
-    #     "Paper": {"Rock": "covers", "Spock": "disproves"},
-    #     "Scissors": {"Paper": "cut", "Lizard": "decapitates"},
-    #     "Lizard": {"Paper": "eats", "Spock": "poisons"},
-    #     "Spock": {"Scissors": "smashes", "Rock": "vaporizes"}
-    # }
+    """
+    Example implementation with two Games.
+
+    Rulesets are read from the YAML files into a dict. Here are some examples of the resulting structure
+    See frps_functions.py for an example of YAML
+
+    ruleset_classic = {
+        "Rock": {"Scissors": "crushes"},
+        "Paper": {"Rock": "covers"},
+        "Scissors": {"Paper": "cut"}
+    }
+    ruleset_rpsls = {
+        "Rock": {"Scissors": "crushes", "Lizard": "crushes"},
+        "Paper": {"Rock": "covers", "Spock": "disproves"},
+        "Scissors": {"Paper": "cut", "Lizard": "decapitates"},
+        "Lizard": {"Paper": "eats", "Spock": "poisons"},
+        "Spock": {"Scissors": "smashes", "Rock": "vaporizes"}
+    }
+    """
 
     # Select Game ruleset
     my_ruleset = None
@@ -83,8 +87,8 @@ if __name__ == '__main__':
         my_ai_turn = Choice(my_game, choice=random.choice(list(my_game.ruleset.keys())))
         # my_ai_turn = Choice(my_game, choice="Scissors")  # Static AI Choice (For DEBUG)
 
-        print("\nPlayer chooses: ", my_player_turn.choice)
-        print("Computer chooses: ", my_ai_turn.choice, "\n")
+        print("Player chooses: ", my_player_turn.choice)
+        print("Computer chooses: ", my_ai_turn.choice)
 
         # Basic logic
         if my_player_turn > my_ai_turn:  # Player wins
@@ -102,6 +106,6 @@ if __name__ == '__main__':
 
         if my_game.target_score == 0:  # We won
             print(f"Gametime: {round(time.time()-my_game.start_time)}s")
-            print("\n***You are winner!***")
+            print("\n***YOU ARE WINNER***")
         else:
             my_game.rounds += 1  # Play another round

@@ -7,7 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="BROKEN Import to ff1 main file">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Moved and renamed stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +100,7 @@
       <recent name="$PROJECT_DIR$/gameproject/catventure_terminal_functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.FRPS">
+  <component name="RunManager" selected="Python.feline_fantasy_I">
     <configuration name="FRPS" type="PythonConfigurationType" factoryName="Python">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,14 +185,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00101" summary="load level from file tested (linux only)">
-      <option name="closed" value="true" />
-      <created>1700727174129</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1700727174129</updated>
     </task>
     <task id="LOCAL-00102" summary="maybe level loading works on windows too now">
       <option name="closed" value="true" />
@@ -577,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701314112386</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Moved and renamed stuff">
+      <option name="closed" value="true" />
+      <created>1701315545533</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1701315545533</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -593,7 +594,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="moved graphics change again :D" />
     <MESSAGE value="BROKEN. added statusbar grf loading and processing. renamed some files" />
     <MESSAGE value="FIXED statusbar, renamed some files" />
     <MESSAGE value="Woche 4, Tag1 (=Tag15) Tests" />
@@ -618,7 +618,8 @@
     <MESSAGE value="Comments and docstrings added. &#10;Files renamed and moved." />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="BROKEN Import to ff1 main file" />
-    <option name="LAST_COMMIT_MESSAGE" value="BROKEN Import to ff1 main file" />
+    <MESSAGE value="Moved and renamed stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved and renamed stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -632,6 +633,11 @@
           <url>file://$PROJECT_DIR$/gameproject/ff1_terminal_oop/pkg/frps.py</url>
           <line>9</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
