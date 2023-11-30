@@ -381,7 +381,6 @@ class Grid:
         if p_input is not None:
             my_players[0].move(p_input, (self.size_x, self.size_y))  # Move Player
             my_players[0].steps -= 1
-            my_players[0].health = my_players[0].health - 1  # Simulate Hunger
         #  EXPERIMENTAL MAKE PLAYER MOVE ITSELF RANDOMLY
         else:
             my_players[0].move(random.choice(["up", "down", "left", "right"]), (self.size_x, self.size_y))
