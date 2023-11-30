@@ -511,7 +511,7 @@ my_grid.create_rectangle(static_objects=my_neutrals + my_hazzards)  # Add decora
 # # Enemies
 enemy_types = [100]  # List of IDs of different enemy types as defined in the graphics set
 my_enemies = []
-number_of_enemies = (my_grid.size_x + my_grid.size_y) // 6  # Enemy count depending on gridsize
+number_of_enemies = 10
 for num in range(0, number_of_enemies):
     my_enemies.append(
         Enemy(
