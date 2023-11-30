@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Minor fixes">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="BROKEN Import to ff1 main file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
     </list>
@@ -185,14 +185,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00099" summary="load level from file tested">
-      <option name="closed" value="true" />
-      <created>1700724858472</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1700724858472</updated>
     </task>
     <task id="LOCAL-00100" summary="load level from file tested (linux only)">
       <option name="closed" value="true" />
@@ -578,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701312370196</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="BROKEN Import to ff1 main file">
+      <option name="closed" value="true" />
+      <created>1701314094820</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1701314094820</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -594,7 +594,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="moved graphics change to proper method (update grid)" />
     <MESSAGE value="moved graphics change again :D" />
     <MESSAGE value="BROKEN. added statusbar grf loading and processing. renamed some files" />
     <MESSAGE value="FIXED statusbar, renamed some files" />
@@ -619,7 +618,8 @@
     <MESSAGE value="Clarified my_state.gametime handling" />
     <MESSAGE value="Comments and docstrings added. &#10;Files renamed and moved." />
     <MESSAGE value="Minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
+    <MESSAGE value="BROKEN Import to ff1 main file" />
+    <option name="LAST_COMMIT_MESSAGE" value="BROKEN Import to ff1 main file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -628,6 +628,11 @@
           <url>file://$PROJECT_DIR$/Uebungen/Woche2/Tag10/Tag10_mergeSort.py</url>
           <line>16</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gameproject/ff1_terminal_oop/pkg/frps.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
