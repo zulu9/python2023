@@ -12,8 +12,10 @@ from pydub import AudioSegment
 from pydub.playback import play
 from contextlib import redirect_stderr
 
+#TDOD FIXME Import module faiös
 from lib.ff1_functions import *
-
+import pkg.frps as frps
+my_game = frps.Game(ruleset={}, rounds=1, target_score=1)
 # ##------KEYBOARD HANDLING------## #
 
 
@@ -115,6 +117,7 @@ class Player(Entitiy):
 
     def collide(self, type_id: int, position: tuple):  # TODO USE RPS MODULE TO BATTLE
         if type_id in enemy_types:
+            # MARK TODO WE GO TO BATTLE
             self.health = self.health + 20
             my_state.score += 1
             for enemy in my_enemies:  # remove enemy from enemy list and delete object

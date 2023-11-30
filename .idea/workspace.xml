@@ -7,18 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Clarified my_state.gametime handling">
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/frps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/frps_functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/scrapbook.py" afterDir="false" />
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Minor fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/lib/frps_classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/ff1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/ff1.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/rps.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/rps.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/rpsls.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/frps/res/rpsls.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/feline_fantasy_I.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,22 +185,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00097" summary="fixed. grid object now stays accessible">
-      <option name="closed" value="true" />
-      <created>1700625199606</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1700625199606</updated>
-    </task>
-    <task id="LOCAL-00098" summary="load level from file tested">
-      <option name="closed" value="true" />
-      <created>1700724819188</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1700724819188</updated>
     </task>
     <task id="LOCAL-00099" summary="load level from file tested">
       <option name="closed" value="true" />
@@ -587,7 +562,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701310597331</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="Comments and docstrings added. &#10;Files renamed and moved.">
+      <option name="closed" value="true" />
+      <created>1701312247629</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1701312247629</updated>
+    </task>
+    <task id="LOCAL-00147" summary="Minor fixes">
+      <option name="closed" value="true" />
+      <created>1701312370196</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1701312370196</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -603,8 +594,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="made status a class, status bar an object. added optional IDs to entities to identify" />
-    <MESSAGE value="dynamic change of graphics sets added (EXPERIMENTAL)" />
     <MESSAGE value="moved graphics change to proper method (update grid)" />
     <MESSAGE value="moved graphics change again :D" />
     <MESSAGE value="BROKEN. added statusbar grf loading and processing. renamed some files" />
@@ -628,7 +617,9 @@
     <MESSAGE value="Fullfilled minimum project requirements" />
     <MESSAGE value="Created YAML-Files for Game rules" />
     <MESSAGE value="Clarified my_state.gametime handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clarified my_state.gametime handling" />
+    <MESSAGE value="Comments and docstrings added. &#10;Files renamed and moved." />
+    <MESSAGE value="Minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
