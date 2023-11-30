@@ -98,7 +98,7 @@ if __name__ == '__main__':
             verb = my_game.ruleset[my_ai_turn.choice][my_player_turn.choice]  # Get verb from the ruleset
             print(f"\t{my_ai_turn.choice} {verb} {my_player_turn.choice}")
             print("\tYou lost this round. \n")
-        print(f"Points left to win: {my_game.target_score}")
+        print(f"Points left to win the game: {my_game.target_score}")
 
         if my_game.target_score == 0:  # We won
             print(f"Gametime: {round(time.time()-my_game.start_time)}s")
