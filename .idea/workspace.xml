@@ -7,10 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Included verbs.&#10;Updated ruleset format.">
+    <list default="true" id="1302751a-849f-4a64-94fe-d90d4c6a5542" name="Changes" comment="Fullfilled minimum project requirements">
+      <change afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/res/rpsls.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/lib/rps_classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameproject/ff1_terminal_oop/rps/rps.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,30 +183,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699280134740</updated>
-    </task>
-    <task id="LOCAL-00092" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
-      <option name="closed" value="true" />
-      <created>1700622448970</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1700622448970</updated>
-    </task>
-    <task id="LOCAL-00093" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
-      <option name="closed" value="true" />
-      <created>1700622459897</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1700622459897</updated>
-    </task>
-    <task id="LOCAL-00094" summary="first classes, added support for map-files. &#10;at the moment it draws empty map and output player keypresses">
-      <option name="closed" value="true" />
-      <created>1700623004766</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1700623004766</updated>
     </task>
     <task id="LOCAL-00095" summary="BROKEN. trying to pass the Grid-Object instead of just the coordinate list to keep the information and make it more OOP">
       <option name="closed" value="true" />
@@ -577,7 +552,31 @@
       <option name="project" value="LOCAL" />
       <updated>1701269872789</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Fullfilled minimum project requirements">
+      <option name="closed" value="true" />
+      <created>1701302193298</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1701302193299</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Fullfilled minimum project requirements">
+      <option name="closed" value="true" />
+      <created>1701302217624</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1701302217624</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Fullfilled minimum project requirements">
+      <option name="closed" value="true" />
+      <created>1701302351449</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1701302351449</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -593,7 +592,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="unsnakyfy player" />
     <MESSAGE value="renamed folder" />
     <MESSAGE value="fixed player movement, added enemies and hazzards, started on collision detection" />
     <MESSAGE value="made status a class, status bar an object. added optional IDs to entities to identify" />
@@ -618,7 +616,8 @@
     <MESSAGE value="Release 1.0b2&#10;fixed status bar graphics changes" />
     <MESSAGE value="RPS first working version" />
     <MESSAGE value="Included verbs.&#10;Updated ruleset format." />
-    <option name="LAST_COMMIT_MESSAGE" value="Included verbs.&#10;Updated ruleset format." />
+    <MESSAGE value="Fullfilled minimum project requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fullfilled minimum project requirements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

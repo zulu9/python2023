@@ -1,0 +1,6 @@
+Rock:
+  Scissors: crushes
+Paper:
+  Rock: covers
+Scissors:
+  Paper: cut

@@ -1,0 +1,15 @@
+Rock:
+  Scissors: crushes
+  Lizard: crushes
+Paper:
+  Rock: covers
+  Spock: disproves
+Scissors:
+  Paper: cut
+  Lizard: decapitates
+Lizard:
+  Paper: eats
+  Spock: poisons
+Spock:
+  Scissors: smashes
+  Rock: vaporizes
