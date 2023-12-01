@@ -8,10 +8,6 @@ import numpy as np
 import sys
 import time
 import random
-import threading
-from pydub import AudioSegment
-from pydub.playback import play
-from contextlib import redirect_stderr
 from pynput import keyboard
 
 # Import local dependencies
@@ -65,10 +61,13 @@ def play_frps():
     my_player_input = None
     attack_options = ', '.join(f"[{index + 1}] {key}" for index, key in enumerate(my_frps.ruleset.keys(), start=0))
     clear()
-    input("\n\nBATTLE STARTED!\n Press ENTER to begin\n\n")
+    print("\n\nBATTLE STARTED!\n Press ENTER to begin\n\n")
+    time.sleep(3)
+
     while my_player_input not in my_frps.ruleset.keys():
         clear()
-        my_player_input = input(f"Choose attack type: {attack_options}: ")
+        print(f"Choose attack type: {attack_options}: ")
+        my_player_input = random.choice(["1", "2", "3"])
         # FIXME TODO HACK SO WE DONT NEED TO TYPE THE NAMES FOR THE DEMO
         if my_player_input == "1":
             my_player_input = "Physical"
@@ -88,17 +87,20 @@ def play_frps():
         verb = my_frps.ruleset[my_player_turn.choice][my_ai_turn.choice]  # Get verb from the ruleset
         print(f"\nCat {verb} Mouse\n")
         print("YOU WON!")
-        input("BATTLE ENDED.\nPress ENTER to go back.")
+        print("BATTLE ENDED.\nPress ENTER to go back.")
+        time.sleep(3)
         return 1
     elif my_player_turn == my_ai_turn:  # Player and Computer picked the same = Tie
         print("\nBoth walk away. It's a tie!\n")
-        input("BATTLE ENDED.\nPress ENTER to go back.")
+        print("BATTLE ENDED.\nPress ENTER to go back.")
+        time.sleep(3)
         return 0
     else:  # When in doubt, computer always wins
         verb = my_frps.ruleset[my_ai_turn.choice][my_player_turn.choice]  # Get verb from the ruleset
         print(f"\nMouse {verb} Cat\n")
         print("YOU LOST!")
-        input("BATTLE ENDED.\nPress ENTER to go back.")
+        print("BATTLE ENDED.\nPress ENTER to go back.")
+        time.sleep(3)
         return 2
 
 # ##------CLASSES------## #
@@ -476,7 +478,7 @@ for _ in range(0, number_of_players):
             type_id=2,  # ID of the player as defined in the graphics set
             position=(1, 1),  # Start position
             steps=500,
-            health=500,
+            health=999,
             attack=1)
     )
 
@@ -510,7 +512,7 @@ my_grid.create_rectangle(static_objects=my_neutrals + my_hazzards)  # Add decora
 # # Enemies
 enemy_types = [100]  # List of IDs of different enemy types as defined in the graphics set
 my_enemies = []
-number_of_enemies = 10
+number_of_enemies = 40
 for num in range(0, number_of_enemies):
     my_enemies.append(
         Enemy(
