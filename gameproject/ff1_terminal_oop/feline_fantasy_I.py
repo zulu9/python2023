@@ -169,7 +169,7 @@ class Player(Entitiy):
         self.health = health
         self.attack = attack
 
-    def collide(self, type_id: int, position: tuple):  # TODO USE RPS MODULE TO BATTLE
+    def collide(self, type_id: int, position: tuple):
         if type_id in enemy_types:
             # MARK TODO WE GO TO BATTLE
             win = play_frps()
