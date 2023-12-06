@@ -270,11 +270,11 @@ class Gamestate:
                  graphics_name: str = "status"):
         """
         Current state of the Game
-        :param gametime:
-        :param health:
-        :param steps:
-        :param score:
-        :param graphics_name:
+        :param gametime: elapsed gametime in seconds
+        :param health: player health
+        :param steps: player steps
+        :param score: player score
+        :param graphics_name: name of the status-line graphics set
         """
         self.gametime = gametime
         self.health = health
@@ -293,8 +293,9 @@ class Gamestate:
     def print_statusbar(self, graphics_name):  # Paint Status bar
         """
 
+        :param graphics_name: name of the status-line graphics set
         """
-        #  ID of Symbol as defined in the status grf file, value to display
+        #  [ID of Symbol as defined in the status grf file, value to display]
         self.statusbar = [
             [0, self.gametime],
             [1, self.health],
@@ -303,7 +304,7 @@ class Gamestate:
             [4, self.score]
         ]
         self.graphics = Graphicset(graphics_name).read_grf_file()
-        #  Replace things with Symbols from status grf file and numbers full-width UTF-8 chars
+        #  Replace things with Symbols from status grf file and the rest as full-width UTF-8 chars
         for item in self.statusbar:
             item[0] = self.graphics.assignments.get(item[0])
             item[1] = fullwidth_str(str(item[1]))
@@ -320,8 +321,8 @@ class Grid:
         A grid in the game
         :param grid_name: (file)name of the grid
         :param graphics_name: (file)name of the graphics assignment
-        :param size_x: gridsize X in utf-8 full-width chars
-        :param size_y: gridsize Y in utf-8 full-width chars
+        :param size_x: gridsize X  number of rows in utf-8 full-width chars
+        :param size_y: gridsize Y number of columns in utf-8 full-width chars
         """
         self.name = grid_name
         self.size_x = size_x
@@ -332,7 +333,7 @@ class Grid:
     def create_rectangle(self, static_objects: list = None):  # FIXME USE entity.decorations object directly
         """
         Create a rectangular grid
-        :return: Rectangle of 0s, surrounded by 1s and insert values for static game objects
+        :return: Rectangle of 0s (empty space), surrounded by 1s (bricks) and insert values for static game objects
         """
 
         # Create empty grid
